@@ -561,59 +561,52 @@ const philosophyPoints = [
 
 export function BrandPromise() {
   return (
-    <section className="relative overflow-hidden bg-[#FAFBF6]">
-      <div className="container-px relative mx-auto max-w-[1760px] py-24 lg:py-32">
-        <div className="grid gap-16 lg:grid-cols-[1fr_0.92fr] lg:items-center lg:gap-24">
-          <div>
-            <Reveal variant="fade">
-              <span className="pill">Our philosophy</span>
-            </Reveal>
-            <RevealText
-              text="Energy as an asset."
-              className="mt-6 block max-w-xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
-            />
-            <Reveal variant="up" delay={60}>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-                A roof is underutilised real estate. By combining Tier-1
-                engineering with investment-grade financial modelling — IRR,
-                payback, depreciation and tax optimisation — we change the
-                structure of a balance sheet, not just a utility bill.
-              </p>
-            </Reveal>
-            <Reveal variant="up" delay={100}>
-              <dl className="mt-10 grid max-w-lg grid-cols-3 gap-x-6 border-t border-ink/10 pt-8">
-                {philosophyPoints.map((s) => (
-                  <div key={s.l}>
-                    <dt className="text-xl font-semibold tracking-tight text-ink">
-                      {s.v}
-                    </dt>
-                    <dd className="mt-1.5 text-xs leading-snug text-ink-faint">
-                      {s.l}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-              <div className="mt-10">
-                <Button href="/about">About Polaris</Button>
-              </div>
-            </Reveal>
-          </div>
+    <section className="relative isolate overflow-hidden bg-[#FAFBF6]">
+      {/* full-bleed Orb backdrop */}
+      <div aria-hidden="true" className="absolute inset-0 -z-10">
+        <Orb
+          hue={109}
+          hoverIntensity={1.85}
+          rotateOnHover={false}
+          forceHoverState={false}
+          backgroundColor="#ffffff"
+          className="absolute inset-0"
+        />
+      </div>
 
-          <Reveal
-            variant="scale"
-            delay={100}
-            className="relative mx-auto w-full max-w-[34rem] lg:mx-0"
-          >
-            <div className="relative aspect-square">
-              <Orb
-                hue={0}
-                hoverIntensity={0.4}
-                rotateOnHover
-                className="absolute inset-0"
-              />
-            </div>
-          </Reveal>
-        </div>
+      <div className="container-px pointer-events-none relative mx-auto flex max-w-3xl flex-col items-center py-28 text-center lg:py-40">
+        <Reveal variant="fade">
+          <span className="pill">Our philosophy</span>
+        </Reveal>
+        <RevealText
+          text="Energy as an asset."
+          className="mt-6 block max-w-2xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
+        />
+        <Reveal variant="up" delay={60}>
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
+            A roof is underutilised real estate. By combining Tier-1
+            engineering with investment-grade financial modelling — IRR,
+            payback, depreciation and tax optimisation — we change the
+            structure of a balance sheet, not just a utility bill.
+          </p>
+        </Reveal>
+        <Reveal variant="up" delay={100}>
+          <dl className="mx-auto mt-10 grid max-w-lg grid-cols-3 gap-x-6 border-t border-ink/10 pt-8">
+            {philosophyPoints.map((s) => (
+              <div key={s.l}>
+                <dt className="text-xl font-semibold tracking-tight text-ink">
+                  {s.v}
+                </dt>
+                <dd className="mt-1.5 text-xs leading-snug text-ink-faint">
+                  {s.l}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <div className="pointer-events-auto mt-10">
+            <Button href="/about">About Polaris</Button>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
