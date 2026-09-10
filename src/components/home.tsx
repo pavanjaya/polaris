@@ -293,13 +293,13 @@ export function TrustRow() {
           className="mt-5 block max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
         />
 
-        <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-x-16 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-20">
           {trust.map((t, i) => (
             <Reveal as="article" key={t.title} delay={(i % 4) * 70}>
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-tint text-brand-strong [&>svg]:h-5 [&>svg]:w-5">
+              <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-tint text-brand-strong [&>svg]:h-7 [&>svg]:w-7">
                 {trustIcons[i]}
               </span>
-              <h3 className="mt-5 text-lg font-bold tracking-tight text-ink">
+              <h3 className="mt-6 text-lg font-bold tracking-tight text-ink">
                 {t.title}
               </h3>
               <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
