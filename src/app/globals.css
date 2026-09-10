@@ -3,6 +3,7 @@
 @theme {
   /* Brand — Polaris Renewable Solutions greens */
   --color-brand: #5fcf4b; /* the logo leaf green — fills, accents, hero word */
+  --color-brand-hover: #5ec933; /* button hover fill */
   --color-brand-strong: #2e7d32; /* readable green for small text / links on white */
   --color-brand-dark: #0f4338; /* deep teal-green — footer, CTA, hero base */
   --color-brand-deep: #17493d; /* one step up — motifs on the dark block */

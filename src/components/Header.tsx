@@ -88,10 +88,8 @@ export function Header() {
           <RegionToggle overlay={overlay} />
           <Link
             href="/contact"
-            className={`rounded-lg px-5 py-2.5 text-[14px] font-semibold transition-colors ${
-              overlay
-                ? "bg-white text-ink hover:bg-white/90"
-                : "bg-ink text-white hover:bg-ink/85"
+            className={`rounded-lg px-5 py-2.5 text-[14px] font-semibold transition-colors hover:bg-brand-hover hover:text-ink ${
+              overlay ? "bg-white text-ink" : "bg-ink text-white"
             }`}
           >
             Request a call back
@@ -161,7 +159,7 @@ export function Header() {
             ))}
             <Link
               href="/contact"
-              className="mt-4 rounded-lg bg-ink px-4 py-3 text-center text-sm font-semibold text-white"
+              className="mt-4 rounded-lg bg-ink px-4 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-brand-hover hover:text-ink"
             >
               Request a call back
             </Link>

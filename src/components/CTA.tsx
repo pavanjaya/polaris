@@ -47,7 +47,7 @@ export function CTA() {
           </Reveal>
           <Link
             href="/contact"
-            className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition hover:bg-white/90"
+            className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:bg-brand-hover"
           >
             Get started
             <ArrowRight className="h-4 w-4" />

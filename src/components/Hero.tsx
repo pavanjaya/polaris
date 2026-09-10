@@ -119,7 +119,7 @@ export function Hero() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:bg-white/90"
+            className="inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:bg-brand-hover"
           >
             Get a proposal
             <ArrowRight className="h-4 w-4" />

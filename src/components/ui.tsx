@@ -93,9 +93,9 @@ export function Button({
   const base =
     "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-[15px] font-semibold transition-colors";
   const styles = {
-    primary: "bg-ink text-white hover:bg-ink/85",
-    ghost: "border border-ink/20 text-ink hover:bg-mist",
-    quiet: "bg-white text-ink hover:bg-white/90",
+    primary: "bg-ink text-white hover:bg-brand-hover hover:text-ink",
+    ghost: "border border-ink/20 text-ink hover:border-brand-hover hover:bg-brand-hover hover:text-ink",
+    quiet: "bg-white text-ink hover:bg-brand-hover",
   }[variant];
   return (
     <Link href={href} className={`${base} ${styles} ${className}`}>
