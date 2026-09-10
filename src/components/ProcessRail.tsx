@@ -48,7 +48,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
       </div>
 
       {/* squeeze row */}
-      <div className="mt-6 flex h-[440px] flex-col gap-2 sm:h-[460px] sm:flex-row">
+      <div className="mt-6 flex h-[440px] flex-col gap-3 sm:h-[460px] sm:flex-row sm:gap-5">
         {steps.map((s, i) => {
           const isActive = i === active;
           return (

@@ -265,6 +265,28 @@ export function Segments() {
 
 /* ---------- Why Polaris (trust) ---------- */
 
+const trustIcons: React.ReactNode[] = [
+  // engineering-led — drafting compass
+  <svg key="eng" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <circle cx="12" cy="5" r="2" />
+    <path d="M10.5 6.8 4 20M13.5 6.8 20 20M7.7 14h8.6" />
+  </svg>,
+  // standards — shield with check
+  <svg key="std" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M12 3 5 6v5c0 4.4 3 8.4 7 9.5 4-1.1 7-5.1 7-9.5V6z" />
+    <path d="M9 12l2 2 4-4.5" />
+  </svg>,
+  // financial model — rising bars
+  <svg key="fin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M4 20h16M7 20v-6M12 20V9M17 20v-9M6 10l5-4 3 2 5-5" />
+  </svg>,
+  // year 25 — clock
+  <svg key="om" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="8.5" />
+    <path d="M12 7v5.5l3.5 2" />
+  </svg>,
+];
+
 export function TrustRow() {
   return (
     <section className="bg-paper">
@@ -280,8 +302,8 @@ export function TrustRow() {
         <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {trust.map((t, i) => (
             <Reveal as="article" key={t.title} delay={(i % 4) * 70}>
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-tint text-sm font-bold text-brand-strong">
-                {i + 1}
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-tint text-brand-strong [&>svg]:h-5 [&>svg]:w-5">
+                {trustIcons[i]}
               </span>
               <h3 className="mt-5 text-lg font-bold tracking-tight text-ink">
                 {t.title}
@@ -302,10 +324,10 @@ export function TrustRow() {
 export function CareersStrip() {
   return (
     <section className="bg-[#faf9f3]">
-      <div className="container-px mx-auto max-w-[1760px] py-4">
+      <div className="container-px mx-auto max-w-[1760px] py-10 lg:py-12">
         <Reveal
           variant="fade"
-          className="flex flex-col items-start gap-4 border-y border-ink/10 py-8 sm:flex-row sm:items-center sm:justify-between"
+          className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between"
         >
           <div>
             <p className="text-lg font-bold tracking-tight text-ink">
@@ -362,17 +384,6 @@ export function Expertise() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal
-          variant="fade"
-          className="mt-14 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-ink/10 pt-6 text-[15px] text-ink-soft"
-        >
-          <span className="font-semibold text-ink">
-            Not sure which model fits?
-          </span>
-          <span>Compare CAPEX ownership, zero-capex OPEX/RESCO and off-site open access.</span>
-          <ArrowLink href="/solutions">Compare models</ArrowLink>
-        </Reveal>
       </div>
     </section>
   );
