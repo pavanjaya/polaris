@@ -1,0 +1,53 @@
+import Link from "next/link";
+import { ArrowRight } from "./ui";
+
+export function CTA() {
+  return (
+    <section className="relative overflow-hidden bg-brand-dark">
+      {/* geometric motif */}
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 600 400"
+        preserveAspectRatio="xMaxYMid slice"
+        className="pointer-events-none absolute inset-y-0 right-0 h-full w-[70%] text-brand-deep"
+      >
+        <g
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="46"
+          strokeLinecap="round"
+        >
+          <path d="M120 40 L400 300" />
+          <path d="M400 40 L120 300" />
+          <path d="M300 200 H560" />
+          <path d="M470 -20 V180" />
+        </g>
+        <rect
+          x="470"
+          y="30"
+          width="90"
+          height="44"
+          rx="22"
+          transform="rotate(-38 515 52)"
+          fill="var(--color-brand)"
+        />
+      </svg>
+
+      <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
+          <h2 className="max-w-2xl text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-[3.25rem]">
+            Start your <span className="text-brand">clean energy</span> build
+            today.
+          </h2>
+          <Link
+            href="/contact"
+            className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition hover:bg-white/90"
+          >
+            Get started
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

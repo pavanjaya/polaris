@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand — Polaris Renewable Solutions greens */
+  --color-brand: #5fcf4b; /* the logo leaf green — fills, accents, hero word */
+  --color-brand-strong: #2e7d32; /* readable green for small text / links on white */
+  --color-brand-dark: #0f4338; /* deep teal-green — footer, CTA, hero base */
+  --color-brand-deep: #17493d; /* one step up — motifs on the dark block */
+  --color-brand-tint: #e7f7e0;
+
+  /* Ink — near-black, Uber-style */
+  --color-ink: #0e0e0e;
+  --color-ink-soft: #4a4a4a;
+  --color-ink-faint: #8a8a8a;
+
+  /* Surfaces — neutral greys */
+  --color-paper: #ffffff;
+  --color-cream: #f6f6f6;
+  --color-mist: #eeeeee;
+  --color-line: #e4e4e4;
+  --color-amber: #c07000;
+
+  /* Legacy aliases */
+  --color-midnight-950: #ffffff;
+  --color-midnight-900: #f6f6f6;
+  --color-midnight-800: #eeeeee;
+  --color-midnight-700: #e4e4e4;
+  --color-midnight-600: #cfcfcf;
+  --color-ice-100: #0e0e0e;
+  --color-ice-200: #4a4a4a;
+  --color-aurora-500: #2e7d32;
+  --color-aurora-400: #2e7d32;
+  --color-aurora-300: #5fcf4b;
+  --color-amber-400: #c07000;
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 12px 32px -8px rgba(0, 0, 0, 0.16);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+a {
+  text-underline-offset: 3px;
+}
+
+/* Uber-style link: arrow + underline on hover */
+.u-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+.u-link:hover {
+  text-decoration: underline;
+}
+
+/* Card hover-lift */
+.u-card {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.u-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Hero scroll transition — inset media expands to full-bleed */
+.hero-pin {
+  position: sticky;
+  top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-track {
+    height: 100vh !important;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.container-px {
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-px {
+    padding-inline: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-px {
+    padding-inline: 5rem;
+  }
+}
+
+/* Rotating hero word */
+@keyframes wordCycle {
+  0%,
+  22% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  28%,
+  94% {
+    opacity: 0;
+    transform: translateY(-0.35em);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-0.35em);
+  }
+}
+
+.word-rotator {
+  display: inline-grid;
+}
+
+.word-rotator > span {
+  grid-area: 1 / 1;
+  color: var(--color-brand);
+  opacity: 0;
+  animation: wordCycle 9s infinite;
+}
+
+.word-rotator > span:nth-child(1) {
+  animation-delay: 0s;
+}
+.word-rotator > span:nth-child(2) {
+  animation-delay: 3s;
+}
+.word-rotator > span:nth-child(3) {
+  animation-delay: 6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-rotator > span {
+    animation: none;
+  }
+  .word-rotator > span:nth-child(1) {
+    opacity: 1;
+  }
+}
+
+/* Fade-up on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
