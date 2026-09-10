@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "./ui";
+import { Reveal } from "./Reveal";
 
 export function CTA() {
   return (
@@ -35,10 +36,12 @@ export function CTA() {
 
       <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-          <h2 className="max-w-2xl text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-[3.25rem]">
-            Start your <span className="text-brand">clean energy</span> build
-            today.
-          </h2>
+          <Reveal as="span" variant="mask" className="block">
+            <h2 className="max-w-2xl text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-[3.25rem]">
+              Start your <span className="text-brand">clean energy</span> build
+              today.
+            </h2>
+          </Reveal>
           <Link
             href="/contact"
             className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition hover:bg-white/90"

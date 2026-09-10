@@ -5,6 +5,7 @@ import { ProcessRail } from "./ProcessRail";
 import { Parallax } from "./motion/Parallax";
 import { CountUp } from "./motion/CountUp";
 import { Button, ArrowLink, ArrowRight } from "./ui";
+import { RevealText } from "./RevealText";
 import {
   offerings,
   projects,
@@ -79,14 +80,17 @@ const illos: React.ReactNode[] = [
 export function IntroStatement() {
   return (
     <section className="container-px mx-auto max-w-[1760px] py-20 lg:py-32">
-      <Reveal>
+      <Reveal variant="fade">
         <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
           <span className="h-1.5 w-1.5 rounded-full bg-brand" />
           What we do
         </p>
-        <h2 className="mt-5 max-w-4xl text-3xl font-bold tracking-tight text-ink sm:text-[2.75rem]">
-          We engineer, finance and operate commercial &amp; industrial solar.
-        </h2>
+      </Reveal>
+      <RevealText
+        text="We engineer, finance and operate commercial & industrial solar."
+        className="mt-5 block max-w-4xl text-3xl font-bold tracking-tight text-ink sm:text-[2.75rem]"
+      />
+      <Reveal variant="up" delay={60}>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
           From rooftop plants for SMEs to large captive and open-access projects
           for enterprises. A solar EPC founded in Nashik in {company.founded},{" "}
@@ -137,12 +141,15 @@ export function Expertise() {
   return (
     <section className="bg-[#faf9f3]">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
-        <Reveal className="flex flex-wrap items-end justify-between gap-6">
-          <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Our solutions
-          </h2>
-          <ArrowLink href="/solutions">Explore all solutions</ArrowLink>
-        </Reveal>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <RevealText
+            text="Our solutions"
+            className="text-3xl font-bold tracking-tight text-ink sm:text-4xl"
+          />
+          <Reveal variant="fade">
+            <ArrowLink href="/solutions">Explore all solutions</ArrowLink>
+          </Reveal>
+        </div>
 
         <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {offerings.map((s, i) => (
@@ -189,15 +196,16 @@ export function Process() {
       id="how-we-work"
       className="container-px mx-auto max-w-[1760px] scroll-mt-24 py-20 lg:py-28"
     >
-      <Reveal>
+      <Reveal variant="fade">
         <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
           <span className="h-1.5 w-1.5 rounded-full bg-brand" />
           How we deliver
         </p>
-        <h2 className="mt-5 max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]">
-          One accountable team, from the financial model to year 25.
-        </h2>
       </Reveal>
+      <RevealText
+        text="One accountable team, from the financial model to year 25."
+        className="mt-5 block max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+      />
 
       <Reveal variant="fade">
         <ProcessRail steps={deliverySteps} />
@@ -213,11 +221,10 @@ export function ImpactBand() {
     <section className="relative overflow-hidden bg-brand-dark py-20 text-white lg:py-28">
       <div className="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-brand/20 blur-3xl" />
       <div className="container-px relative mx-auto max-w-[1760px]">
-        <Reveal as="span" variant="mask" className="block">
-          <h2 className="max-w-2xl text-3xl font-bold tracking-tight sm:text-[2.5rem]">
-            Clean energy that compounds.
-          </h2>
-        </Reveal>
+        <RevealText
+          text="Clean energy that compounds."
+          className="max-w-2xl text-3xl font-bold tracking-tight sm:text-[2.5rem]"
+        />
         <Reveal variant="up" delay={80}>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/70">
             Every Polaris system keeps generating — and displacing grid carbon —
@@ -284,11 +291,10 @@ export function ByTheNumbers() {
               <rect width="100%" height="100%" fill="url(#dotgrid)" />
             </svg>
 
-            <Reveal as="span" variant="mask" className="relative block">
-              <h2 className="text-3xl font-bold tracking-tight">
-                Polaris in a few numbers
-              </h2>
-            </Reveal>
+            <RevealText
+              text="Polaris in a few numbers"
+              className="relative text-3xl font-bold tracking-tight"
+            />
 
             <Reveal variant="up" delay={120} className="relative mt-10">
               <Link
@@ -337,20 +343,23 @@ export function BrandPromise() {
     <section className="bg-brand-tint">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-          <Reveal>
-            <h2 className="max-w-xl text-3xl font-bold tracking-tight text-ink sm:text-[2.75rem]">
-              Energy as an asset.
-            </h2>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
-              A roof is underutilised real estate. By combining Tier-1
-              engineering with investment-grade financial modelling — IRR,
-              payback, depreciation and tax optimisation — we change the
-              structure of a balance sheet, not just a utility bill.
-            </p>
-            <div className="mt-8">
-              <Button href="/about">About Polaris</Button>
-            </div>
-          </Reveal>
+          <div>
+            <RevealText
+              text="Energy as an asset."
+              className="max-w-xl text-3xl font-bold tracking-tight text-ink sm:text-[2.75rem]"
+            />
+            <Reveal variant="up" delay={60}>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
+                A roof is underutilised real estate. By combining Tier-1
+                engineering with investment-grade financial modelling — IRR,
+                payback, depreciation and tax optimisation — we change the
+                structure of a balance sheet, not just a utility bill.
+              </p>
+              <div className="mt-8">
+                <Button href="/about">About Polaris</Button>
+              </div>
+            </Reveal>
+          </div>
 
           <Reveal
             variant="scale"
@@ -378,12 +387,15 @@ export function BrandPromise() {
 export function ProjectsRail() {
   return (
     <section className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
-      <Reveal className="flex flex-wrap items-end justify-between gap-6">
-        <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-          Our projects
-        </h2>
-        <ArrowLink href="/projects">Discover our projects</ArrowLink>
-      </Reveal>
+      <div className="flex flex-wrap items-end justify-between gap-6">
+        <RevealText
+          text="Our projects"
+          className="text-3xl font-bold tracking-tight text-ink sm:text-4xl"
+        />
+        <Reveal variant="fade">
+          <ArrowLink href="/projects">Discover our projects</ArrowLink>
+        </Reveal>
+      </div>
 
       <div className="no-scrollbar mt-12 flex snap-x gap-5 overflow-x-auto pb-1">
         {projects.map((p) => (
@@ -440,17 +452,16 @@ export function Testimonials() {
   return (
     <section className="bg-paper">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
-        <Reveal className="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              In their words
-            </p>
-            <h2 className="mt-5 max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]">
-              Judged on results, not promises.
-            </h2>
-          </div>
+        <Reveal variant="fade">
+          <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+            In their words
+          </p>
         </Reveal>
+        <RevealText
+          text="Judged on results, not promises."
+          className="mt-5 max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+        />
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {testimonials.map((t, i) => (
@@ -501,12 +512,15 @@ export function LatestNews() {
   return (
     <section className="bg-paper">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
-        <Reveal className="flex flex-wrap items-end justify-between gap-6">
-          <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Latest insights
-          </h2>
-          <ArrowLink href="/insights">See all insights</ArrowLink>
-        </Reveal>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <RevealText
+            text="Latest insights"
+            className="text-3xl font-bold tracking-tight text-ink sm:text-4xl"
+          />
+          <Reveal variant="fade">
+            <ArrowLink href="/insights">See all insights</ArrowLink>
+          </Reveal>
+        </div>
 
         <div className="mt-14 grid gap-x-8 gap-y-12 md:grid-cols-3">
           {insights.slice(0, 3).map((post, i) => (
