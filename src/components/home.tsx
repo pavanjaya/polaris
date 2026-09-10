@@ -177,7 +177,7 @@ export function Footprint() {
         </svg>
       </div>
       <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
           <div>
             <Reveal variant="fade">
               <span className="pill">Global reach</span>
