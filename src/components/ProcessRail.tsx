@@ -73,7 +73,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
               onFocus={() => setActive(i)}
               aria-label={s.title}
               aria-pressed={isActive}
-              className="group relative min-h-[64px] min-w-0 overflow-hidden rounded-xl bg-ink text-left transition-[flex-grow] duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="group relative min-h-[64px] min-w-0 overflow-hidden rounded-xl bg-mist text-left transition-[flex-grow] duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
               style={{ flexGrow: isActive ? 6 : 1, flexBasis: 0 }}
             >
               <Image
@@ -81,42 +81,24 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
                 alt=""
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 55vw"
-                className={`object-cover transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  isActive
-                    ? "scale-100 opacity-100"
-                    : "scale-105 opacity-80 group-hover:opacity-95"
-                }`}
-              />
-              <div
-                className={`absolute inset-0 bg-gradient-to-t to-transparent transition-opacity duration-500 ${
-                  isActive
-                    ? "from-black/60 via-black/5"
-                    : "from-black/45 via-transparent"
+                className={`object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isActive ? "scale-100" : "scale-105"
                 }`}
               />
 
               {/* collapsed label — horizontal on the mobile stack, vertical on the desktop row */}
               <span
-                className={`pointer-events-none absolute bottom-4 left-4 text-sm font-semibold text-white transition-opacity duration-300 sm:hidden ${
-                  isActive ? "opacity-0" : "opacity-90"
+                className={`pointer-events-none absolute bottom-4 left-4 text-sm font-semibold text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.6)] transition-opacity duration-300 sm:hidden ${
+                  isActive ? "opacity-0" : "opacity-95"
                 }`}
               >
                 {s.title}
               </span>
               <span
-                className={`pointer-events-none absolute bottom-5 left-1/2 hidden -translate-x-1/2 whitespace-nowrap text-sm font-semibold text-white transition-opacity duration-300 [writing-mode:vertical-rl] sm:block ${
-                  isActive ? "opacity-0" : "opacity-90"
+                className={`pointer-events-none absolute bottom-5 left-1/2 hidden -translate-x-1/2 whitespace-nowrap text-sm font-semibold text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.6)] transition-opacity duration-300 [writing-mode:vertical-rl] sm:block ${
+                  isActive ? "opacity-0" : "opacity-95"
                 }`}
                 style={{ rotate: "180deg" }}
-              >
-                {s.title}
-              </span>
-
-              {/* active headline on the image */}
-              <span
-                className={`pointer-events-none absolute bottom-6 left-6 right-6 text-2xl font-bold leading-tight tracking-tight text-white transition-opacity duration-500 ${
-                  isActive ? "opacity-100 delay-150" : "opacity-0"
-                }`}
               >
                 {s.title}
               </span>
