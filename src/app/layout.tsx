@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans, Public_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { company } from "@/lib/content";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -43,7 +42,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jakarta.variable} ${publicSans.variable}`}>
       <body className="flex min-h-screen flex-col antialiased">
-        <SmoothScroll />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
