@@ -351,7 +351,7 @@ const offeringIcons = [illos[0], illos[2], illos[1], illos[4]];
 
 export function Expertise() {
   return (
-    <section className="bg-[#faf9f3]">
+    <section className="bg-[#FAFBF6]">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
@@ -536,15 +536,17 @@ export function ProjectsRail() {
                 sizes="340px"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="absolute left-3 top-3 bg-white px-2 py-1 text-xs font-semibold text-ink">
-                {p.tech}
-              </span>
-              <span className="absolute bottom-3 left-3 bg-black/55 px-2 py-1 text-xs font-semibold text-white">
-                {p.capacity}
-              </span>
             </div>
             <div className="p-5">
-              <h3 className="text-base font-bold tracking-tight text-ink">
+              <div className="flex flex-wrap gap-2">
+                <span className="inline-flex rounded-full bg-brand-tint px-2.5 py-1 text-xs font-semibold text-brand-strong">
+                  {p.tech}
+                </span>
+                <span className="inline-flex rounded-full bg-ink/[0.06] px-2.5 py-1 text-xs font-semibold text-ink">
+                  {p.capacity}
+                </span>
+              </div>
+              <h3 className="mt-4 text-base font-bold tracking-tight text-ink">
                 {p.name}
               </h3>
               <p className="mt-1 text-sm text-ink-faint">{p.location}</p>
