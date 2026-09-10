@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { GSAP_EASE, prefersReducedMotion } from "@/lib/motion";
 
@@ -81,21 +81,23 @@ export function RevealText({
   return (
     <Tag ref={ref} className={className} aria-label={text}>
       {words.map((word, i) => (
-        <span key={i} className="inline-block whitespace-nowrap">
-          <span
-            data-word
-            aria-hidden="true"
-            className="inline-flex overflow-hidden align-bottom"
-          >
+        <Fragment key={i}>
+          <span className="inline-block whitespace-nowrap">
             <span
-              className="inline-block pb-[0.14em]"
-              style={{ transform: "translateY(120%)" }}
+              data-word
+              aria-hidden="true"
+              className="inline-flex overflow-hidden align-bottom"
             >
-              {word}
+              <span
+                className="inline-block pb-[0.12em]"
+                style={{ transform: "translateY(120%)" }}
+              >
+                {word}
+              </span>
             </span>
           </span>
-          {i < words.length - 1 ? " " : ""}
-        </span>
+          {i < words.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </Tag>
   );
