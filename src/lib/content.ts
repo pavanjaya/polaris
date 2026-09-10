@@ -106,7 +106,7 @@ export const socials = [
 
 export const nav = [
   { label: "About", href: "/about" },
-  { label: "How We Work", href: "/#how-we-work" },
+  { label: "Our Approach", href: "/#how-we-work" },
   { label: "Solutions", href: "/solutions" },
   { label: "Projects", href: "/projects" },
   { label: "P-ESS", href: "/p-ess" },
