@@ -553,46 +553,78 @@ export function ImpactBand() {
 
 /* ---------- Brand promise ---------- */
 
+const philosophyPoints = [
+  { v: "IRR-led", l: "every design decision" },
+  { v: "25-yr", l: "asset horizon, one team" },
+  { v: "Tier-1", l: "engineering, no compromise" },
+];
+
 export function BrandPromise() {
   return (
-    <section className="relative overflow-hidden bg-paper">
-      <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+    <section className="relative overflow-hidden bg-[#FAFBF6]">
+      <div className="container-px relative mx-auto max-w-[1760px] py-24 lg:py-32">
+        <div className="grid gap-16 lg:grid-cols-[1fr_0.92fr] lg:items-center lg:gap-24">
           <div>
             <Reveal variant="fade">
               <span className="pill">Our philosophy</span>
             </Reveal>
             <RevealText
               text="Energy as an asset."
-              className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+              className="mt-6 block max-w-xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
             />
             <Reveal variant="up" delay={60}>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
                 A roof is underutilised real estate. By combining Tier-1
                 engineering with investment-grade financial modelling — IRR,
                 payback, depreciation and tax optimisation — we change the
                 structure of a balance sheet, not just a utility bill.
               </p>
-              <div className="mt-8">
+            </Reveal>
+            <Reveal variant="up" delay={100}>
+              <dl className="mt-10 grid max-w-lg grid-cols-3 gap-x-6 border-t border-ink/10 pt-8">
+                {philosophyPoints.map((s) => (
+                  <div key={s.l}>
+                    <dt className="text-xl font-semibold tracking-tight text-ink">
+                      {s.v}
+                    </dt>
+                    <dd className="mt-1.5 text-xs leading-snug text-ink-faint">
+                      {s.l}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="mt-10">
                 <Button href="/about">About Polaris</Button>
               </div>
             </Reveal>
           </div>
 
-          <Reveal
-            variant="scale"
-            delay={100}
-            className="relative aspect-[4/3] overflow-hidden rounded-lg bg-mist"
-          >
-            <Parallax speed={0.14} className="absolute inset-0">
-              <Image
-                src="/img/solar-rooftop.jpg"
-                alt="Rooftop solar array on an industrial facility"
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="scale-110 object-cover"
-              />
-            </Parallax>
+          <Reveal variant="scale" delay={100} className="relative">
+            {/* soft accent block for depth */}
+            <div
+              aria-hidden="true"
+              className="absolute -right-5 -top-5 hidden h-32 w-32 rounded-lg bg-brand-tint sm:block"
+            />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-mist">
+              <Parallax speed={0.14} className="absolute inset-0">
+                <Image
+                  src="/img/solar-rooftop.jpg"
+                  alt="Rooftop solar array on an industrial facility"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="scale-110 object-cover"
+                />
+              </Parallax>
+            </div>
+            {/* floating caption card */}
+            <div className="absolute -bottom-6 -left-6 hidden max-w-[16rem] rounded-lg border border-line/70 bg-paper p-5 shadow-[0_24px_60px_-28px_rgba(11,21,37,0.4)] sm:block">
+              <p className="text-sm font-semibold tracking-tight text-ink">
+                Every kW is underwritten
+              </p>
+              <p className="mt-1.5 text-xs leading-snug text-ink-faint">
+                sized on generation and cash flow — not catalogue margin.
+              </p>
+            </div>
           </Reveal>
         </div>
       </div>
