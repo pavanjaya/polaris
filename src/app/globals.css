@@ -8,6 +8,16 @@
   --color-brand-deep: #17493d; /* one step up — motifs on the dark block */
   --color-brand-tint: #e7f7e0;
 
+  /* Official brand palette (Brand Guide v1.0) — full system */
+  --color-polaris-green: #314f31; /* primary — deep brand green */
+  --color-active-green: #7dcc5e; /* primary — bright kinetic green */
+  --color-deep-navy: #21355a; /* secondary — financial trust */
+  --color-solar-orange: #f09145; /* secondary — energy accent */
+  --color-digital-purple: #7a6cf6; /* secondary — kinetic */
+  --color-steel-grey: #d1d1d1; /* tertiary — light structure */
+  --color-steel-dark: #3d3d3d; /* tertiary — dark structure */
+  --color-pure-white: #ffffff;
+
   /* Ink — near-black, Uber-style */
   --color-ink: #0e0e0e;
   --color-ink-soft: #4a4a4a;
