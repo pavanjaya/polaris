@@ -91,7 +91,7 @@ export function Button({
   className = "",
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-[15px] font-semibold transition-colors duration-300 ease-out";
+    "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-[15px] font-semibold transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]";
   const styles = {
     primary: "bg-ink text-white hover:bg-brand-hover hover:text-ink",
     ghost: "border border-ink/20 text-ink hover:border-brand-hover hover:bg-brand-hover hover:text-ink",

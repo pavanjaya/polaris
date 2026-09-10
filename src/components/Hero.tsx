@@ -119,14 +119,14 @@ export function Hero() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition-colors duration-300 ease-out hover:bg-brand-hover"
+            className="inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-hover"
           >
             Get a proposal
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 rounded-lg bg-white/15 px-7 py-3.5 text-[15px] font-semibold text-white backdrop-blur transition-colors duration-300 ease-out hover:bg-white/25"
+            className="inline-flex items-center gap-2 rounded-lg bg-white/15 px-7 py-3.5 text-[15px] font-semibold text-white backdrop-blur transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/25"
           >
             See our projects
           </Link>
