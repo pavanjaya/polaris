@@ -623,7 +623,7 @@ export function ProjectsRail() {
             href="/projects"
             className="u-card group w-[300px] shrink-0 snap-start overflow-hidden rounded-lg border border-line/70 bg-paper sm:w-[340px]"
           >
-            <div className="relative h-56 w-full overflow-hidden bg-mist sm:h-64">
+            <div className="relative aspect-[3/2] w-full overflow-hidden bg-mist">
               <Image
                 src={p.image}
                 alt={p.name}
@@ -632,7 +632,7 @@ export function ProjectsRail() {
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-            <div className="p-5">
+            <div className="p-7 pb-8">
               <div className="flex flex-wrap gap-2">
                 <span className="inline-flex rounded-full bg-brand-tint px-2.5 py-1 text-xs font-semibold text-brand-strong">
                   {p.tech}
@@ -641,11 +641,11 @@ export function ProjectsRail() {
                   {p.capacity}
                 </span>
               </div>
-              <h3 className="mt-4 text-base font-semibold tracking-tight text-ink">
+              <h3 className="mt-6 text-base font-semibold tracking-tight text-ink">
                 {p.name}
               </h3>
-              <p className="mt-1 text-sm text-ink-faint">{p.location}</p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-ink group-hover:underline">
+              <p className="mt-1.5 text-sm text-ink-faint">{p.location}</p>
+              <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-ink group-hover:underline">
                 See project
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
               </span>
