@@ -12,6 +12,8 @@ import {
   company,
   clients,
   clientLogos,
+  process as deliverySteps,
+  impact,
 } from "@/lib/content";
 
 /* ---------- flat illustrations (Uber-style, brand green) ---------- */
@@ -159,6 +161,90 @@ export function Expertise() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal
+          variant="fade"
+          className="mt-14 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-ink/10 pt-6 text-[15px] text-ink-soft"
+        >
+          <span className="font-semibold text-ink">
+            Not sure which model fits?
+          </span>
+          <span>Compare CAPEX ownership, zero-capex OPEX/RESCO and off-site open access.</span>
+          <ArrowLink href="/solutions">Compare models</ArrowLink>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- How we deliver ---------- */
+
+export function Process() {
+  return (
+    <section className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
+      <Reveal>
+        <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
+          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+          How we deliver
+        </p>
+        <h2 className="mt-5 max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]">
+          One accountable team, from the financial model to year 25.
+        </h2>
+      </Reveal>
+
+      <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        {deliverySteps.map((p, i) => (
+          <Reveal as="article" key={p.step} variant="up" delay={(i % 4) * 80}>
+            <div className="text-sm font-bold text-brand-strong">{p.step}</div>
+            <div className="mt-3 h-px w-full bg-ink/10" />
+            <h3 className="mt-4 text-lg font-bold tracking-tight text-ink">
+              {p.title}
+            </h3>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
+              {p.body}
+            </p>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Environmental impact ---------- */
+
+export function ImpactBand() {
+  return (
+    <section className="relative overflow-hidden bg-brand-dark py-20 text-white lg:py-28">
+      <div className="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-brand/20 blur-3xl" />
+      <div className="container-px relative mx-auto max-w-[1760px]">
+        <Reveal as="span" variant="mask" className="block">
+          <h2 className="max-w-2xl text-3xl font-bold tracking-tight sm:text-[2.5rem]">
+            Clean energy that compounds.
+          </h2>
+        </Reveal>
+        <Reveal variant="up" delay={80}>
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/70">
+            Every Polaris system keeps generating — and displacing grid carbon —
+            for its full 25-year life.
+          </p>
+        </Reveal>
+
+        <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          {impact.items.map((it, i) => (
+            <Reveal key={it.label} variant="up" delay={i * 80}>
+              <span className="h-1 w-10 rounded-full bg-brand" />
+              <CountUp
+                value={it.value}
+                className="mt-6 block text-4xl font-bold tracking-tight sm:text-[2.75rem]"
+              />
+              <span className="mt-2 block text-sm text-white/60">{it.label}</span>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal variant="fade" delay={120}>
+          <p className="mt-10 text-xs text-white/40">{impact.note}</p>
+        </Reveal>
       </div>
     </section>
   );

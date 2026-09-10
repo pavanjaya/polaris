@@ -4,7 +4,9 @@ import {
   IntroStatement,
   ClientStrip,
   Expertise,
+  Process,
   ByTheNumbers,
+  ImpactBand,
   BrandPromise,
   ProjectsRail,
   LatestNews,
@@ -17,7 +19,9 @@ export default function HomePage() {
       <IntroStatement />
       <ClientStrip />
       <Expertise />
+      <Process />
       <ByTheNumbers />
+      <ImpactBand />
       <BrandPromise />
       <ProjectsRail />
       <LatestNews />

@@ -124,6 +124,43 @@ export const glance = [
   { value: "25 yrs", label: "Infrastructure lifecycle" },
 ];
 
+// How an engagement runs — condensed from the Solutions lifecycle.
+export const process = [
+  {
+    step: "01",
+    title: "Model & financial case",
+    body: "Load analysis, generation simulation and an investment-grade model — IRR, payback, depreciation and cash flow — before a rupee is committed.",
+  },
+  {
+    step: "02",
+    title: "Engineering & design",
+    body: "In-house electrical and structural engineers size the system on fit, not margin; HT evacuation and safety to Indian, EU and US benchmarks.",
+  },
+  {
+    step: "03",
+    title: "EPC execution",
+    body: "Single-point delivery of procurement, construction and commissioning — most C&I plants energised in 45–90 days.",
+  },
+  {
+    step: "04",
+    title: "25-year O&M",
+    body: "SCADA monitoring, analytics and preventive maintenance for the full asset life. One team stays accountable to year 25.",
+  },
+];
+
+// Indicative environmental impact — derived from 100 MW+ installed at a
+// ~15% capacity factor and India's ~0.71 tCO2/MWh grid factor. Replace with
+// measured portfolio generation once available.
+export const impact = {
+  note: "Indicative, based on 100 MW+ of installed Polaris capacity.",
+  items: [
+    { value: "131 GWh", label: "Clean energy generated each year" },
+    { value: "93,000 t", label: "CO₂ emissions avoided each year" },
+    { value: "1.5M", label: "Mature trees — equivalent annual absorption" },
+    { value: "12,000", label: "Indian homes powered for a year" },
+  ],
+};
+
 export const solutions = [
   {
     slug: "capex",

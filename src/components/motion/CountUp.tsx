@@ -7,11 +7,12 @@ import { GSAP_EASE, prefersReducedMotion } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/** Splits "€17.5M" -> { prefix:"€", value:17.5, decimals:1, suffix:"M" } */
+/** Splits "€17.5M" -> {prefix:"€", value:17.5, decimals:1, suffix:"M"};
+ *  "93,000 t" -> {prefix:"", value:93000, decimals:0, suffix:" t"} */
 function parse(raw: string) {
-  const m = raw.match(/^(\D*)([\d]+(?:[.,]\d+)?)(.*)$/);
+  const m = raw.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
   if (!m) return { prefix: "", value: 0, decimals: 0, suffix: raw };
-  const numStr = m[2].replace(",", ".");
+  const numStr = m[2].replace(/,/g, "");
   const decimals = numStr.includes(".") ? numStr.split(".")[1].length : 0;
   return {
     prefix: m[1],
