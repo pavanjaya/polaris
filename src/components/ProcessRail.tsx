@@ -89,10 +89,6 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
-              <span className="absolute left-4 top-4 text-xs font-bold tracking-[0.2em] text-brand">
-                {s.step}
-              </span>
-
               {/* collapsed label — horizontal on the mobile stack, vertical on the desktop row */}
               <span
                 className={`pointer-events-none absolute bottom-4 left-4 text-sm font-semibold text-white transition-opacity duration-300 sm:hidden ${
@@ -124,11 +120,11 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
       </div>
 
       {/* active step copy */}
-      <div className="mt-7 min-h-[92px] border-t border-ink/10 pt-6">
+      <div className="mt-7 min-h-[104px] border-t border-ink/10 pt-6">
         <div key={active} className="squeezy-detail max-w-2xl">
-          <p className="text-sm font-bold tracking-[0.14em] text-brand-strong">
-            STEP {steps[active].step}
-          </p>
+          <h3 className="text-lg font-bold tracking-tight text-ink">
+            {steps[active].title}
+          </h3>
           <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
             {steps[active].body}
           </p>

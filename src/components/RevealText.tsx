@@ -1,100 +1,85 @@
 "use client";
 
-import { Fragment, useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { GSAP_EASE, prefersReducedMotion } from "@/lib/motion";
+import { Fragment, useEffect, useLayoutEffect, useRef } from "react";
+
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 /**
  * Heading whose words rise into view, one after another, when it scrolls
- * into the viewport. Each word sits in an overflow-clip so it appears to
- * "load" up from a mask. Screen readers get the plain string.
+ * into the viewport.
  *
- * Uses IntersectionObserver (not ScrollTrigger) so it stays reliable
- * alongside Lenis smooth scroll and never leaves the text hidden.
+ * It renders fully visible by default. Only once the client script has run
+ * does it "arm" the clip animation (before paint, so there's no flash) and
+ * then reveal on scroll via IntersectionObserver — with timed failsafes so
+ * the text can never end up stuck hidden. Pure CSS transitions; no GSAP.
  */
 export function RevealText({
   text,
   as: Tag = "h2",
   className = "",
-  stagger = 0.05,
 }: {
   text: string;
   as?: "h1" | "h2" | "h3";
   className?: string;
-  stagger?: number;
 }) {
   const ref = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const words = el.querySelectorAll<HTMLElement>("[data-word] > span");
-    if (!words.length) return;
 
-    if (prefersReducedMotion()) {
-      gsap.set(words, { yPercent: 0 });
-      return;
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return; // stays un-armed → fully visible, no animation
     }
 
-    gsap.set(words, { yPercent: 120 });
+    // Arm the clip before the browser paints so there's no flash of
+    // un-clipped text.
+    el.dataset.armed = "true";
 
-    let done = false;
+    let played = false;
     const play = () => {
-      if (done) return;
-      done = true;
-      gsap.to(words, {
-        yPercent: 0,
-        duration: 0.9,
-        ease: GSAP_EASE,
-        stagger,
-      });
+      if (played) return;
+      played = true;
+      el.dataset.in = "true";
     };
 
     const io = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            play();
-            io.disconnect();
-          }
+        if (entries.some((e) => e.isIntersecting)) {
+          play();
+          io.disconnect();
         }
       },
-      { threshold: 0.2, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
     );
     io.observe(el);
 
-    // Safety net: if the heading is on screen but somehow still hidden,
-    // force it in. Below-the-fold headings keep waiting for the scroll.
-    const failsafe = window.setTimeout(() => {
+    // Failsafes — reveal even if the observer never fires.
+    const softFailsafe = window.setTimeout(() => {
       const r = el.getBoundingClientRect();
       if (r.top < window.innerHeight && r.bottom > 0) play();
-    }, 2500);
+    }, 1600);
+    const hardFailsafe = window.setTimeout(play, 4000);
 
     return () => {
       io.disconnect();
-      window.clearTimeout(failsafe);
+      window.clearTimeout(softFailsafe);
+      window.clearTimeout(hardFailsafe);
     };
-  }, [text, stagger]);
+  }, [text]);
 
   const words = text.split(" ");
 
   return (
-    <Tag ref={ref} className={className} aria-label={text}>
+    <Tag ref={ref} className={`reveal-text ${className}`} aria-label={text}>
       {words.map((word, i) => (
         <Fragment key={i}>
-          <span className="inline-block whitespace-nowrap">
-            <span
-              data-word
-              aria-hidden="true"
-              className="inline-flex overflow-hidden align-bottom"
-            >
-              <span
-                className="inline-block pb-[0.12em]"
-                style={{ transform: "translateY(120%)" }}
-              >
-                {word}
-              </span>
-            </span>
+          <span className="reveal-text__word" aria-hidden="true">
+            <span style={{ transitionDelay: `${i * 42}ms` }}>{word}</span>
           </span>
           {i < words.length - 1 ? " " : null}
         </Fragment>

@@ -379,6 +379,31 @@ a {
   animation: squeezyFade 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Word-by-word heading reveal (components/RevealText).
+   Visible by default; only animates once JS adds data-armed. */
+.reveal-text__word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.reveal-text__word > span {
+  display: inline-block;
+  padding-bottom: 0.12em;
+}
+.reveal-text[data-armed="true"] .reveal-text__word > span {
+  transform: translateY(115%);
+  transition: transform 0.85s var(--ease-expo);
+}
+.reveal-text[data-armed="true"][data-in="true"] .reveal-text__word > span {
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-text[data-armed="true"] .reveal-text__word > span {
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Scroll-reveal + parallax are GSAP-driven (see components/Reveal, motion/*). */
 
 @media (prefers-reduced-motion: reduce) {
