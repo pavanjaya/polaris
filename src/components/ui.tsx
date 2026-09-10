@@ -38,12 +38,7 @@ export function Section({
 }
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-strong">
-      <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-      {children}
-    </span>
-  );
+  return <span className="pill">{children}</span>;
 }
 
 export function SectionHeading({
@@ -170,7 +165,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`u-card rounded-xl border border-line bg-paper p-6 ${className}`}
+      className={`u-card rounded-2xl border border-line/70 bg-paper p-6 ${className}`}
     >
       {children}
     </div>

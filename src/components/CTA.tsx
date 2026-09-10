@@ -5,6 +5,9 @@ import { Reveal } from "./Reveal";
 export function CTA() {
   return (
     <section className="relative overflow-hidden bg-brand-dark">
+      {/* fresh green glow */}
+      <div className="pointer-events-none absolute -left-40 -top-40 h-[38rem] w-[38rem] rounded-full bg-active-green/25 blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-48 left-1/3 h-[34rem] w-[44rem] rounded-full bg-active-green/15 blur-[130px]" />
       {/* geometric motif */}
       <svg
         aria-hidden="true"
@@ -38,8 +41,8 @@ export function CTA() {
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
           <Reveal as="span" variant="mask" className="block">
             <h2 className="max-w-2xl text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-[3.25rem]">
-              Start your <span className="text-brand">clean energy</span> build
-              today.
+              Start your <span className="text-active-green">clean energy</span>{" "}
+              build today.
             </h2>
           </Reveal>
           <Link

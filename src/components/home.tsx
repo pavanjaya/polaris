@@ -79,12 +79,10 @@ const illos: React.ReactNode[] = [
 
 export function IntroStatement() {
   return (
-    <section className="container-px mx-auto max-w-[1760px] py-20 lg:py-32">
+    <section className="bg-aura">
+      <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-32">
       <Reveal variant="fade">
-        <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
-          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-          What we do
-        </p>
+        <span className="pill">What we do</span>
       </Reveal>
       <RevealText
         text="We engineer, finance and operate commercial & industrial solar."
@@ -99,6 +97,7 @@ export function IntroStatement() {
           India and Morocco.
         </p>
       </Reveal>
+      </div>
     </section>
   );
 }
@@ -139,7 +138,7 @@ const offeringIcons = [illos[0], illos[2], illos[1], illos[4]];
 
 export function Expertise() {
   return (
-    <section className="bg-[#faf9f3]">
+    <section className="bg-aura-soft">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
@@ -197,10 +196,7 @@ export function Process() {
       className="container-px mx-auto max-w-[1760px] scroll-mt-24 py-20 lg:py-28"
     >
       <Reveal variant="fade">
-        <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
-          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-          How we deliver
-        </p>
+        <span className="pill">How we deliver</span>
       </Reveal>
       <RevealText
         text="One accountable team, from the financial model to year 25."
@@ -219,7 +215,8 @@ export function Process() {
 export function ImpactBand() {
   return (
     <section className="relative overflow-hidden bg-brand-dark py-20 text-white lg:py-28">
-      <div className="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-brand/20 blur-3xl" />
+      <div className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-active-green/30 blur-[90px]" />
+      <div className="pointer-events-none absolute -right-24 -bottom-24 h-72 w-72 rounded-full bg-active-green/15 blur-[90px]" />
       <div className="container-px relative mx-auto max-w-[1760px]">
         <RevealText
           text="Clean energy that compounds."
@@ -280,10 +277,10 @@ export function ByTheNumbers() {
         <div className="grid gap-5 lg:grid-cols-[0.9fr_1.6fr]">
           <Reveal
             variant="scale"
-            className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-xl bg-ink p-9 text-white"
+            className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl bg-ink p-9 text-white"
           >
             {/* inner motif */}
-            <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand/20 blur-3xl" />
+            <div className="pointer-events-none absolute -right-16 -top-16 h-60 w-60 rounded-full bg-active-green/25 blur-[80px]" />
             <svg
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.06]"
@@ -313,7 +310,7 @@ export function ByTheNumbers() {
                 key={s.label}
                 variant="up"
                 delay={i * 90}
-                className="flex flex-col justify-between rounded-xl border border-line bg-paper p-8"
+                className="u-card flex flex-col justify-between rounded-2xl border border-line/70 bg-paper p-8"
               >
                 <span className="h-1 w-10 rounded-full bg-brand" />
                 <div className="mt-8">
@@ -340,8 +337,9 @@ export function ByTheNumbers() {
 
 export function BrandPromise() {
   return (
-    <section className="bg-brand-tint">
-      <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-brand-tint">
+      <div className="pointer-events-none absolute -right-40 -top-32 h-[34rem] w-[34rem] rounded-full bg-active-green/20 blur-[110px]" />
+      <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <div>
             <RevealText
@@ -364,7 +362,7 @@ export function BrandPromise() {
           <Reveal
             variant="scale"
             delay={100}
-            className="relative aspect-[4/3] overflow-hidden rounded-xl bg-mist"
+            className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-mist shadow-[0_30px_60px_-24px_rgba(49,79,49,0.35)]"
           >
             <Parallax speed={0.14} className="absolute inset-0">
               <Image
@@ -386,7 +384,8 @@ export function BrandPromise() {
 
 export function ProjectsRail() {
   return (
-    <section className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
+    <section className="bg-aura">
+      <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <RevealText
           text="Our projects"
@@ -402,7 +401,7 @@ export function ProjectsRail() {
           <Link
             key={p.name}
             href="/projects"
-            className="u-card group w-[300px] shrink-0 snap-start overflow-hidden border border-line bg-paper sm:w-[340px]"
+            className="u-card group w-[300px] shrink-0 snap-start overflow-hidden rounded-2xl border border-line/70 bg-paper sm:w-[340px]"
           >
             <div className="relative h-44 w-full overflow-hidden bg-mist">
               <Image
@@ -432,6 +431,7 @@ export function ProjectsRail() {
           </Link>
         ))}
       </div>
+      </div>
     </section>
   );
 }
@@ -453,10 +453,7 @@ export function Testimonials() {
     <section className="bg-paper">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <Reveal variant="fade">
-          <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-            In their words
-          </p>
+          <span className="pill">In their words</span>
         </Reveal>
         <RevealText
           text="Judged on results, not promises."
@@ -470,7 +467,7 @@ export function Testimonials() {
               key={t.name}
               variant="up"
               delay={(i % 3) * 80}
-              className="u-card relative flex flex-col overflow-hidden rounded-xl border border-line bg-paper p-8"
+              className="u-card relative flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-paper p-8"
             >
               <span
                 aria-hidden="true"
@@ -510,7 +507,7 @@ function fmt(iso: string) {
 
 export function LatestNews() {
   return (
-    <section className="bg-paper">
+    <section className="bg-aura-soft">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
@@ -526,7 +523,7 @@ export function LatestNews() {
           {insights.slice(0, 3).map((post, i) => (
             <Reveal as="article" key={post.slug} delay={(i % 3) * 70}>
               <Link href={`/insights/${post.slug}`} className="group block">
-                <div className="relative aspect-[16/11] w-full overflow-hidden rounded-lg bg-mist shadow-[0_3px_14px_rgba(0,0,0,0.08)]">
+                <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-mist shadow-[0_18px_40px_-20px_rgba(49,79,49,0.28)]">
                   <Image
                     src={post.image}
                     alt=""

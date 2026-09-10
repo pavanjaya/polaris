@@ -80,8 +80,10 @@ export function Hero() {
       />
 
       {/* scrims */}
-      <div className="absolute inset-0 bg-black/35" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/45" />
+      <div className="absolute inset-0 bg-black/28" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/40" />
+      {/* melt into the airy section below */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[rgba(125,204,94,0.16)] to-transparent" />
 
       <div
         className="container-px relative z-10 mx-auto flex max-w-[1200px] flex-col items-center text-center"
