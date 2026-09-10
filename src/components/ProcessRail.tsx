@@ -83,11 +83,17 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 55vw"
                 className={`object-cover transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   isActive
-                    ? "scale-100 opacity-90"
-                    : "scale-105 opacity-50 group-hover:opacity-70"
+                    ? "scale-100 opacity-100"
+                    : "scale-105 opacity-80 group-hover:opacity-95"
                 }`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+              <div
+                className={`absolute inset-0 bg-gradient-to-t to-transparent transition-opacity duration-500 ${
+                  isActive
+                    ? "from-black/60 via-black/5"
+                    : "from-black/45 via-transparent"
+                }`}
+              />
 
               {/* collapsed label — horizontal on the mobile stack, vertical on the desktop row */}
               <span
