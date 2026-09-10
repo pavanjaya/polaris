@@ -80,6 +80,13 @@ const illos: React.ReactNode[] = [
 
 /* ---------- Intro statement ---------- */
 
+const introStats = [
+  { value: "650+", label: "Projects delivered" },
+  { value: "100 MW+", label: "Installed capacity" },
+  { value: "2", label: "Countries — India & Morocco" },
+  { value: "25 yr", label: "Asset lifecycle covered" },
+];
+
 export function IntroStatement() {
   return (
     <section className="bg-aura">
@@ -100,6 +107,21 @@ export function IntroStatement() {
               one point of accountability from feasibility to the 20th year of
               operation, across India and Morocco.
             </p>
+          </Reveal>
+
+          <Reveal variant="up" delay={100}>
+            <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-ink/10 pt-8 sm:grid-cols-4">
+              {introStats.map((it) => (
+                <div key={it.label}>
+                  <dt className="text-2xl font-bold tracking-tight text-ink">
+                    {it.value}
+                  </dt>
+                  <dd className="mt-1 text-xs leading-snug text-ink-faint">
+                    {it.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
         </div>
 
@@ -136,34 +158,6 @@ export function ClientStrip() {
         <span className="sr-only">
           Polaris clients include {clients.join(", ")}.
         </span>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- At a glance (stats strip under hero) ---------- */
-
-const glanceStrip = [
-  { value: "650+", label: "Projects delivered" },
-  { value: "100 MW+", label: "Installed capacity" },
-  { value: "2", label: "Countries — India & Morocco" },
-  { value: "25 yr", label: "Asset lifecycle covered" },
-];
-
-export function StatsStrip() {
-  return (
-    <section className="bg-ink text-white">
-      <div className="container-px mx-auto max-w-[1760px] py-10 lg:py-12">
-        <dl className="grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4">
-          {glanceStrip.map((it) => (
-            <div key={it.label}>
-              <dt className="text-3xl font-bold tracking-tight sm:text-4xl">
-                {it.value}
-              </dt>
-              <dd className="mt-1.5 text-sm text-white/55">{it.label}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );

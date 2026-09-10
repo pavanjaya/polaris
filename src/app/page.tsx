@@ -1,7 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { CTA } from "@/components/CTA";
 import {
-  StatsStrip,
   IntroStatement,
   ClientStrip,
   Footprint,
@@ -21,7 +20,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <StatsStrip />
       <IntroStatement />
       <ClientStrip />
       <Footprint />
