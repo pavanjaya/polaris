@@ -13,8 +13,8 @@ type Step = {
 /**
  * "Squeeze" carousel, à la Stripe's "What's happening" band: every step
  * shares one fixed row of space — the active panel expands and the rest
- * compress to slivers. Nothing scrolls; width is just redistributed.
- * Below the row, the active step's copy cross-fades in.
+ * compress to slivers. Nothing scrolls; width is just redistributed. The
+ * active panel's title and copy sit over the image on a soft bottom scrim.
  */
 export function ProcessRail({ steps }: { steps: Step[] }) {
   const [active, setActive] = useState(0);
@@ -86,37 +86,48 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
                 }`}
               />
 
+              {/* soft scrim behind the caption — bottom only, not a full wash */}
+              <div
+                className={`pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t to-transparent transition-all duration-500 ${
+                  isActive
+                    ? "h-3/5 from-black/75 via-black/20"
+                    : "h-2/5 from-black/40 via-transparent"
+                }`}
+              />
+
               {/* collapsed label — horizontal on the mobile stack, vertical on the desktop row */}
               <span
-                className={`pointer-events-none absolute bottom-4 left-4 text-sm font-semibold text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.6)] transition-opacity duration-300 sm:hidden ${
+                className={`pointer-events-none absolute bottom-4 left-4 text-sm font-semibold text-white transition-opacity duration-300 sm:hidden ${
                   isActive ? "opacity-0" : "opacity-95"
                 }`}
               >
                 {s.title}
               </span>
               <span
-                className={`pointer-events-none absolute bottom-5 left-1/2 hidden -translate-x-1/2 whitespace-nowrap text-sm font-semibold text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.6)] transition-opacity duration-300 [writing-mode:vertical-rl] sm:block ${
+                className={`pointer-events-none absolute bottom-5 left-1/2 hidden -translate-x-1/2 whitespace-nowrap text-sm font-semibold text-white transition-opacity duration-300 [writing-mode:vertical-rl] sm:block ${
                   isActive ? "opacity-0" : "opacity-95"
                 }`}
                 style={{ rotate: "180deg" }}
               >
                 {s.title}
               </span>
+
+              {/* active caption — on the image */}
+              <span
+                className={`pointer-events-none absolute inset-x-0 bottom-0 block p-6 transition-opacity duration-500 sm:p-8 ${
+                  isActive ? "opacity-100 delay-150" : "opacity-0"
+                }`}
+              >
+                <span className="block text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">
+                  {s.title}
+                </span>
+                <span className="mt-2 block max-w-xl text-sm leading-relaxed text-white/80">
+                  {s.body}
+                </span>
+              </span>
             </button>
           );
         })}
-      </div>
-
-      {/* active step copy */}
-      <div className="mt-7 min-h-[104px] border-t border-ink/10 pt-6">
-        <div key={active} className="squeezy-detail max-w-2xl">
-          <h3 className="text-lg font-bold tracking-tight text-ink">
-            {steps[active].title}
-          </h3>
-          <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
-            {steps[active].body}
-          </p>
-        </div>
       </div>
     </div>
   );
