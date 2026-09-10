@@ -63,19 +63,24 @@ export function Header() {
           <Logo height={66} tone={overlay ? "light" : "dark"} />
         </Link>
 
-        <nav className="hidden items-center gap-6 xl:flex">
+        <nav className="hidden items-center gap-7 xl:flex">
           {nav.map((item) => {
             const active = pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-[15px] font-medium transition-colors hover:opacity-70 ${
+                aria-current={active ? "page" : undefined}
+                className={`relative text-[15px] transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:rounded-full after:transition-all after:duration-300 after:content-[''] ${
+                  active ? "after:w-full" : "after:w-0 hover:after:w-full"
+                } ${
                   overlay
-                    ? "text-white"
+                    ? active
+                      ? "font-semibold text-white after:bg-white"
+                      : "font-medium text-white/70 hover:text-white after:bg-white"
                     : active
-                      ? "text-brand-strong"
-                      : "text-ink"
+                      ? "font-semibold text-brand-strong after:bg-brand-strong"
+                      : "font-medium text-ink hover:text-brand-strong after:bg-brand-strong"
                 }`}
               >
                 {item.label}
