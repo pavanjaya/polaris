@@ -96,13 +96,18 @@ export function Hero() {
           Engineering the Bottom Line
         </p>
 
-        <h1 className="text-[13vw] font-bold tracking-tight leading-[0.95] text-white sm:text-[6.5rem] lg:text-[8rem]">
-          Energy as
-          <br />
-          <span className="word-rotator">
-            <span>an asset</span>
-            <span>an advantage</span>
-            <span>a return</span>
+        <h1
+          aria-label="Energy as an asset, an advantage, a return."
+          className="text-[13vw] font-bold tracking-tight leading-[0.95] text-white sm:text-[6.5rem] lg:text-[8rem]"
+        >
+          <span aria-hidden="true">
+            Energy as
+            <br />
+            <span className="word-rotator">
+              <span>an asset</span>
+              <span>an advantage</span>
+              <span>a return</span>
+            </span>
           </span>
         </h1>
 

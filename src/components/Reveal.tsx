@@ -66,7 +66,20 @@ export function Reveal({
       });
     }, el);
 
-    return () => ctx.revert();
+    // Failsafe: if the trigger never fires, don't leave content hidden.
+    const settled = { toVars: { ...toVars, y: 0, yPercent: 0, scale: 1 } };
+    const failsafe = window.setTimeout(() => {
+      const r = el.getBoundingClientRect();
+      const revealed = parseFloat(getComputedStyle(el).opacity || "1") > 0.9;
+      if (!revealed && r.top < window.innerHeight * 1.5 && r.bottom > -200) {
+        gsap.set(targets, settled.toVars);
+      }
+    }, 3200);
+
+    return () => {
+      window.clearTimeout(failsafe);
+      ctx.revert();
+    };
   }, [delay, variant, stagger]);
 
   const maskWrap = variant === "mask" ? "overflow-hidden" : "";
