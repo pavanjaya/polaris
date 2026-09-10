@@ -69,7 +69,7 @@ export function TestimonialCarousel() {
           </blockquote>
 
           <figcaption className="mt-8 flex items-center justify-center gap-3">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-tint text-sm font-bold text-brand-dark">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-tint text-sm font-semibold text-brand-dark">
               {initials(t.name)}
             </span>
             <span className="text-left text-sm">

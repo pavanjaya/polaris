@@ -32,7 +32,7 @@ export default function GlobalPage() {
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-strong">
                 {m.status}
               </div>
-              <h3 className="mt-2 text-xl font-bold tracking-tight text-ink">
+              <h3 className="mt-2 text-xl font-semibold tracking-tight text-ink">
                 {m.market}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-ink-soft">
@@ -112,7 +112,7 @@ export default function GlobalPage() {
           <div className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-3">
             {global.why.map((w) => (
               <div key={w.title}>
-                <h3 className="text-base font-bold tracking-tight text-ink">
+                <h3 className="text-base font-semibold tracking-tight text-ink">
                   {w.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft">

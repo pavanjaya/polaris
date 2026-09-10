@@ -105,7 +105,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
                   isActive ? "opacity-100 delay-150" : "opacity-0"
                 }`}
               >
-                <span className="block text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">
+                <span className="block text-xl font-semibold leading-tight tracking-tight text-white sm:text-2xl">
                   {s.title}
                 </span>
                 <span className="mt-2 block max-w-xl text-sm leading-relaxed text-white/80">

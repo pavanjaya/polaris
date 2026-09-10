@@ -62,7 +62,7 @@ export function SectionHeading({
         </Reveal>
       )}
       <Reveal as="span" variant="mask" className="mt-3 block">
-        <h2 className="text-balance text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]">
+        <h2 className="text-balance text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]">
           {title}
         </h2>
       </Reveal>
@@ -142,7 +142,7 @@ export function PageHeader({
           <Eyebrow>{eyebrow}</Eyebrow>
         </Reveal>
         <Reveal as="span" variant="mask" className="mt-4 block">
-          <h1 className="max-w-3xl text-balance text-4xl font-bold tracking-tight text-ink sm:text-[3.25rem]">
+          <h1 className="max-w-3xl text-balance text-4xl font-semibold tracking-tight text-ink sm:text-[3.25rem]">
             {title}
           </h1>
         </Reveal>

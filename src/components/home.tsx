@@ -97,7 +97,7 @@ export function IntroStatement() {
           </Reveal>
           <RevealText
             text="We engineer, finance and operate commercial & industrial solar."
-            className="mt-5 block max-w-3xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+            className="mt-5 block max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
           />
           <Reveal variant="up" delay={60}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -113,7 +113,7 @@ export function IntroStatement() {
             <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-ink/10 pt-8 sm:grid-cols-4">
               {introStats.map((it) => (
                 <div key={it.label}>
-                  <dt className="text-2xl font-bold tracking-tight text-ink">
+                  <dt className="text-2xl font-semibold tracking-tight text-ink">
                     {it.value}
                   </dt>
                   <dd className="mt-1 text-xs leading-snug text-ink-faint">
@@ -184,7 +184,7 @@ export function Footprint() {
             </Reveal>
             <RevealText
               text="Indian engineering discipline, delivered across borders."
-              className="mt-5 block max-w-xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+              className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
             />
             <Reveal variant="up" delay={60}>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
@@ -204,7 +204,7 @@ export function Footprint() {
             {globalReach.presence.map((m) => (
               <div key={m.market} className="grid gap-2 py-5 sm:grid-cols-[9rem_1fr] sm:gap-5">
                 <div>
-                  <p className="font-bold text-ink">{m.market}</p>
+                  <p className="font-semibold text-ink">{m.market}</p>
                   <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-brand-strong">
                     {m.status}
                   </p>
@@ -253,7 +253,7 @@ export function Segments() {
         </Reveal>
         <RevealText
           text="Built for energy-intensive industry."
-          className="mt-5 block max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+          className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
         />
 
         <div className="mt-12 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
@@ -264,7 +264,7 @@ export function Segments() {
               delay={(i % 3) * 70}
               className="border-t border-ink/10 pt-5"
             >
-              <h3 className="text-lg font-bold tracking-tight text-ink">
+              <h3 className="text-lg font-semibold tracking-tight text-ink">
                 {s.name}
               </h3>
               <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
@@ -311,7 +311,7 @@ export function TrustRow() {
         </Reveal>
         <RevealText
           text="Discipline you can underwrite."
-          className="mt-5 block max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+          className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
         />
 
         <div className="mt-14 grid gap-x-16 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-20">
@@ -320,7 +320,7 @@ export function TrustRow() {
               <span className="flex h-14 w-14 items-center justify-center rounded-lg bg-brand-tint text-brand-strong [&>svg]:h-7 [&>svg]:w-7">
                 {trustIcons[i]}
               </span>
-              <h3 className="mt-6 text-lg font-bold tracking-tight text-ink">
+              <h3 className="mt-6 text-lg font-semibold tracking-tight text-ink">
                 {t.title}
               </h3>
               <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
@@ -345,7 +345,7 @@ export function CareersStrip() {
           className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between"
         >
           <div>
-            <p className="text-lg font-bold tracking-tight text-ink">
+            <p className="text-lg font-semibold tracking-tight text-ink">
               Polaris is growing — across India and Morocco.
             </p>
             <p className="mt-1 text-[15px] text-ink-soft">
@@ -371,7 +371,7 @@ export function Expertise() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
             text="Our solutions"
-            className="text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+            className="text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
           />
           <Reveal variant="fade">
             <ArrowLink href="/solutions">Explore all solutions</ArrowLink>
@@ -384,7 +384,7 @@ export function Expertise() {
               <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
                 {offeringIcons[i]}
               </span>
-              <h3 className="mt-6 text-xl font-bold tracking-tight text-ink">
+              <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink">
                 {s.title}
               </h3>
               <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
@@ -417,7 +417,7 @@ export function Process() {
       </Reveal>
       <RevealText
         text="One accountable team, from the financial model to year 25."
-        className="mt-5 block max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+        className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
       />
 
       <Reveal variant="fade">
@@ -517,7 +517,7 @@ export function ImpactBand() {
         </Reveal>
         <RevealText
           text="Clean energy that compounds."
-          className="mt-5 block max-w-2xl text-3xl font-bold tracking-tight sm:text-[2.5rem]"
+          className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight sm:text-[2.5rem]"
         />
         <Reveal variant="up" delay={80}>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/70">
@@ -531,7 +531,7 @@ export function ImpactBand() {
             <Reveal key={it.label} variant="up" delay={i * 80}>
               <CountUp
                 value={it.value}
-                className="block bg-gradient-to-r from-[#9be87c] via-brand to-brand-strong bg-clip-text text-[2.5rem] font-bold tracking-tight text-transparent sm:text-5xl"
+                className="block bg-gradient-to-r from-[#9be87c] via-brand to-brand-strong bg-clip-text text-[2.5rem] font-semibold tracking-tight text-transparent sm:text-5xl"
               />
               <span className="mt-2 block text-sm text-white/60">{it.label}</span>
             </Reveal>
@@ -560,7 +560,7 @@ export function BrandPromise() {
             </Reveal>
             <RevealText
               text="Energy as an asset."
-              className="mt-5 block max-w-xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+              className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
             />
             <Reveal variant="up" delay={60}>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
@@ -605,7 +605,7 @@ export function ProjectsRail() {
       <div className="flex flex-wrap items-end justify-between gap-6">
         <RevealText
           text="Our projects"
-          className="text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+          className="text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
         />
         <Reveal variant="fade">
           <ArrowLink href="/projects">Discover our projects</ArrowLink>
@@ -637,7 +637,7 @@ export function ProjectsRail() {
                   {p.capacity}
                 </span>
               </div>
-              <h3 className="mt-4 text-base font-bold tracking-tight text-ink">
+              <h3 className="mt-4 text-base font-semibold tracking-tight text-ink">
                 {p.name}
               </h3>
               <p className="mt-1 text-sm text-ink-faint">{p.location}</p>
@@ -677,7 +677,7 @@ export function LatestNews() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
             text="Latest insights"
-            className="text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+            className="text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
           />
           <Reveal variant="fade">
             <ArrowLink href="/insights">See all insights</ArrowLink>
@@ -700,7 +700,7 @@ export function LatestNews() {
                 <span className="mt-5 inline-block rounded bg-brand-tint px-2.5 py-1 text-xs font-semibold text-brand-strong">
                   {post.category}
                 </span>
-                <h3 className="mt-4 line-clamp-2 text-2xl font-bold leading-[1.15] tracking-tight text-ink group-hover:underline">
+                <h3 className="mt-4 line-clamp-2 text-2xl font-semibold leading-[1.15] tracking-tight text-ink group-hover:underline">
                   {post.title}
                 </h3>
                 <time

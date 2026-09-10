@@ -98,7 +98,7 @@ export function Hero() {
 
         <h1
           aria-label="Energy as an asset, an advantage, a return."
-          className="text-[10.92vw] font-bold tracking-tight leading-[0.95] text-white sm:text-[5.46rem] lg:text-[6.72rem]"
+          className="text-[10.92vw] font-semibold tracking-tight leading-[0.95] text-white sm:text-[5.46rem] lg:text-[6.72rem]"
         >
           <span aria-hidden="true">
             Energy as

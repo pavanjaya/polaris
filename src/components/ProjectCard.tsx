@@ -34,7 +34,7 @@ export function ProjectCard({ project }: { project: Project }) {
           <span>{project.year}</span>
         </div>
 
-        <h3 className="mt-2 text-lg font-bold tracking-tight text-ink">
+        <h3 className="mt-2 text-lg font-semibold tracking-tight text-ink">
           {project.name}
         </h3>
 
