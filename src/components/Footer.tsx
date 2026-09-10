@@ -137,10 +137,6 @@ export function Footer() {
             </Link>
           </div>
         </div>
-
-        <p className="mt-6 text-[11px] text-ink-faint">
-          Figures and project details on this site are illustrative placeholders.
-        </p>
       </div>
     </footer>
   );
