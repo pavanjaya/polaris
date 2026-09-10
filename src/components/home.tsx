@@ -5,7 +5,7 @@ import { Parallax } from "./motion/Parallax";
 import { CountUp } from "./motion/CountUp";
 import { Button, ArrowLink, ArrowRight } from "./ui";
 import {
-  solutions,
+  offerings,
   projects,
   stats,
   insights,
@@ -128,7 +128,9 @@ export function ClientStrip() {
   );
 }
 
-/* ---------- Our expertise ---------- */
+/* ---------- Our solutions ---------- */
+
+const offeringIcons = [illos[0], illos[2], illos[1], illos[4]];
 
 export function Expertise() {
   return (
@@ -136,21 +138,21 @@ export function Expertise() {
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Our expertise
+            Our solutions
           </h2>
-          <ArrowLink href="/solutions">All our solutions</ArrowLink>
+          <ArrowLink href="/solutions">Explore all solutions</ArrowLink>
         </Reveal>
 
-        <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-          {solutions.slice(0, 6).map((s, i) => (
-            <Reveal as="article" key={s.slug} delay={(i % 3) * 70}>
+        <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
+          {offerings.map((s, i) => (
+            <Reveal as="article" key={s.title} delay={(i % 4) * 70}>
               <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
-                {illos[i]}
+                {offeringIcons[i]}
               </span>
               <h3 className="mt-6 text-xl font-bold tracking-tight text-ink">
                 {s.title}
               </h3>
-              <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-ink-soft">
+              <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
                 {s.summary}
               </p>
               <Link

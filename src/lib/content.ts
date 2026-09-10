@@ -187,6 +187,30 @@ export const testimonials = [
   },
 ];
 
+// Homepage "Our Solutions" — the four offering categories.
+export const offerings = [
+  {
+    title: "Commercial & Industrial",
+    summary:
+      "Rooftop and ground-mount solar for factories, warehouses and campuses — engineered for four decades of dependable generation and structured to the balance sheet.",
+  },
+  {
+    title: "Utility Scale",
+    summary:
+      "Large ground-mount and hybrid parks with HT evacuation, land and interconnection managed end to end for IPPs and open-access buyers.",
+  },
+  {
+    title: "Finance Solutions",
+    summary:
+      "CAPEX, OPEX / RESCO, lease and group-captive structures — matched to your cash flow, with an investment-grade model behind every proposal.",
+  },
+  {
+    title: "Energy Optimisation Consultant",
+    summary:
+      "Load analysis, BESS sizing, time-of-day strategy and SCADA-driven O&M — advisory that keeps the asset performing to year 25.",
+  },
+];
+
 export const solutions = [
   {
     slug: "capex",
