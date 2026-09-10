@@ -7,6 +7,7 @@ import { CountUp } from "./motion/CountUp";
 import { Button, ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
 import { SolarSystemLines } from "./SolarSystemLines";
+import { TestimonialCarousel } from "./TestimonialCarousel";
 import {
   offerings,
   projects,
@@ -17,7 +18,6 @@ import {
   clientLogos,
   process as deliverySteps,
   impact,
-  testimonials,
 } from "@/lib/content";
 
 /* ---------- flat illustrations (Uber-style, brand green) ---------- */
@@ -369,7 +369,7 @@ export function BrandPromise() {
           <Reveal
             variant="scale"
             delay={100}
-            className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-mist shadow-[0_30px_60px_-24px_rgba(49,79,49,0.35)]"
+            className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-mist"
           >
             <Parallax speed={0.14} className="absolute inset-0">
               <Image
@@ -445,61 +445,8 @@ export function ProjectsRail() {
 
 /* ---------- Testimonials ---------- */
 
-function initials(role: string) {
-  const words = role
-    .replace(/[^A-Za-z ]/g, "")
-    .split(" ")
-    .filter((w) => w && !/^(of|the|and|for|a|an)$/i.test(w));
-  const pick =
-    words.length > 1 ? [words[0], words[words.length - 1]] : words;
-  return pick.map((w) => w[0]).join("").toUpperCase();
-}
-
 export function Testimonials() {
-  return (
-    <section className="bg-paper">
-      <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
-        <Reveal variant="fade">
-          <span className="pill">In their words</span>
-        </Reveal>
-        <RevealText
-          text="Judged on results, not promises."
-          className="mt-5 max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
-        />
-
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <Reveal
-              as="figure"
-              key={t.name}
-              variant="up"
-              delay={(i % 3) * 80}
-              className="u-card relative flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-paper p-8"
-            >
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-2 -top-6 select-none font-serif text-[7rem] leading-none text-brand/15"
-              >
-                &rdquo;
-              </span>
-              <blockquote className="relative flex-1 text-[17px] leading-relaxed text-ink">
-                {t.quote}
-              </blockquote>
-              <figcaption className="mt-7 flex items-center gap-3 border-t border-ink/10 pt-5">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-tint text-sm font-bold text-brand-dark">
-                  {initials(t.name)}
-                </span>
-                <span className="text-sm">
-                  <span className="block font-semibold text-ink">{t.name}</span>
-                  <span className="block text-ink-soft">{t.org}</span>
-                </span>
-              </figcaption>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <TestimonialCarousel />;
 }
 
 /* ---------- Latest insights ---------- */
@@ -530,7 +477,7 @@ export function LatestNews() {
           {insights.slice(0, 3).map((post, i) => (
             <Reveal as="article" key={post.slug} delay={(i % 3) * 70}>
               <Link href={`/insights/${post.slug}`} className="group block">
-                <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-mist shadow-[0_18px_40px_-20px_rgba(49,79,49,0.28)]">
+                <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-mist">
                   <Image
                     src={post.image}
                     alt=""
