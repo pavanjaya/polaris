@@ -19,10 +19,10 @@
   --color-steel-dark: #3d3d3d; /* tertiary — dark structure */
   --color-pure-white: #ffffff;
 
-  /* Ink — near-black, Uber-style */
-  --color-ink: #10131a; /* cool near-black, Stripe-ish */
-  --color-ink-soft: #4a5057; /* muted slate for body copy */
-  --color-ink-faint: #8b909a;
+  /* Ink — brand text colours */
+  --color-ink: #0b1525; /* primary font colour */
+  --color-ink-soft: #424e68; /* secondary font colour */
+  --color-ink-faint: #8d94a4; /* muted — lighter tint of the secondary */
 
   /* Surfaces — neutral greys */
   --color-paper: #ffffff;
@@ -38,8 +38,8 @@
   --color-midnight-800: #eeeeee;
   --color-midnight-700: #e4e4e4;
   --color-midnight-600: #cfcfcf;
-  --color-ice-100: #0e0e0e;
-  --color-ice-200: #4a4a4a;
+  --color-ice-100: #0b1525; /* legacy alias -> primary font colour */
+  --color-ice-200: #424e68; /* legacy alias -> secondary font colour */
   --color-aurora-500: #2e7d32;
   --color-aurora-400: #2e7d32;
   --color-aurora-300: #5fcf4b;
