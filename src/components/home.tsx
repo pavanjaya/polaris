@@ -176,7 +176,7 @@ export function Footprint() {
           <path d="M100 12v176M32 46a120 120 0 0 0 136 0M32 154a120 120 0 0 1 136 0" stroke="currentColor" strokeWidth="1" />
         </svg>
       </div>
-      <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
+      <div className="container-px relative mx-auto max-w-[1760px] pb-8 pt-20 lg:pb-10 lg:pt-28">
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
           <div>
             <Reveal variant="fade">
@@ -226,7 +226,7 @@ export function Footprint() {
 export function GlobalScene() {
   return (
     <section className="bg-paper">
-      <div className="container-px mx-auto max-w-[1760px] pb-16 lg:pb-24">
+      <div className="container-px mx-auto max-w-[1760px] pb-12 lg:pb-16">
         <Reveal variant="scale" className="overflow-hidden rounded-lg">
           <Image
             src="/img/global-reach.jpg"
@@ -234,7 +234,7 @@ export function GlobalScene() {
             width={1800}
             height={1009}
             sizes="(max-width: 1760px) 100vw, 1760px"
-            className="h-[300px] w-full object-cover sm:h-[380px] lg:h-[460px]"
+            className="h-[380px] w-full object-cover sm:h-[480px] lg:h-[600px]"
           />
         </Reveal>
       </div>
