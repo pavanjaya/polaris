@@ -53,4 +53,10 @@ src/
 - **Contact form:** `src/components/ContactForm.tsx` currently just shows a
   confirmation. Wire it to a CRM or email endpoint before launch.
 
+> **Before publishing:** the homepage "Selected clients & project stakeholders"
+> strip uses generic brand SVGs (`public/img/clients/`, listed in
+> `clientLogos` in `content.ts`) purely to build the visual. Swap every one for
+> a real Polaris client or partner logo — the current set does not represent
+> actual client relationships.
+
 All figures, project names, and locations are illustrative placeholders.
