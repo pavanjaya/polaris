@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { ProcessRail } from "./ProcessRail";
-import { Parallax } from "./motion/Parallax";
+import Orb from "./Orb";
 import { CountUp } from "./motion/CountUp";
 import { Button, ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
@@ -599,25 +599,22 @@ export function BrandPromise() {
             </Reveal>
           </div>
 
-          <Reveal variant="scale" delay={100} className="relative">
-            {/* soft accent block for depth */}
-            <div
-              aria-hidden="true"
-              className="absolute -right-5 -top-5 hidden h-32 w-32 rounded-lg bg-brand-tint sm:block"
-            />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-mist">
-              <Parallax speed={0.14} className="absolute inset-0">
-                <Image
-                  src="/img/solar-rooftop.jpg"
-                  alt="Rooftop solar array on an industrial facility"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="scale-110 object-cover"
-                />
-              </Parallax>
+          <Reveal
+            variant="scale"
+            delay={100}
+            className="relative mx-auto w-full max-w-[34rem] lg:mx-0"
+          >
+            <div className="relative aspect-square">
+              <Orb
+                hue={230}
+                hoverIntensity={0.4}
+                rotateOnHover
+                backgroundColor="#FAFBF6"
+                className="absolute inset-0"
+              />
             </div>
             {/* floating caption card */}
-            <div className="absolute -bottom-6 -left-6 hidden max-w-[16rem] rounded-lg border border-line/70 bg-paper p-5 shadow-[0_24px_60px_-28px_rgba(11,21,37,0.4)] sm:block">
+            <div className="absolute bottom-2 -left-4 hidden max-w-[16rem] rounded-lg border border-line/70 bg-paper p-5 shadow-[0_24px_60px_-28px_rgba(11,21,37,0.4)] sm:block">
               <p className="text-sm font-semibold tracking-tight text-ink">
                 Every kW is underwritten
               </p>
