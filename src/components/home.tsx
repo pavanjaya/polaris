@@ -139,7 +139,7 @@ export function ClientStrip() {
   // duplicated so the CSS loop is seamless
   const loop = [...clientLogos, ...clientLogos];
   return (
-    <section className="bg-paper py-12 lg:py-16">
+    <section className="bg-[#FAFBF6] py-12 lg:py-16">
       <Reveal variant="fade" className="container-px mx-auto max-w-[1760px]">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-ink-faint">
           Trusted on 650+ industrial projects
@@ -167,15 +167,13 @@ export function ClientStrip() {
 
 export function Footprint() {
   return (
-    <section className="relative overflow-hidden bg-aura">
-      <div className="pointer-events-none absolute -right-24 -top-24 h-[26rem] w-[26rem] text-ink/[0.05]">
-        <svg viewBox="0 0 200 200" fill="none" className="h-full w-full">
-          <circle cx="100" cy="100" r="88" stroke="currentColor" strokeWidth="1" />
-          <ellipse cx="100" cy="100" rx="88" ry="34" stroke="currentColor" strokeWidth="1" />
-          <ellipse cx="100" cy="100" rx="88" ry="64" stroke="currentColor" strokeWidth="1" />
-          <path d="M100 12v176M32 46a120 120 0 0 0 136 0M32 154a120 120 0 0 1 136 0" stroke="currentColor" strokeWidth="1" />
-        </svg>
-      </div>
+    <section
+      className="relative overflow-hidden bg-paper"
+      style={{
+        background:
+          "radial-gradient(48rem 34rem at 4% -12%, rgba(125, 204, 94, 0.22), rgba(125, 204, 94, 0) 60%), #ffffff",
+      }}
+    >
       <div className="container-px relative mx-auto max-w-[1760px] pb-8 pt-20 lg:pb-10 lg:pt-28">
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
           <div>
