@@ -92,6 +92,10 @@ export function Hero() {
           opacity: 1 - prog * 0.9,
         }}
       >
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.24em] text-white/85 sm:text-sm">
+          Engineering the Bottom Line
+        </p>
+
         <h1 className="text-[13vw] font-bold tracking-tight leading-[0.95] text-white sm:text-[6.5rem] lg:text-[8rem]">
           Energy as
           <br />
