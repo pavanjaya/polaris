@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { ProcessRail } from "./ProcessRail";
 import { Parallax } from "./motion/Parallax";
 import { CountUp } from "./motion/CountUp";
 import { Button, ArrowLink, ArrowRight } from "./ui";
@@ -198,20 +199,9 @@ export function Process() {
         </h2>
       </Reveal>
 
-      <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-        {deliverySteps.map((p, i) => (
-          <Reveal as="article" key={p.step} variant="up" delay={(i % 4) * 80}>
-            <div className="text-sm font-bold text-brand-strong">{p.step}</div>
-            <div className="mt-3 h-px w-full bg-ink/10" />
-            <h3 className="mt-4 text-lg font-bold tracking-tight text-ink">
-              {p.title}
-            </h3>
-            <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
-              {p.body}
-            </p>
-          </Reveal>
-        ))}
-      </div>
+      <Reveal variant="fade">
+        <ProcessRail steps={deliverySteps} />
+      </Reveal>
     </section>
   );
 }
@@ -436,32 +426,58 @@ export function ProjectsRail() {
 
 /* ---------- Testimonials ---------- */
 
+function initials(role: string) {
+  const words = role
+    .replace(/[^A-Za-z ]/g, "")
+    .split(" ")
+    .filter((w) => w && !/^(of|the|and|for|a|an)$/i.test(w));
+  const pick =
+    words.length > 1 ? [words[0], words[words.length - 1]] : words;
+  return pick.map((w) => w[0]).join("").toUpperCase();
+}
+
 export function Testimonials() {
   return (
-    <section className="bg-haze">
+    <section className="bg-paper">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
-        <Reveal>
-          <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-            In their words
-          </p>
-          <h2 className="mt-5 max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]">
-            Judged on results, not promises.
-          </h2>
+        <Reveal className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              In their words
+            </p>
+            <h2 className="mt-5 max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]">
+              Judged on results, not promises.
+            </h2>
+          </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
           {testimonials.map((t, i) => (
-            <Reveal as="figure" key={t.name} variant="up" delay={(i % 3) * 80}>
-              <span className="text-4xl font-bold leading-none text-brand">
-                &ldquo;
+            <Reveal
+              as="figure"
+              key={t.name}
+              variant="up"
+              delay={(i % 3) * 80}
+              className="u-card relative flex flex-col overflow-hidden rounded-xl border border-line bg-paper p-8"
+            >
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-2 -top-6 select-none font-serif text-[7rem] leading-none text-brand/15"
+              >
+                &rdquo;
               </span>
-              <blockquote className="mt-2 text-lg leading-relaxed text-ink">
+              <blockquote className="relative flex-1 text-[17px] leading-relaxed text-ink">
                 {t.quote}
               </blockquote>
-              <figcaption className="mt-6 border-t border-ink/10 pt-4 text-sm">
-                <span className="font-semibold text-ink">{t.name}</span>
-                <span className="block text-ink-soft">{t.org}</span>
+              <figcaption className="mt-7 flex items-center gap-3 border-t border-ink/10 pt-5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-tint text-sm font-bold text-brand-dark">
+                  {initials(t.name)}
+                </span>
+                <span className="text-sm">
+                  <span className="block font-semibold text-ink">{t.name}</span>
+                  <span className="block text-ink-soft">{t.org}</span>
+                </span>
               </figcaption>
             </Reveal>
           ))}
