@@ -623,7 +623,7 @@ export function ProjectsRail() {
             href="/projects"
             className="u-card group w-[300px] shrink-0 snap-start overflow-hidden rounded-lg border border-line/70 bg-paper sm:w-[340px]"
           >
-            <div className="relative h-44 w-full overflow-hidden bg-mist">
+            <div className="relative h-56 w-full overflow-hidden bg-mist sm:h-64">
               <Image
                 src={p.image}
                 alt={p.name}
