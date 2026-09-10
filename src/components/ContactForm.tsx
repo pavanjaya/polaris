@@ -18,7 +18,7 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="rounded-xl border border-brand/30 bg-brand-tint/50 p-8">
+      <div className="rounded-lg border border-brand/30 bg-brand-tint/50 p-8">
         <h2 className="text-lg font-medium text-ink">Thanks — message received.</h2>
         <p className="mt-2 text-sm leading-relaxed text-ink-soft">
           This demo form doesn&apos;t send anywhere yet. Wire it to your CRM or an

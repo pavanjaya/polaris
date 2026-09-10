@@ -94,7 +94,7 @@ export default function AboutPage() {
         <SectionHeading eyebrow="Leadership" title="Meet the founders" />
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           {founders.map((p) => (
-            <div key={p.name} className="rounded-xl border border-line bg-paper p-7">
+            <div key={p.name} className="rounded-lg border border-line bg-paper p-7">
               <h3 className="text-lg font-semibold text-ink">{p.name}</h3>
               <p className="mt-1 text-sm font-medium text-brand-strong">{p.role}</p>
               <p className="mt-4 text-sm leading-relaxed text-ink-soft">{p.bio}</p>

@@ -42,7 +42,7 @@ export default function PessPage() {
             height={1600}
             priority
             sizes="(max-width: 640px) 92vw, 500px"
-            className="relative w-full rounded-2xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
+            className="relative w-full rounded-lg shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
           />
         </div>
 

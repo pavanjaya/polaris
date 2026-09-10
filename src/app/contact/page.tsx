@@ -26,7 +26,7 @@ export default function ContactPage() {
             {offices.map((o) => (
               <div
                 key={o.name}
-                className="rounded-xl border border-line bg-paper p-6"
+                className="rounded-lg border border-line bg-paper p-6"
               >
                 <h2 className="text-lg font-semibold text-ink">{o.name}</h2>
                 <ul className="mt-4 space-y-3 text-sm text-ink-soft">

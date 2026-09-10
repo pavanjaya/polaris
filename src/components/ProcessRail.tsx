@@ -60,7 +60,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
               onFocus={() => setActive(i)}
               aria-label={s.title}
               aria-pressed={isActive}
-              className="group relative min-h-[64px] min-w-0 overflow-hidden rounded-xl bg-mist text-left transition-[flex-grow] duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="group relative min-h-[64px] min-w-0 overflow-hidden rounded-lg bg-mist text-left transition-[flex-grow] duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
               style={{ flexGrow: isActive ? 6 : 1, flexBasis: 0 }}
             >
               <Image

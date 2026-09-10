@@ -227,7 +227,7 @@ export function GlobalScene() {
   return (
     <section className="bg-paper">
       <div className="container-px mx-auto max-w-[1760px] pb-16 lg:pb-24">
-        <Reveal variant="scale" className="overflow-hidden rounded-2xl">
+        <Reveal variant="scale" className="overflow-hidden rounded-lg">
           <Image
             src="/img/global-reach.jpg"
             alt="Illustrated montage of world landmarks with wind turbines, solar panels, a container port, rail and power infrastructure."
@@ -317,7 +317,7 @@ export function TrustRow() {
         <div className="mt-14 grid gap-x-16 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-20">
           {trust.map((t, i) => (
             <Reveal as="article" key={t.title} delay={(i % 4) * 70}>
-              <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-tint text-brand-strong [&>svg]:h-7 [&>svg]:w-7">
+              <span className="flex h-14 w-14 items-center justify-center rounded-lg bg-brand-tint text-brand-strong [&>svg]:h-7 [&>svg]:w-7">
                 {trustIcons[i]}
               </span>
               <h3 className="mt-6 text-lg font-bold tracking-tight text-ink">
@@ -578,7 +578,7 @@ export function BrandPromise() {
           <Reveal
             variant="scale"
             delay={100}
-            className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-mist"
+            className="relative aspect-[4/3] overflow-hidden rounded-lg bg-mist"
           >
             <Parallax speed={0.14} className="absolute inset-0">
               <Image
@@ -617,7 +617,7 @@ export function ProjectsRail() {
           <Link
             key={p.name}
             href="/projects"
-            className="u-card group w-[300px] shrink-0 snap-start overflow-hidden rounded-2xl border border-line/70 bg-paper sm:w-[340px]"
+            className="u-card group w-[300px] shrink-0 snap-start overflow-hidden rounded-lg border border-line/70 bg-paper sm:w-[340px]"
           >
             <div className="relative h-44 w-full overflow-hidden bg-mist">
               <Image
@@ -688,7 +688,7 @@ export function LatestNews() {
           {insights.slice(0, 3).map((post, i) => (
             <Reveal as="article" key={post.slug} delay={(i % 3) * 70}>
               <Link href={`/insights/${post.slug}`} className="group block">
-                <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-mist">
+                <div className="relative aspect-[16/11] w-full overflow-hidden rounded-lg bg-mist">
                   <Image
                     src={post.image}
                     alt=""
