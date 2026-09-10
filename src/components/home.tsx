@@ -1,8 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { Parallax } from "./motion/Parallax";
 import { Button, ArrowLink, ArrowRight } from "./ui";
-import { solutions, projects, stats, insights, company } from "@/lib/content";
+import {
+  solutions,
+  projects,
+  stats,
+  insights,
+  company,
+  clients,
+} from "@/lib/content";
 
 /* ---------- flat illustrations (Uber-style, brand green) ---------- */
 
@@ -81,6 +89,30 @@ export function IntroStatement() {
           India and Morocco.
         </p>
       </Reveal>
+    </section>
+  );
+}
+
+/* ---------- Client strip ---------- */
+
+export function ClientStrip() {
+  return (
+    <section className="border-y border-line bg-paper">
+      <div className="container-px mx-auto max-w-[1760px] py-12 lg:py-14">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-faint">
+          Trusted by industry leaders
+        </p>
+        <div className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-4">
+          {clients.map((c) => (
+            <span
+              key={c}
+              className="text-lg font-semibold tracking-tight text-ink-soft"
+            >
+              {c}
+            </span>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
@@ -189,16 +221,19 @@ export function BrandPromise() {
           </Reveal>
 
           <Reveal
+            variant="scale"
             delay={100}
             className="relative aspect-[4/3] overflow-hidden rounded-xl bg-mist"
           >
-            <Image
-              src="/img/solar-rooftop.jpg"
-              alt="Rooftop solar array on an industrial facility"
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover"
-            />
+            <Parallax speed={0.14} className="absolute inset-0">
+              <Image
+                src="/img/solar-rooftop.jpg"
+                alt="Rooftop solar array on an industrial facility"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="scale-110 object-cover"
+              />
+            </Parallax>
           </Reveal>
         </div>
       </div>

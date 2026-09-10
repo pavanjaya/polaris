@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { CTA } from "@/components/CTA";
 import {
   IntroStatement,
+  ClientStrip,
   Expertise,
   ByTheNumbers,
   BrandPromise,
@@ -14,6 +15,7 @@ export default function HomePage() {
     <>
       <Hero />
       <IntroStatement />
+      <ClientStrip />
       <Expertise />
       <ByTheNumbers />
       <BrandPromise />

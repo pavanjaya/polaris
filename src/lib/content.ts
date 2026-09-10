@@ -26,15 +26,6 @@ export const offices = [
     email: "info@polarisenergy.in",
   },
   {
-    name: "Gujarat Office",
-    entity: "Polaris Renewable Solutions Pvt. Ltd.",
-    address:
-      "202, Silver Point, Near Union Bank, GIDC, Umbergaon, Gujarat 396171",
-    phone: "+91 91723 15353",
-    phones: ["+91 91723 15353"],
-    email: "info@polarisenergy.in",
-  },
-  {
     name: "Morocco Office",
     entity: "Polaris Global Energie SARL",
     address:

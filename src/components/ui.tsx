@@ -58,19 +58,27 @@ export function SectionHeading({
   align?: "left" | "center";
 }) {
   return (
-    <Reveal
+    <div
       className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}
     >
-      {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]">
-        {title}
-      </h2>
-      {intro && (
-        <p className="mt-4 text-pretty text-base leading-relaxed text-ink-soft">
-          {intro}
-        </p>
+      {eyebrow && (
+        <Reveal variant="fade">
+          <Eyebrow>{eyebrow}</Eyebrow>
+        </Reveal>
       )}
-    </Reveal>
+      <Reveal as="span" variant="mask" className="mt-3 block">
+        <h2 className="text-balance text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]">
+          {title}
+        </h2>
+      </Reveal>
+      {intro && (
+        <Reveal variant="up" delay={80}>
+          <p className="mt-4 text-pretty text-base leading-relaxed text-ink-soft">
+            {intro}
+          </p>
+        </Reveal>
+      )}
+    </div>
   );
 }
 
@@ -135,13 +143,19 @@ export function PageHeader({
   return (
     <div className="bg-paper">
       <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-24 lg:pt-[calc(83px+4rem)]">
-        <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="mt-4 max-w-3xl text-balance text-4xl font-bold tracking-tight text-ink sm:text-[3.25rem]">
-          {title}
-        </h1>
-        <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
-          {intro}
-        </p>
+        <Reveal variant="fade">
+          <Eyebrow>{eyebrow}</Eyebrow>
+        </Reveal>
+        <Reveal as="span" variant="mask" className="mt-4 block">
+          <h1 className="max-w-3xl text-balance text-4xl font-bold tracking-tight text-ink sm:text-[3.25rem]">
+            {title}
+          </h1>
+        </Reveal>
+        <Reveal variant="up" delay={90}>
+          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-ink-soft">
+            {intro}
+          </p>
+        </Reveal>
       </div>
     </div>
   );
