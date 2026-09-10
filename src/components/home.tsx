@@ -14,6 +14,7 @@ import {
   clientLogos,
   process as deliverySteps,
   impact,
+  testimonials,
 } from "@/lib/content";
 
 /* ---------- flat illustrations (Uber-style, brand green) ---------- */
@@ -131,7 +132,7 @@ export function ClientStrip() {
 
 export function Expertise() {
   return (
-    <section className="bg-brand-tint">
+    <section className="bg-haze">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
@@ -423,6 +424,43 @@ export function ProjectsRail() {
             </div>
           </Link>
         ))}
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Testimonials ---------- */
+
+export function Testimonials() {
+  return (
+    <section className="bg-haze">
+      <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
+        <Reveal>
+          <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+            In their words
+          </p>
+          <h2 className="mt-5 max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]">
+            Judged on results, not promises.
+          </h2>
+        </Reveal>
+
+        <div className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <Reveal as="figure" key={t.name} variant="up" delay={(i % 3) * 80}>
+              <span className="text-4xl font-bold leading-none text-brand">
+                &ldquo;
+              </span>
+              <blockquote className="mt-2 text-lg leading-relaxed text-ink">
+                {t.quote}
+              </blockquote>
+              <figcaption className="mt-6 border-t border-ink/10 pt-4 text-sm">
+                <span className="font-semibold text-ink">{t.name}</span>
+                <span className="block text-ink-soft">{t.org}</span>
+              </figcaption>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

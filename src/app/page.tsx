@@ -9,6 +9,7 @@ import {
   ImpactBand,
   BrandPromise,
   ProjectsRail,
+  Testimonials,
   LatestNews,
 } from "@/components/home";
 
@@ -24,6 +25,7 @@ export default function HomePage() {
       <ImpactBand />
       <BrandPromise />
       <ProjectsRail />
+      <Testimonials />
       <LatestNews />
       <CTA />
     </>

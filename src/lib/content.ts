@@ -161,6 +161,30 @@ export const impact = {
   ],
 };
 
+// ⚠️ PLACEHOLDER TESTIMONIALS — representative, role-attributed copy used to
+// build the section. Replace with real, client-approved quotes and names
+// before this site is published.
+export const testimonials = [
+  {
+    quote:
+      "Polaris didn't hand us a datasheet — they handed us an IRR model our CFO could sign off in one meeting. The plant has tracked the generation estimate within 2% since day one.",
+    name: "Head of Projects",
+    org: "Pharmaceutical manufacturer, Maharashtra",
+  },
+  {
+    quote:
+      "We went with the OPEX route to avoid the capex hit. Billing is clean, savings show up every month, and we've had zero operational involvement.",
+    name: "VP — Operations",
+    org: "Packaged-foods company, Gujarat",
+  },
+  {
+    quote:
+      "The site had rock, a monsoon window and a 0.5 km HT run. They engineered around all three and still commissioned in under 90 days.",
+    name: "Plant Head",
+    org: "Building-materials group, Central India",
+  },
+];
+
 export const solutions = [
   {
     slug: "capex",
