@@ -89,7 +89,7 @@ const introStats = [
 
 export function IntroStatement() {
   return (
-    <section className="bg-aura">
+    <section className="bg-[#FAFBF6]">
       <div className="container-px mx-auto grid max-w-[1760px] items-center gap-12 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.82fr)] lg:py-32">
         <div>
           <Reveal variant="fade">
