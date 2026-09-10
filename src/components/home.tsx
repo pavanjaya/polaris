@@ -553,12 +553,6 @@ export function ImpactBand() {
 
 /* ---------- Brand promise ---------- */
 
-const philosophyPoints = [
-  { v: "IRR-led", l: "every design decision" },
-  { v: "25-yr", l: "asset horizon, one team" },
-  { v: "Tier-1", l: "engineering, no compromise" },
-];
-
 export function BrandPromise() {
   return (
     <section className="relative isolate overflow-hidden bg-[#FAFBF6]">
@@ -591,18 +585,6 @@ export function BrandPromise() {
           </p>
         </Reveal>
         <Reveal variant="up" delay={100}>
-          <dl className="mx-auto mt-10 grid max-w-lg grid-cols-3 gap-x-6 border-t border-ink/10 pt-8">
-            {philosophyPoints.map((s) => (
-              <div key={s.l}>
-                <dt className="text-xl font-semibold tracking-tight text-ink">
-                  {s.v}
-                </dt>
-                <dd className="mt-1.5 text-xs leading-snug text-ink-faint">
-                  {s.l}
-                </dd>
-              </div>
-            ))}
-          </dl>
           <div className="pointer-events-auto mt-10">
             <Button href="/about">About Polaris</Button>
           </div>
