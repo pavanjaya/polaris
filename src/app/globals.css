@@ -484,6 +484,30 @@ a {
   }
 }
 
+/* Impact-section flowing wave (components/home ImpactWave) */
+.impact-wave path {
+  vector-effect: non-scaling-stroke;
+}
+.impact-wave g {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: impactWaveDrift 18s ease-in-out infinite;
+}
+@keyframes impactWaveDrift {
+  0%,
+  100% {
+    transform: translateX(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-2%) scaleY(1.06);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .impact-wave g {
+    animation: none;
+  }
+}
+
 /* Scroll-reveal + parallax are GSAP-driven (see components/Reveal, motion/*). */
 
 @media (prefers-reduced-motion: reduce) {

@@ -408,12 +408,59 @@ export function Process() {
 
 /* ---------- Environmental impact ---------- */
 
+function ImpactWave() {
+  const N = 58;
+  const yc = 250;
+  return (
+    <svg
+      viewBox="0 0 1200 500"
+      fill="none"
+      aria-hidden="true"
+      preserveAspectRatio="xMidYMid slice"
+      className="impact-wave h-full w-full"
+    >
+      <defs>
+        <linearGradient id="impactWaveGrad" x1="0" y1="0" x2="1" y2="0.35">
+          <stop offset="0" stopColor="#a9ef8a" stopOpacity="0.9" />
+          <stop offset="0.3" stopColor="#6ede4f" />
+          <stop offset="0.55" stopColor="#39b23b" />
+          <stop offset="0.8" stopColor="#2e7d32" />
+          <stop offset="1" stopColor="#0f4338" stopOpacity="0.25" />
+        </linearGradient>
+      </defs>
+      <g>
+        {Array.from({ length: N }).map((_, i) => {
+          const t = (i / (N - 1)) * 2 - 1; // -1..1
+          const sL = 195;
+          const sR = -215;
+          const sP = 10;
+          const d = `M-40 ${yc + t * sL} C 180 ${yc + t * sL * 0.92} 380 ${yc + t * 46} 560 ${yc + t * sP} S 900 ${yc + t * sR * 0.66} 1240 ${yc + t * sR * 1.18}`;
+          const k = Math.pow(1 - Math.abs(t), 1.5);
+          return (
+            <path
+              key={i}
+              d={d}
+              stroke="url(#impactWaveGrad)"
+              strokeWidth={0.8 + k * 0.9}
+              opacity={0.05 + k * 0.6}
+            />
+          );
+        })}
+      </g>
+    </svg>
+  );
+}
+
 export function ImpactBand() {
   return (
     <section className="relative overflow-hidden bg-brand-dark py-20 text-white lg:py-28">
-      <div className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-active-green/30 blur-[90px]" />
-      <div className="pointer-events-none absolute -right-24 -bottom-24 h-72 w-72 rounded-full bg-active-green/15 blur-[90px]" />
-      <div className="container-px relative mx-auto max-w-[1760px]">
+      {/* flowing gradient wave */}
+      <div className="pointer-events-none absolute inset-x-0 top-[6rem] h-[22rem] lg:top-[8rem] lg:h-[30rem]">
+        <div className="absolute left-1/2 top-1/2 h-72 w-[48rem] max-w-[92%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-active-green/25 blur-[130px]" />
+        <ImpactWave />
+      </div>
+
+      <div className="container-px relative z-10 mx-auto max-w-[1760px]">
         <Reveal variant="fade">
           <span className="pill">Impact</span>
         </Reveal>
@@ -428,13 +475,12 @@ export function ImpactBand() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-[19rem] grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:mt-[24rem] lg:grid-cols-4">
           {impact.items.map((it, i) => (
             <Reveal key={it.label} variant="up" delay={i * 80}>
-              <span className="h-1 w-10 rounded-full bg-brand" />
               <CountUp
                 value={it.value}
-                className="mt-6 block text-4xl font-bold tracking-tight sm:text-[2.75rem]"
+                className="block bg-gradient-to-r from-[#9be87c] via-brand to-brand-strong bg-clip-text text-[2.5rem] font-bold tracking-tight text-transparent sm:text-5xl"
               />
               <span className="mt-2 block text-sm text-white/60">{it.label}</span>
             </Reveal>
