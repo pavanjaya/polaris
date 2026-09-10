@@ -100,7 +100,7 @@ export function ClientStrip() {
   // duplicated so the CSS loop is seamless
   const loop = [...clients, ...clients];
   return (
-    <section className="border-y border-line bg-paper py-12 lg:py-16">
+    <section className="bg-paper py-12 lg:py-16">
       <Reveal variant="fade" className="container-px mx-auto max-w-[1760px]">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-ink-faint">
           Selected clients &amp; project stakeholders
@@ -128,7 +128,7 @@ export function ClientStrip() {
 
 export function Expertise() {
   return (
-    <section className="bg-paper">
+    <section className="bg-brand-tint">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
