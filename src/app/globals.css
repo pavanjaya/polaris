@@ -157,34 +157,12 @@ a {
   transition: transform 0.7s var(--ease-expo);
 }
 
-/* Airy green ambient washes — fresh, Cashfree-style, on a light base */
+/* Plain light surfaces — the green ambient washes were removed */
 .bg-aura {
-  background:
-    radial-gradient(
-      48rem 34rem at 4% -12%,
-      rgba(125, 204, 94, 0.22),
-      rgba(125, 204, 94, 0) 60%
-    ),
-    radial-gradient(
-      44rem 32rem at 106% 2%,
-      rgba(125, 204, 94, 0.14),
-      rgba(125, 204, 94, 0) 58%
-    ),
-    var(--color-paper);
+  background: var(--color-paper);
 }
 .bg-aura-soft {
-  background:
-    radial-gradient(
-      44rem 30rem at 102% -12%,
-      rgba(125, 204, 94, 0.16),
-      rgba(125, 204, 94, 0) 60%
-    ),
-    radial-gradient(
-      40rem 30rem at -6% 46%,
-      rgba(125, 204, 94, 0.1),
-      rgba(125, 204, 94, 0) 55%
-    ),
-    var(--color-cream);
+  background: var(--color-cream);
 }
 /* Eyebrow pill */
 .pill {

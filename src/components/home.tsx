@@ -167,13 +167,7 @@ export function ClientStrip() {
 
 export function Footprint() {
   return (
-    <section
-      className="relative overflow-hidden bg-paper"
-      style={{
-        background:
-          "radial-gradient(48rem 34rem at 4% -12%, rgba(125, 204, 94, 0.22), rgba(125, 204, 94, 0) 60%), #ffffff",
-      }}
-    >
+    <section className="relative overflow-hidden bg-paper">
       <div className="container-px relative mx-auto max-w-[1760px] pb-8 pt-20 lg:pb-10 lg:pt-28">
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
           <div>
@@ -548,8 +542,7 @@ export function ImpactBand() {
 
 export function BrandPromise() {
   return (
-    <section className="relative overflow-hidden bg-aura">
-      <div className="pointer-events-none absolute -right-40 -top-32 h-[34rem] w-[34rem] rounded-full bg-active-green/20 blur-[110px]" />
+    <section className="relative overflow-hidden bg-paper">
       <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <div>
