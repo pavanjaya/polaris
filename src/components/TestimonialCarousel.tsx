@@ -1,8 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { testimonials } from "@/lib/content";
 import { prefersReducedMotion } from "@/lib/motion";
+
+const Threads = dynamic(() => import("./Threads"), { ssr: false });
 
 function initials(name: string) {
   return name
@@ -23,7 +26,12 @@ function initials(name: string) {
 export function TestimonialCarousel() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [motionOk, setMotionOk] = useState(false);
   const count = testimonials.length;
+
+  useEffect(() => {
+    setMotionOk(!prefersReducedMotion());
+  }, []);
   const go = useCallback(
     (i: number) => setIndex(((i % count) + count) % count),
     [count],
@@ -42,13 +50,28 @@ export function TestimonialCarousel() {
 
   return (
     <section
-      className="bg-[#faf9f3]"
+      className="relative overflow-hidden bg-[#faf9f3]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >
-      <div className="container-px mx-auto max-w-3xl py-14 text-center lg:py-16">
+      {motionOk && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.22]"
+        >
+          <Threads
+            color={[0.373, 0.812, 0.294]}
+            amplitude={1.1}
+            distance={0.35}
+            enableMouseInteraction={false}
+            className="h-full w-full"
+          />
+        </div>
+      )}
+
+      <div className="container-px relative z-10 mx-auto max-w-3xl py-14 text-center lg:py-16">
         <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-ink-faint">
           In their words
         </h2>
