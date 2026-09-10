@@ -281,6 +281,28 @@ a {
     height: 30px;
   }
 }
+/* Text wordmark variant */
+.marquee-name {
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 1.75rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: var(--color-ink);
+  opacity: 0.38;
+  transition: opacity 0.4s var(--ease-expo);
+}
+.marquee-name:hover {
+  opacity: 1;
+}
+@media (min-width: 1024px) {
+  .marquee-name {
+    padding-inline: 2.5rem;
+    font-size: 1.3rem;
+  }
+}
 @keyframes marquee {
   from {
     transform: translate3d(0, 0, 0);

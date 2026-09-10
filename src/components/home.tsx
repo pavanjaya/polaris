@@ -11,13 +11,14 @@ import { TestimonialCarousel } from "./TestimonialCarousel";
 import {
   offerings,
   projects,
-  stats,
   insights,
   company,
   clients,
-  clientLogos,
   process as deliverySteps,
   impact,
+  trust,
+  segments,
+  global as globalReach,
 } from "@/lib/content";
 
 /* ---------- flat illustrations (Uber-style, brand green) ---------- */
@@ -88,7 +89,7 @@ export function IntroStatement() {
           </Reveal>
           <RevealText
             text="We engineer, finance and operate commercial & industrial solar."
-            className="mt-5 block max-w-3xl text-3xl font-bold tracking-tight text-ink sm:text-[2.75rem]"
+            className="mt-5 block max-w-3xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
           />
           <Reveal variant="up" delay={60}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -113,27 +114,208 @@ export function IntroStatement() {
 
 export function ClientStrip() {
   // duplicated so the CSS loop is seamless
-  const loop = [...clientLogos, ...clientLogos];
+  const loop = [...clients, ...clients];
   return (
     <section className="bg-paper py-12 lg:py-16">
       <Reveal variant="fade" className="container-px mx-auto max-w-[1760px]">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-ink-faint">
-          Selected clients &amp; project stakeholders
+          Trusted on 650+ industrial projects
         </p>
       </Reveal>
 
-      <div className="marquee mt-9">
+      <div className="marquee mt-8">
         <div className="marquee-track" aria-hidden="true">
-          {loop.map((c, i) => (
-            <span key={`${c.name}-${i}`} className="marquee-logo">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={c.src} alt="" loading="lazy" />
+          {loop.map((name, i) => (
+            <span key={`${name}-${i}`} className="marquee-name">
+              {name}
             </span>
           ))}
         </div>
         <span className="sr-only">
           Polaris clients include {clients.join(", ")}.
         </span>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- At a glance (stats strip under hero) ---------- */
+
+const glanceStrip = [
+  { value: "650+", label: "Projects delivered" },
+  { value: "100 MW+", label: "Installed capacity" },
+  { value: "2", label: "Countries — India & Morocco" },
+  { value: "25 yr", label: "Asset lifecycle covered" },
+];
+
+export function StatsStrip() {
+  return (
+    <section className="bg-ink text-white">
+      <div className="container-px mx-auto max-w-[1760px] py-10 lg:py-12">
+        <dl className="grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4">
+          {glanceStrip.map((it) => (
+            <div key={it.label}>
+              <dt className="text-3xl font-bold tracking-tight sm:text-4xl">
+                {it.value}
+              </dt>
+              <dd className="mt-1.5 text-sm text-white/55">{it.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Where we work ---------- */
+
+export function Footprint() {
+  return (
+    <section className="relative overflow-hidden bg-aura">
+      <div className="pointer-events-none absolute -right-24 -top-24 h-[26rem] w-[26rem] text-ink/[0.05]">
+        <svg viewBox="0 0 200 200" fill="none" className="h-full w-full">
+          <circle cx="100" cy="100" r="88" stroke="currentColor" strokeWidth="1" />
+          <ellipse cx="100" cy="100" rx="88" ry="34" stroke="currentColor" strokeWidth="1" />
+          <ellipse cx="100" cy="100" rx="88" ry="64" stroke="currentColor" strokeWidth="1" />
+          <path d="M100 12v176M32 46a120 120 0 0 0 136 0M32 154a120 120 0 0 1 136 0" stroke="currentColor" strokeWidth="1" />
+        </svg>
+      </div>
+      <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <Reveal variant="fade">
+              <span className="pill">Global reach</span>
+            </Reveal>
+            <RevealText
+              text="Indian engineering discipline, delivered across borders."
+              className="mt-5 block max-w-xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+            />
+            <Reveal variant="up" delay={60}>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
+                {globalReach.intro}
+              </p>
+              <div className="mt-8">
+                <ArrowLink href="/global">Explore Polaris Global</ArrowLink>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal
+            variant="up"
+            delay={100}
+            className="divide-y divide-ink/10 border-y border-ink/10"
+          >
+            {globalReach.presence.map((m) => (
+              <div key={m.market} className="grid gap-2 py-5 sm:grid-cols-[9rem_1fr] sm:gap-5">
+                <div>
+                  <p className="font-bold text-ink">{m.market}</p>
+                  <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-brand-strong">
+                    {m.status}
+                  </p>
+                </div>
+                <p className="text-[15px] leading-relaxed text-ink-soft">
+                  {m.detail}
+                </p>
+              </div>
+            ))}
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Who we serve ---------- */
+
+export function Segments() {
+  return (
+    <section className="bg-paper">
+      <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
+        <Reveal variant="fade">
+          <span className="pill">Who we serve</span>
+        </Reveal>
+        <RevealText
+          text="Built for energy-intensive industry."
+          className="mt-5 block max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+        />
+
+        <div className="mt-12 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+          {segments.map((s, i) => (
+            <Reveal
+              as="article"
+              key={s.name}
+              delay={(i % 3) * 70}
+              className="border-t border-ink/10 pt-5"
+            >
+              <h3 className="text-lg font-bold tracking-tight text-ink">
+                {s.name}
+              </h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
+                {s.note}
+              </p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Why Polaris (trust) ---------- */
+
+export function TrustRow() {
+  return (
+    <section className="bg-paper">
+      <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
+        <Reveal variant="fade">
+          <span className="pill">Why Polaris</span>
+        </Reveal>
+        <RevealText
+          text="Discipline you can underwrite."
+          className="mt-5 block max-w-2xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
+        />
+
+        <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {trust.map((t, i) => (
+            <Reveal as="article" key={t.title} delay={(i % 4) * 70}>
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-tint text-sm font-bold text-brand-strong">
+                {i + 1}
+              </span>
+              <h3 className="mt-5 text-lg font-bold tracking-tight text-ink">
+                {t.title}
+              </h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
+                {t.body}
+              </p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Careers nudge ---------- */
+
+export function CareersStrip() {
+  return (
+    <section className="bg-[#faf9f3]">
+      <div className="container-px mx-auto max-w-[1760px] py-4">
+        <Reveal
+          variant="fade"
+          className="flex flex-col items-start gap-4 border-y border-ink/10 py-8 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div>
+            <p className="text-lg font-bold tracking-tight text-ink">
+              Polaris is growing — across India and Morocco.
+            </p>
+            <p className="mt-1 text-[15px] text-ink-soft">
+              Engineers, project managers and energy analysts who want to own
+              outcomes, not tickets.
+            </p>
+          </div>
+          <ArrowLink href="/contact">Talk to our team</ArrowLink>
+        </Reveal>
       </div>
     </section>
   );
@@ -150,7 +332,7 @@ export function Expertise() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
             text="Our solutions"
-            className="text-3xl font-bold tracking-tight text-ink sm:text-4xl"
+            className="text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
           />
           <Reveal variant="fade">
             <ArrowLink href="/solutions">Explore all solutions</ArrowLink>
@@ -225,9 +407,12 @@ export function ImpactBand() {
       <div className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-active-green/30 blur-[90px]" />
       <div className="pointer-events-none absolute -right-24 -bottom-24 h-72 w-72 rounded-full bg-active-green/15 blur-[90px]" />
       <div className="container-px relative mx-auto max-w-[1760px]">
+        <Reveal variant="fade">
+          <span className="pill">Impact</span>
+        </Reveal>
         <RevealText
           text="Clean energy that compounds."
-          className="max-w-2xl text-3xl font-bold tracking-tight sm:text-[2.5rem]"
+          className="mt-5 block max-w-2xl text-3xl font-bold tracking-tight sm:text-[2.5rem]"
         />
         <Reveal variant="up" delay={80}>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/70">
@@ -257,101 +442,21 @@ export function ImpactBand() {
   );
 }
 
-/* ---------- In a few numbers ---------- */
-
-export function ByTheNumbers() {
-  return (
-    <section className="relative overflow-hidden py-20 lg:py-28">
-      {/* section background pattern */}
-      <svg
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full text-ink/[0.06]"
-      >
-        <defs>
-          <pattern
-            id="dotgrid"
-            width="26"
-            height="26"
-            patternUnits="userSpaceOnUse"
-          >
-            <circle cx="1.5" cy="1.5" r="1.5" fill="currentColor" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#dotgrid)" />
-      </svg>
-
-      <div className="container-px relative mx-auto max-w-[1760px]">
-        <div className="grid gap-5 lg:grid-cols-[0.9fr_1.6fr]">
-          <Reveal
-            variant="scale"
-            className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl bg-ink p-9 text-white"
-          >
-            {/* inner motif */}
-            <div className="pointer-events-none absolute -right-16 -top-16 h-60 w-60 rounded-full bg-active-green/25 blur-[80px]" />
-            <svg
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.06]"
-            >
-              <rect width="100%" height="100%" fill="url(#dotgrid)" />
-            </svg>
-
-            <RevealText
-              text="Polaris in a few numbers"
-              className="relative text-3xl font-bold tracking-tight"
-            />
-
-            <Reveal variant="up" delay={120} className="relative mt-10">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90"
-              >
-                Learn more
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Reveal>
-          </Reveal>
-
-          <div className="grid gap-5 sm:grid-cols-2">
-            {stats.map((s, i) => (
-              <Reveal
-                key={s.label}
-                variant="up"
-                delay={i * 90}
-                className="u-card flex flex-col justify-between rounded-2xl border border-line/70 bg-paper p-8"
-              >
-                <span className="h-1 w-10 rounded-full bg-brand" />
-                <div className="mt-8">
-                  <CountUp
-                    value={s.value}
-                    className="block text-4xl font-bold tracking-tight text-ink sm:text-[2.75rem]"
-                  />
-                  <Reveal variant="up" delay={i * 90 + 200}>
-                    <span className="mt-2 block text-sm text-ink-soft">
-                      {s.label}
-                    </span>
-                  </Reveal>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ---------- Brand promise ---------- */
 
 export function BrandPromise() {
   return (
-    <section className="relative overflow-hidden bg-brand-tint">
+    <section className="relative overflow-hidden bg-aura">
       <div className="pointer-events-none absolute -right-40 -top-32 h-[34rem] w-[34rem] rounded-full bg-active-green/20 blur-[110px]" />
       <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <div>
+            <Reveal variant="fade">
+              <span className="pill">Our philosophy</span>
+            </Reveal>
             <RevealText
               text="Energy as an asset."
-              className="max-w-xl text-3xl font-bold tracking-tight text-ink sm:text-[2.75rem]"
+              className="mt-5 block max-w-xl text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
             />
             <Reveal variant="up" delay={60}>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
@@ -391,12 +496,12 @@ export function BrandPromise() {
 
 export function ProjectsRail() {
   return (
-    <section className="bg-aura">
+    <section className="bg-paper">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <RevealText
           text="Our projects"
-          className="text-3xl font-bold tracking-tight text-ink sm:text-4xl"
+          className="text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
         />
         <Reveal variant="fade">
           <ArrowLink href="/projects">Discover our projects</ArrowLink>
@@ -466,7 +571,7 @@ export function LatestNews() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
             text="Latest insights"
-            className="text-3xl font-bold tracking-tight text-ink sm:text-4xl"
+            className="text-3xl font-bold tracking-tight text-ink sm:text-[2.5rem]"
           />
           <Reveal variant="fade">
             <ArrowLink href="/insights">See all insights</ArrowLink>

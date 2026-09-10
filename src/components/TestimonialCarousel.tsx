@@ -42,7 +42,7 @@ export function TestimonialCarousel() {
 
   return (
     <section
-      className="bg-[#fbfbf6]"
+      className="bg-[#faf9f3]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}

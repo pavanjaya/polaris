@@ -54,13 +54,17 @@ src/
   confirmation. Wire it to a CRM or email endpoint before launch.
 
 > **Before publishing:**
-> - The "Selected clients & project stakeholders" strip uses generic brand SVGs
->   (`public/img/clients/`, `clientLogos` in `content.ts`) purely for the visual.
->   Swap every one for a real Polaris client/partner logo.
+> - The client strip now shows real client names as text wordmarks (`clients`
+>   in `content.ts`, sourced from the company deck). Confirm name/mark usage is
+>   approved with each company, or switch to logos once permissions are in hand.
 > - The homepage `testimonials` in `content.ts` are representative,
 >   role-attributed placeholders. Replace with real, client-approved quotes
 >   and names.
 > - The `impact` figures are indicative (derived from installed capacity), not
 >   metered portfolio generation.
+> - The homepage `trust` and `segments` arrays in `content.ts` are written from
+>   the deck's stated capabilities/projects — verify each claim before launch.
+> - The "Who we serve" / careers strip links to `/contact` (no `/careers`
+>   page yet).
 
 All figures, project names, and locations are illustrative placeholders.

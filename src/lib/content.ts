@@ -341,6 +341,56 @@ export const advantages = [
   },
 ];
 
+// Homepage "Why Polaris" trust row — a curated subset of `advantages`,
+// tightened for a scannable 4-up.
+export const trust = [
+  {
+    title: "Engineering-led, not sales-led",
+    body: "Qualified electrical and structural engineers size every system on fit — backed by simulation, load analysis and performance modelling.",
+  },
+  {
+    title: "Built to Indian, EU & US standards",
+    body: "Design, HT evacuation and safety engineered to international benchmarks — the same discipline on every project, in every geography.",
+  },
+  {
+    title: "An investment-grade financial model",
+    body: "IRR, payback, depreciation, EBITDA impact and tax optimisation delivered as a core project output — not an afterthought.",
+  },
+  {
+    title: "Accountable to year 25",
+    body: "One team from feasibility through the full 25-year O&M window, with SCADA monitoring and analytics — no orphaned assets.",
+  },
+];
+
+// Homepage "Who we serve" — industry segments, drawn from Polaris's
+// live C&I project base.
+export const segments = [
+  {
+    name: "Pharmaceutical",
+    note: "Clean-room-grade power reliability with zero-penetration rooftop mounting on live facilities.",
+  },
+  {
+    name: "Food & Beverage",
+    note: "Centralised inverter architecture across large, non-uniform warehouse and plant roofs.",
+  },
+  {
+    name: "Building Materials",
+    note: "Terrain-engineered ground-mount with HT evacuation, delivered through the monsoon window.",
+  },
+  {
+    name: "Manufacturing & Composites",
+    note: "East-west racking and high-density layouts that flatten the daily generation profile.",
+  },
+  {
+    name: "Mining & Minerals",
+    note: "Robust structures for high-dust environments with 11 kV HT evacuation over distance.",
+  },
+  {
+    name: "Warehousing & Logistics",
+    note: "Fast rooftop deployment across multi-site portfolios under a single accountable team.",
+  },
+];
+
 export const projects = [
   {
     name: "Kilitch Healthcare India Ltd.",
