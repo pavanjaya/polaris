@@ -14,6 +14,7 @@ import {
   insights,
   company,
   clients,
+  clientLogos,
   process as deliverySteps,
   impact,
   trust,
@@ -114,7 +115,7 @@ export function IntroStatement() {
 
 export function ClientStrip() {
   // duplicated so the CSS loop is seamless
-  const loop = [...clients, ...clients];
+  const loop = [...clientLogos, ...clientLogos];
   return (
     <section className="bg-paper py-12 lg:py-16">
       <Reveal variant="fade" className="container-px mx-auto max-w-[1760px]">
@@ -123,11 +124,12 @@ export function ClientStrip() {
         </p>
       </Reveal>
 
-      <div className="marquee mt-8">
+      <div className="marquee mt-9">
         <div className="marquee-track" aria-hidden="true">
-          {loop.map((name, i) => (
-            <span key={`${name}-${i}`} className="marquee-name">
-              {name}
+          {loop.map((c, i) => (
+            <span key={`${c.name}-${i}`} className="marquee-logo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={c.src} alt="" loading="lazy" />
             </span>
           ))}
         </div>
