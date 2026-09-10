@@ -408,45 +408,75 @@ export function Process() {
 
 /* ---------- Environmental impact ---------- */
 
-function ImpactWave() {
-  const N = 58;
-  const yc = 250;
+function ImpactSun() {
+  const CX = 600;
+  const CY = 210;
+  const RAYS = 30;
   return (
     <svg
-      viewBox="0 0 1200 500"
+      viewBox="0 0 1200 420"
       fill="none"
       aria-hidden="true"
-      preserveAspectRatio="xMidYMid slice"
-      className="impact-wave h-full w-full"
+      preserveAspectRatio="xMidYMid meet"
+      className="impact-sun h-full w-full"
+      style={{ transformOrigin: `${CX}px ${CY}px` }}
     >
       <defs>
-        <linearGradient id="impactWaveGrad" x1="0" y1="0" x2="1" y2="0.35">
-          <stop offset="0" stopColor="#a9ef8a" stopOpacity="0.9" />
-          <stop offset="0.3" stopColor="#6ede4f" />
-          <stop offset="0.55" stopColor="#39b23b" />
-          <stop offset="0.8" stopColor="#2e7d32" />
-          <stop offset="1" stopColor="#0f4338" stopOpacity="0.25" />
-        </linearGradient>
+        <radialGradient id="sunCoreGrad" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset="0.3" stopColor="#d9fbc2" />
+          <stop offset="0.65" stopColor="#7dcc5e" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#7dcc5e" stopOpacity="0" />
+        </radialGradient>
       </defs>
-      <g>
-        {Array.from({ length: N }).map((_, i) => {
-          const t = (i / (N - 1)) * 2 - 1; // -1..1
-          const sL = 195;
-          const sR = -215;
-          const sP = 10;
-          const d = `M-40 ${yc + t * sL} C 180 ${yc + t * sL * 0.92} 380 ${yc + t * 46} 560 ${yc + t * sP} S 900 ${yc + t * sR * 0.66} 1240 ${yc + t * sR * 1.18}`;
-          const k = Math.pow(1 - Math.abs(t), 1.5);
+
+      {/* expanding energy rings */}
+      {[0, 1, 2, 3, 4].map((i) => (
+        <circle
+          key={i}
+          className="ring"
+          cx={CX}
+          cy={CY}
+          r="60"
+          stroke="#8fe06e"
+          strokeWidth="2"
+          vectorEffect="non-scaling-stroke"
+          style={{ animationDelay: `${i * 1}s`, transformOrigin: `${CX}px ${CY}px` }}
+        />
+      ))}
+
+      {/* rotating rays */}
+      <g className="rays" style={{ transformOrigin: `${CX}px ${CY}px` }}>
+        {Array.from({ length: RAYS }).map((_, i) => {
+          const a = (i / RAYS) * Math.PI * 2;
+          const r1 = 52;
+          const r2 = i % 2 === 0 ? 220 : 140;
           return (
-            <path
+            <line
               key={i}
-              d={d}
-              stroke="url(#impactWaveGrad)"
-              strokeWidth={0.8 + k * 0.9}
-              opacity={0.05 + k * 0.6}
+              x1={CX + Math.cos(a) * r1}
+              y1={CY + Math.sin(a) * r1}
+              x2={CX + Math.cos(a) * r2}
+              y2={CY + Math.sin(a) * r2}
+              stroke="#a9ef8a"
+              strokeWidth="3"
+              strokeLinecap="round"
+              opacity={i % 2 === 0 ? 0.85 : 0.45}
             />
           );
         })}
       </g>
+
+      {/* core */}
+      <circle
+        className="core"
+        cx={CX}
+        cy={CY}
+        r="110"
+        fill="url(#sunCoreGrad)"
+        style={{ transformOrigin: `${CX}px ${CY}px` }}
+      />
+      <circle cx={CX} cy={CY} r="24" fill="#eafce0" />
     </svg>
   );
 }
@@ -454,10 +484,10 @@ function ImpactWave() {
 export function ImpactBand() {
   return (
     <section className="relative overflow-hidden bg-brand-dark py-20 text-white lg:py-28">
-      {/* flowing gradient wave */}
+      {/* radiant sun */}
       <div className="pointer-events-none absolute inset-x-0 top-[6rem] h-[22rem] lg:top-[8rem] lg:h-[30rem]">
-        <div className="absolute left-1/2 top-1/2 h-72 w-[48rem] max-w-[92%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-active-green/25 blur-[130px]" />
-        <ImpactWave />
+        <div className="absolute left-1/2 top-1/2 h-72 w-[44rem] max-w-[92%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-active-green/25 blur-[130px]" />
+        <ImpactSun />
       </div>
 
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">

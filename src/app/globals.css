@@ -484,27 +484,56 @@ a {
   }
 }
 
-/* Impact-section flowing wave (components/home ImpactWave) */
-.impact-wave path {
-  vector-effect: non-scaling-stroke;
-}
-.impact-wave g {
+/* Impact-section radiant sun (components/home ImpactSun) */
+.impact-sun .ring {
   transform-box: fill-box;
-  transform-origin: center;
-  animation: impactWaveDrift 18s ease-in-out infinite;
+  animation: impactRing 5s ease-out infinite;
 }
-@keyframes impactWaveDrift {
+@keyframes impactRing {
+  0% {
+    transform: scale(0.35);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(9);
+    opacity: 0;
+  }
+}
+.impact-sun .rays {
+  transform-box: fill-box;
+  animation: impactSunSpin 48s linear infinite;
+}
+@keyframes impactSunSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.impact-sun .core {
+  transform-box: fill-box;
+  animation: impactSunPulse 5s ease-in-out infinite;
+}
+@keyframes impactSunPulse {
   0%,
   100% {
-    transform: translateX(0) scaleY(1);
+    transform: scale(1);
+    opacity: 0.95;
   }
   50% {
-    transform: translateX(-2%) scaleY(1.06);
+    transform: scale(1.12);
+    opacity: 0.7;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .impact-wave g {
+  .impact-sun .ring,
+  .impact-sun .rays,
+  .impact-sun .core {
     animation: none;
+  }
+  .impact-sun .ring {
+    opacity: 0;
   }
 }
 
