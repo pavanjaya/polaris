@@ -138,7 +138,7 @@ const offeringIcons = [illos[0], illos[2], illos[1], illos[4]];
 
 export function Expertise() {
   return (
-    <section className="bg-aura-soft">
+    <section className="bg-[#faf9f3]">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
