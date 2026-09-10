@@ -4,6 +4,7 @@ import {
   IntroStatement,
   ClientStrip,
   Footprint,
+  GlobalScene,
   Segments,
   Expertise,
   Process,
@@ -23,6 +24,7 @@ export default function HomePage() {
       <IntroStatement />
       <ClientStrip />
       <Footprint />
+      <GlobalScene />
       <Segments />
       <Expertise />
       <Process />

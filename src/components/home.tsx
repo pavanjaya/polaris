@@ -221,6 +221,27 @@ export function Footprint() {
   );
 }
 
+/* ---------- Global scene divider ---------- */
+
+export function GlobalScene() {
+  return (
+    <section className="bg-paper">
+      <div className="container-px mx-auto max-w-[1760px] pb-16 lg:pb-24">
+        <Reveal variant="scale" className="overflow-hidden rounded-2xl">
+          <Image
+            src="/img/global-reach.jpg"
+            alt="Illustrated montage of world landmarks with wind turbines, solar panels, a container port, rail and power infrastructure."
+            width={1800}
+            height={1009}
+            sizes="(max-width: 1760px) 100vw, 1760px"
+            className="h-[300px] w-full object-cover sm:h-[380px] lg:h-[460px]"
+          />
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- Who we serve ---------- */
 
 export function Segments() {
