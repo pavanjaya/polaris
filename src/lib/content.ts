@@ -91,12 +91,17 @@ export const global = {
 
 export const socials = [
   { label: "Facebook", href: "https://www.facebook.com/Polarisenergysolutions/" },
-  { label: "Instagram", href: "https://www.instagram.com/polaris_solar_solutions/" },
-  { label: "X", href: "https://x.com/polaris_nashik" },
+  {
+    label: "X",
+    href: "https://x.com/polaris_nashik",
+  },
   {
     label: "LinkedIn",
     href: "https://in.linkedin.com/company/polaris-renewable-solutions-pvt-ltd",
   },
+  // TODO: replace with the real Polaris YouTube channel URL before launch.
+  { label: "YouTube", href: "https://www.youtube.com/" },
+  { label: "Instagram", href: "https://www.instagram.com/polaris_solar_solutions/" },
 ];
 
 export const nav = [
@@ -132,7 +137,7 @@ export const process = [
     step: "01",
     title: "Model & financial case",
     body: "Load analysis, generation simulation and an investment-grade model — IRR, payback, depreciation and cash flow — before a rupee is committed.",
-    image: "/img/solar-rooftop.jpg",
+    image: "/img/process/model-financial.jpg",
   },
   {
     step: "02",
