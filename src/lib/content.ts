@@ -201,7 +201,7 @@ export const offerings = [
   {
     title: "Commercial & Industrial",
     summary:
-      "Rooftop and ground-mount solar for factories, warehouses and campuses — engineered for four decades of dependable generation and structured to the balance sheet.",
+      "Rooftop and ground-mount solar for factories, warehouses and campuses — engineered for 25 years of dependable generation and structured to the balance sheet.",
   },
   {
     title: "Utility Scale",
@@ -338,7 +338,7 @@ export const advantages = [
   },
   {
     title: "Full-lifecycle ownership",
-    body: "A single point of accountability from feasibility to the 20th year of operation — eliminating the industry problem of 'orphaned' solar systems.",
+    body: "A single point of accountability from feasibility to year 25 of operation — eliminating the industry problem of 'orphaned' solar systems.",
   },
   {
     title: "Multi-geography capability",
@@ -514,7 +514,7 @@ export const projects = [
     location: "Tangier, Morocco",
     tech: "Industrial Rooftop Solar",
     model: "CAPEX",
-    capacity: "600 KWp",
+    capacity: "600 kWp",
     generation: "—",
     savings: "≈ €83,000 (MAD 908,000)",
     status: "Ongoing",

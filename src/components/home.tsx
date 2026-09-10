@@ -104,7 +104,7 @@ export function IntroStatement() {
               From rooftop plants for SMEs to large captive and open-access
               projects for enterprises. A solar EPC founded in Nashik in{" "}
               {company.founded}, {company.shortName} is a full-lifecycle partner —
-              one point of accountability from feasibility to the 20th year of
+              one point of accountability from feasibility to year 25 of
               operation, across India and Morocco.
             </p>
           </Reveal>

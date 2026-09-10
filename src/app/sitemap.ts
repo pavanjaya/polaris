@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { insights } from "@/lib/content";
 
-const base = "https://polarisrenewable.example";
+const base = "https://www.polarisenergy.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ["", "/about", "/solutions", "/projects", "/p-ess", "/global", "/insights", "/sustainability", "/careers", "/contact"].map(

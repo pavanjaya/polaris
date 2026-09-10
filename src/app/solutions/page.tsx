@@ -57,7 +57,7 @@ export default function SolutionsPage() {
               {
                 step: "03",
                 title: "Monitoring & lifecycle O&M",
-                body: "SCADA monitoring, analytics and long-term operations & maintenance — one point of accountability to the 20th year of operation.",
+                body: "SCADA monitoring, analytics and long-term operations & maintenance — one point of accountability to year 25 of operation.",
               },
             ].map((phase) => (
               <div key={phase.step}>
