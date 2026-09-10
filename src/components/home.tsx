@@ -6,6 +6,7 @@ import { Parallax } from "./motion/Parallax";
 import { CountUp } from "./motion/CountUp";
 import { Button, ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
+import { SolarSystemLines } from "./SolarSystemLines";
 import {
   offerings,
   projects,
@@ -80,23 +81,29 @@ const illos: React.ReactNode[] = [
 export function IntroStatement() {
   return (
     <section className="bg-aura">
-      <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-32">
-      <Reveal variant="fade">
-        <span className="pill">What we do</span>
-      </Reveal>
-      <RevealText
-        text="We engineer, finance and operate commercial & industrial solar."
-        className="mt-5 block max-w-4xl text-3xl font-bold tracking-tight text-ink sm:text-[2.75rem]"
-      />
-      <Reveal variant="up" delay={60}>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
-          From rooftop plants for SMEs to large captive and open-access projects
-          for enterprises. A solar EPC founded in Nashik in {company.founded},{" "}
-          {company.shortName} is a full-lifecycle partner — one point of
-          accountability from feasibility to the 20th year of operation, across
-          India and Morocco.
-        </p>
-      </Reveal>
+      <div className="container-px mx-auto grid max-w-[1760px] items-center gap-12 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.82fr)] lg:py-32">
+        <div>
+          <Reveal variant="fade">
+            <span className="pill">What we do</span>
+          </Reveal>
+          <RevealText
+            text="We engineer, finance and operate commercial & industrial solar."
+            className="mt-5 block max-w-3xl text-3xl font-bold tracking-tight text-ink sm:text-[2.75rem]"
+          />
+          <Reveal variant="up" delay={60}>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
+              From rooftop plants for SMEs to large captive and open-access
+              projects for enterprises. A solar EPC founded in Nashik in{" "}
+              {company.founded}, {company.shortName} is a full-lifecycle partner —
+              one point of accountability from feasibility to the 20th year of
+              operation, across India and Morocco.
+            </p>
+          </Reveal>
+        </div>
+
+        <Reveal variant="fade" delay={120} className="hidden lg:block">
+          <SolarSystemLines className="ml-auto" />
+        </Reveal>
       </div>
     </section>
   );

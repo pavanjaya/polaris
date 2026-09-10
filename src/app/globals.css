@@ -409,6 +409,76 @@ a {
   }
 }
 
+/* Animated solar single-line schematic (components/SolarSystemLines) */
+.solar-lines path,
+.solar-lines rect,
+.solar-lines circle {
+  vector-effect: non-scaling-stroke;
+}
+.solar-lines .draw {
+  /* 700 comfortably exceeds every path length in the 560-unit viewBox */
+  stroke-dasharray: 700;
+  stroke-dashoffset: 0; /* resting state: fully drawn */
+  animation: solarDraw 1.6s var(--ease-expo) backwards;
+}
+@keyframes solarDraw {
+  from {
+    stroke-dashoffset: 700;
+  }
+}
+.solar-lines .flow {
+  stroke-dasharray: 5 13;
+  stroke-dashoffset: 0;
+  animation: solarFlow 1.1s linear infinite;
+}
+@keyframes solarFlow {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+.solar-lines .sun {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: solarSun 3.8s ease-in-out infinite;
+}
+@keyframes solarSun {
+  0%,
+  100% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.05);
+  }
+}
+.solar-lines .node {
+  animation: solarNode 2.6s ease-in-out infinite;
+}
+@keyframes solarNode {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .solar-lines .draw,
+  .solar-lines .flow,
+  .solar-lines .sun,
+  .solar-lines .node {
+    animation: none;
+  }
+  .solar-lines .draw {
+    stroke-dashoffset: 0;
+  }
+  .solar-lines .flow {
+    stroke-dasharray: 5 13;
+  }
+}
+
 /* Scroll-reveal + parallax are GSAP-driven (see components/Reveal, motion/*). */
 
 @media (prefers-reduced-motion: reduce) {
