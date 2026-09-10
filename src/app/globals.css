@@ -426,73 +426,61 @@ a {
   }
 }
 
-/* Animated solar single-line schematic (components/SolarSystemLines) */
-.solar-lines path,
-.solar-lines rect,
-.solar-lines circle {
-  vector-effect: non-scaling-stroke;
-}
-.solar-lines .draw {
-  /* 700 comfortably exceeds every path length in the 560-unit viewBox */
-  stroke-dasharray: 700;
-  stroke-dashoffset: 0; /* resting state: fully drawn */
-  animation: solarDraw 1.6s var(--ease-expo) backwards;
-}
-@keyframes solarDraw {
-  from {
-    stroke-dashoffset: 700;
-  }
-}
-.solar-lines .flow {
-  stroke-dasharray: 5 13;
-  stroke-dashoffset: 0;
-  animation: solarFlow 1.1s linear infinite;
-}
-@keyframes solarFlow {
-  to {
-    stroke-dashoffset: -36;
-  }
-}
-.solar-lines .sun {
+/* Flat animated scene (components/SolarSystemLines) */
+.solar-scene [class^="scene-"] {
   transform-box: fill-box;
   transform-origin: center;
-  animation: solarSun 3.8s ease-in-out infinite;
 }
-@keyframes solarSun {
+.solar-scene .scene-sun {
+  animation: sceneSpin 22s linear infinite;
+}
+@keyframes sceneSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.solar-scene .scene-core {
+  animation: sceneCore 4.5s ease-in-out infinite;
+}
+@keyframes sceneCore {
   0%,
   100% {
-    opacity: 0.95;
     transform: scale(1);
   }
   50% {
-    opacity: 0.55;
-    transform: scale(1.05);
+    transform: scale(1.06);
   }
 }
-.solar-lines .node {
-  animation: solarNode 2.6s ease-in-out infinite;
+.solar-scene .scene-bar {
+  transform-origin: bottom;
+  animation: sceneBar 2.8s ease-in-out infinite alternate;
 }
-@keyframes solarNode {
+@keyframes sceneBar {
+  from {
+    transform: scaleY(0.55);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.solar-scene .scene-float {
+  animation: sceneFloat 5.5s ease-in-out infinite;
+}
+@keyframes sceneFloat {
   0%,
   100% {
-    opacity: 0.9;
+    transform: translateY(0);
   }
   50% {
-    opacity: 0.35;
+    transform: translateY(-9px);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .solar-lines .draw,
-  .solar-lines .flow,
-  .solar-lines .sun,
-  .solar-lines .node {
-    animation: none;
+  .solar-scene [class^="scene-"] {
+    animation: none !important;
   }
-  .solar-lines .draw {
-    stroke-dashoffset: 0;
-  }
-  .solar-lines .flow {
-    stroke-dasharray: 5 13;
+  .solar-scene .scene-bar {
+    transform: none;
   }
 }
 
