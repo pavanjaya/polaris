@@ -143,19 +143,19 @@ export const process = [
     step: "02",
     title: "Engineering & design",
     body: "In-house electrical and structural engineers size the system on fit, not margin; HT evacuation and safety to Indian, EU and US benchmarks.",
-    image: "/img/projects/morocco.jpg",
+    image: "/img/process/engineering-design.jpg",
   },
   {
     step: "03",
     title: "EPC execution",
     body: "Single-point delivery of procurement, construction and commissioning — most C&I plants energised in 45–90 days.",
-    image: "/img/projects/forcon.jpg",
+    image: "/img/process/epc-execution.jpg",
   },
   {
     step: "04",
     title: "25-year O&M",
     body: "SCADA monitoring, analytics and preventive maintenance for the full asset life. One team stays accountable to year 25.",
-    image: "/img/bess-plant.jpg",
+    image: "/img/process/om-25yr.jpg",
   },
 ];
 
