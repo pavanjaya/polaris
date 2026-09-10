@@ -40,25 +40,25 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="bg-brand-dark text-white">
+    <footer className="bg-[#faf9f3] text-ink">
       <div className="container-px mx-auto max-w-[1760px] py-20">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
           <div className="max-w-xs">
-            <Logo tone="light" height={64} />
-            <p className="mt-6 text-sm leading-relaxed text-white/55">
+            <Logo tone="dark" height={64} />
+            <p className="mt-6 text-sm leading-relaxed text-ink-soft">
               {company.description}
             </p>
           </div>
 
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-sm font-semibold text-white">{col.title}</h3>
+              <h3 className="text-sm font-semibold text-ink">{col.title}</h3>
               <ul className="mt-5 space-y-3.5 text-sm">
                 {col.links.map((l) => (
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-white/60 transition-colors hover:text-brand"
+                      className="text-ink-soft transition-colors hover:text-brand-strong"
                     >
                       {l.label}
                     </Link>
@@ -69,27 +69,30 @@ export function Footer() {
           ))}
 
           <div>
-            <h3 className="text-sm font-semibold text-white">Offices</h3>
-            <div className="mt-5 space-y-5 text-sm text-white/60">
+            <h3 className="text-sm font-semibold text-ink">Offices</h3>
+            <div className="mt-5 space-y-5 text-sm text-ink-soft">
               {offices.map((o) => (
                 <div key={o.name}>
-                  <p className="font-medium text-white/80">{o.name}</p>
+                  <p className="font-medium text-ink">{o.name}</p>
                   <p className="mt-1 leading-relaxed">{o.address}</p>
                   <a
                     href={`tel:${o.phone.replace(/[^+\d]/g, "")}`}
-                    className="mt-1 block hover:text-brand"
+                    className="mt-1 block transition-colors hover:text-brand-strong"
                   >
                     {o.phone}
                   </a>
                 </div>
               ))}
-              <a href={`mailto:${company.email}`} className="block hover:text-brand">
+              <a
+                href={`mailto:${company.email}`}
+                className="block transition-colors hover:text-brand-strong"
+              >
                 {company.email}
               </a>
             </div>
 
-            <h3 className="mt-8 text-sm font-semibold text-white">Follow us</h3>
-            <div className="mt-4 flex gap-2.5">
+            <h3 className="mt-8 text-sm font-semibold text-ink">Follow us</h3>
+            <div className="mt-4 flex gap-4">
               {socials.map((s) => (
                 <a
                   key={s.label}
@@ -97,9 +100,9 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={`Polaris on ${s.label}`}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/25 text-white/70 transition-colors hover:border-brand hover:text-brand"
+                  className="text-ink transition-colors hover:text-brand-strong"
                 >
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     {socialIcon[s.label]}
                   </svg>
                 </a>
@@ -108,21 +111,21 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-ink/10 pt-6 text-xs text-ink-faint sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {company.legalName}
           </p>
           <div className="flex gap-6">
-            <Link href="/" className="hover:text-white">
+            <Link href="/" className="transition-colors hover:text-ink">
               Privacy Policy
             </Link>
-            <Link href="/" className="hover:text-white">
+            <Link href="/" className="transition-colors hover:text-ink">
               Cookie Policy
             </Link>
           </div>
         </div>
 
-        <p className="mt-6 text-[11px] text-white/35">
+        <p className="mt-6 text-[11px] text-ink-faint">
           Figures and project details on this site are illustrative placeholders.
         </p>
       </div>
