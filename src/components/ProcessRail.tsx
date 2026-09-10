@@ -26,20 +26,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
 
   return (
     <div className="mt-8">
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex gap-1.5">
-          {steps.map((s, i) => (
-            <button
-              key={s.step}
-              type="button"
-              aria-label={`Show ${s.title}`}
-              onClick={() => setActive(i)}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                i === active ? "w-8 bg-ink" : "w-4 bg-ink/20 hover:bg-ink/40"
-              }`}
-            />
-          ))}
-        </div>
+      <div className="flex items-center justify-end gap-4">
         <div className="flex gap-2">
           <button
             type="button"
