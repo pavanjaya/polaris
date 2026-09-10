@@ -21,12 +21,10 @@ export function SmoothScroll() {
     if (prefersReducedMotion()) return;
 
     const lenis = new Lenis({
-      duration: 1.1,
-      // expo-out easing curve
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.4,
-      lerp: 0.1,
+      // Higher lerp = catches up to the target faster → less "float".
+      lerp: 0.16,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
     });
 
     lenis.on("scroll", ScrollTrigger.update);
