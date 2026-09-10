@@ -507,7 +507,7 @@ function fmt(iso: string) {
 
 export function LatestNews() {
   return (
-    <section className="bg-aura-soft">
+    <section className="bg-paper">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
