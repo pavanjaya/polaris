@@ -63,7 +63,7 @@ export function Header() {
           <Logo height={66} tone={overlay ? "light" : "dark"} />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-6 xl:flex">
           {nav.map((item) => {
             const active = pathname.startsWith(item.href);
             return (
@@ -84,7 +84,7 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <RegionToggle overlay={overlay} />
           <Link
             href="/contact"
@@ -101,7 +101,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className={`inline-flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden ${
+          className={`inline-flex h-10 w-10 items-center justify-center rounded-lg border xl:hidden ${
             overlay ? "border-white/40 text-white" : "border-ink/15 text-ink"
           }`}
           aria-expanded={open}
@@ -129,7 +129,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-line bg-paper lg:hidden">
+        <div className="border-t border-line bg-paper xl:hidden">
           <nav className="container-px mx-auto flex max-w-[1760px] flex-col py-3">
             <div className="mb-2 flex gap-0.5 self-start rounded-lg border border-ink/15 p-0.5">
               {regions.map((r) => {

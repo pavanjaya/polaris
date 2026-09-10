@@ -132,7 +132,7 @@ export function ClientStrip() {
 
 export function Expertise() {
   return (
-    <section className="bg-haze">
+    <section className="bg-[#faf9f3]">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
@@ -182,7 +182,10 @@ export function Expertise() {
 
 export function Process() {
   return (
-    <section className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
+    <section
+      id="how-we-work"
+      className="container-px mx-auto max-w-[1760px] scroll-mt-24 py-20 lg:py-28"
+    >
       <Reveal>
         <p className="flex items-center gap-2 text-sm font-semibold text-brand-strong">
           <span className="h-1.5 w-1.5 rounded-full bg-brand" />

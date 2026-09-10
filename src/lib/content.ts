@@ -100,11 +100,13 @@ export const socials = [
 ];
 
 export const nav = [
+  { label: "About", href: "/about" },
+  { label: "How We Work", href: "/#how-we-work" },
   { label: "Solutions", href: "/solutions" },
   { label: "Projects", href: "/projects" },
-  { label: "Sustainability", href: "/sustainability" },
+  { label: "P-ESS", href: "/p-ess" },
   { label: "Insights", href: "/insights" },
-  { label: "About", href: "/about" },
+  { label: "Sustainability", href: "/sustainability" },
 ];
 
 // Headline figures — "Polaris at a Glance"
