@@ -38,7 +38,7 @@ export function TestimonialCarousel() {
   const t = testimonials[index];
 
   return (
-    <section className="bg-paper">
+    <section className="bg-[#fbfbf6]">
       <div className="container-px mx-auto max-w-3xl py-24 text-center lg:py-32">
         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink-faint">
           In their words
