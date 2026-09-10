@@ -568,16 +568,16 @@ export function BrandPromise() {
         />
       </div>
 
-      <div className="container-px pointer-events-none relative mx-auto flex max-w-3xl flex-col items-center py-28 text-center lg:py-40">
+      <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-28 text-center lg:py-40">
         <Reveal variant="fade">
           <span className="pill">Our philosophy</span>
         </Reveal>
         <RevealText
           text="Energy as an asset."
-          className="mt-6 block max-w-2xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
+          className="mt-6 block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
         />
         <Reveal variant="up" delay={60}>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">
             A roof is underutilised real estate. By combining Tier-1
             engineering with investment-grade financial modelling — IRR,
             payback, depreciation and tax optimisation — we change the
