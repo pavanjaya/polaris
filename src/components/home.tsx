@@ -113,19 +113,27 @@ export function IntroStatement() {
 /* ---------- Client strip ---------- */
 
 export function ClientStrip() {
+  // duplicated so the CSS loop is seamless
+  const loop = [...clients, ...clients];
   return (
     <section className="bg-paper py-12 lg:py-16">
-      <div className="container-px mx-auto max-w-[1760px]">
+      <Reveal variant="fade" className="container-px mx-auto max-w-[1760px]">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-ink-faint">
           Trusted on 650+ industrial projects
         </p>
-        <div className="marquee-names mt-6">
-          {clients.map((name) => (
-            <span key={name} className="marquee-name">
+      </Reveal>
+
+      <div className="marquee mt-8">
+        <div className="marquee-track" aria-hidden="true">
+          {loop.map((name, i) => (
+            <span key={`${name}-${i}`} className="marquee-name">
               {name}
             </span>
           ))}
         </div>
+        <span className="sr-only">
+          Polaris clients include {clients.join(", ")}.
+        </span>
       </div>
     </section>
   );

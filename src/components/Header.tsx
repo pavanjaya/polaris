@@ -35,14 +35,29 @@ function RegionToggle({ overlay }: { overlay: boolean }) {
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const overlay = false;
+  const [solid, setSolid] = useState(false);
+
+  const isHome = pathname === "/";
+  // Transparent overlay only on the homepage hero, before scrolling.
+  const overlay = isHome && !solid && !open;
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const onScroll = () => setSolid(window.scrollY > window.innerHeight * 0.7);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-paper/95 backdrop-blur">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        overlay ? "bg-transparent" : "bg-paper/95 backdrop-blur"
+      }`}
+    >
       <div className="container-px mx-auto flex h-[83px] max-w-[1760px] items-center justify-between">
         <Link href="/" aria-label={`${company.name} home`}>
           <Logo height={66} tone={overlay ? "light" : "dark"} />
