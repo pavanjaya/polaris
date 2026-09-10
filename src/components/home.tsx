@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { Parallax } from "./motion/Parallax";
+import { CountUp } from "./motion/CountUp";
 import { Button, ArrowLink, ArrowRight } from "./ui";
 import {
   solutions,
@@ -96,22 +97,28 @@ export function IntroStatement() {
 /* ---------- Client strip ---------- */
 
 export function ClientStrip() {
+  // duplicated so the CSS loop is seamless
+  const loop = [...clients, ...clients];
   return (
-    <section className="border-y border-line bg-paper">
-      <div className="container-px mx-auto max-w-[1760px] py-12 lg:py-14">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-faint">
-          Trusted by industry leaders
+    <section className="border-y border-line bg-paper py-12 lg:py-16">
+      <Reveal variant="fade" className="container-px mx-auto max-w-[1760px]">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-ink-faint">
+          Selected clients &amp; project stakeholders
         </p>
-        <div className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-4">
-          {clients.map((c) => (
-            <span
-              key={c}
-              className="text-lg font-semibold tracking-tight text-ink-soft"
-            >
+      </Reveal>
+
+      <div className="marquee mt-8">
+        <div className="marquee-track" aria-hidden="true">
+          {loop.map((c, i) => (
+            <span key={`${c}-${i}`} className="marquee-item">
               {c}
+              <span className="marquee-dot" />
             </span>
           ))}
         </div>
+        <span className="sr-only">
+          Polaris clients include {clients.join(", ")}.
+        </span>
       </div>
     </section>
   );
@@ -160,38 +167,80 @@ export function Expertise() {
 
 export function ByTheNumbers() {
   return (
-    <section className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
-      <div className="grid gap-5 lg:grid-cols-[0.9fr_1.6fr]">
-        <Reveal className="relative flex flex-col justify-between overflow-hidden rounded-xl bg-ink p-9 text-white">
-          <h2 className="text-3xl font-bold tracking-tight">
-            Polaris in a few numbers
-          </h2>
-          <div className="mt-10">
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90"
-            >
-              Learn more
-            </Link>
-          </div>
-        </Reveal>
+    <section className="relative overflow-hidden py-20 lg:py-28">
+      {/* section background pattern */}
+      <svg
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full text-ink/[0.06]"
+      >
+        <defs>
+          <pattern
+            id="dotgrid"
+            width="26"
+            height="26"
+            patternUnits="userSpaceOnUse"
+          >
+            <circle cx="1.5" cy="1.5" r="1.5" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#dotgrid)" />
+      </svg>
 
-        <div className="grid gap-5 sm:grid-cols-2">
-          {stats.map((s, i) => (
-            <Reveal
-              key={s.label}
-              delay={i * 60}
-              className="flex flex-col justify-between rounded-xl border border-line bg-paper p-8"
+      <div className="container-px relative mx-auto max-w-[1760px]">
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_1.6fr]">
+          <Reveal
+            variant="scale"
+            className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-xl bg-ink p-9 text-white"
+          >
+            {/* inner motif */}
+            <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand/20 blur-3xl" />
+            <svg
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.06]"
             >
-              <span className="h-1 w-10 rounded-full bg-brand" />
-              <div className="mt-8">
-                <div className="text-4xl font-bold tracking-tight text-ink sm:text-[2.75rem]">
-                  {s.value}
-                </div>
-                <div className="mt-2 text-sm text-ink-soft">{s.label}</div>
-              </div>
+              <rect width="100%" height="100%" fill="url(#dotgrid)" />
+            </svg>
+
+            <Reveal as="span" variant="mask" className="relative block">
+              <h2 className="text-3xl font-bold tracking-tight">
+                Polaris in a few numbers
+              </h2>
             </Reveal>
-          ))}
+
+            <Reveal variant="up" delay={120} className="relative mt-10">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90"
+              >
+                Learn more
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Reveal>
+          </Reveal>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            {stats.map((s, i) => (
+              <Reveal
+                key={s.label}
+                variant="up"
+                delay={i * 90}
+                className="flex flex-col justify-between rounded-xl border border-line bg-paper p-8"
+              >
+                <span className="h-1 w-10 rounded-full bg-brand" />
+                <div className="mt-8">
+                  <CountUp
+                    value={s.value}
+                    className="block text-4xl font-bold tracking-tight text-ink sm:text-[2.75rem]"
+                  />
+                  <Reveal variant="up" delay={i * 90 + 200}>
+                    <span className="mt-2 block text-sm text-ink-soft">
+                      {s.label}
+                    </span>
+                  </Reveal>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
