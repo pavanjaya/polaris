@@ -273,24 +273,37 @@ export function Segments() {
 /* ---------- Why Polaris (trust) ---------- */
 
 const trustIcons: React.ReactNode[] = [
-  // engineering-led — drafting compass
-  <svg key="eng" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <circle cx="12" cy="5" r="2" />
-    <path d="M10.5 6.8 4 20M13.5 6.8 20 20M7.7 14h8.6" />
+  // engineering-led — drafting compass / A-frame
+  <svg viewBox="0 0 48 48" fill="none" key="t-eng" aria-hidden="true">
+    <rect x="3" y="4" width="26" height="26" rx="6" fill={IL.pale} />
+    <path d="M24 10 L36 40 H29.5 L24 25 L18.5 40 H12 Z" fill={IL.green} />
+    <path d="M16 33 H32" stroke={IL.dark} strokeWidth="3" strokeLinecap="round" />
+    <circle cx="24" cy="10" r="5.5" fill={IL.ink} />
+    <circle cx="24" cy="10" r="1.8" fill="#fff" />
   </svg>,
   // standards — shield with check
-  <svg key="std" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M12 3 5 6v5c0 4.4 3 8.4 7 9.5 4-1.1 7-5.1 7-9.5V6z" />
-    <path d="M9 12l2 2 4-4.5" />
+  <svg viewBox="0 0 48 48" fill="none" key="t-std" aria-hidden="true">
+    <rect x="3" y="3" width="21" height="21" rx="6" fill={IL.pale} />
+    <path d="M26 5 L41 11 V25 C41 34 34 41 26 44 C18 41 11 34 11 25 V11 Z" fill={IL.green} />
+    <path d="M26 11 L35 14.6 V25 C35 31 31 36 26 38 C21 36 17 31 17 25 V14.6 Z" fill={IL.dark} />
+    <path d="M21.5 25 L25 28.5 L31 20.5" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
   </svg>,
-  // financial model — rising bars
-  <svg key="fin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M4 20h16M7 20v-6M12 20V9M17 20v-9M6 10l5-4 3 2 5-5" />
+  // investment-grade financial model — bars + trend
+  <svg viewBox="0 0 48 48" fill="none" key="t-fin" aria-hidden="true">
+    <rect x="4" y="6" width="26" height="26" rx="6" fill={IL.pale} />
+    <rect x="9" y="31" width="7" height="11" rx="2" fill={IL.dark} />
+    <rect x="20.5" y="23" width="7" height="19" rx="2" fill={IL.green} />
+    <rect x="32" y="15" width="7" height="27" rx="2" fill={IL.green} />
+    <path d="M10 21 L20 14 L27 18 L39 8" stroke={IL.ink} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="39" cy="8" r="3" fill={IL.ink} />
   </svg>,
-  // year 25 — clock
-  <svg key="om" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <circle cx="12" cy="12" r="8.5" />
-    <path d="M12 7v5.5l3.5 2" />
+  // accountable to year 25 — clock
+  <svg viewBox="0 0 48 48" fill="none" key="t-om" aria-hidden="true">
+    <rect x="3" y="3" width="22" height="22" rx="7" fill={IL.pale} />
+    <circle cx="27" cy="27" r="17" fill={IL.green} />
+    <path d="M27 16 V27 L35 32" stroke="#fff" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="27" cy="27" r="3" fill={IL.ink} />
+    <path d="M27 12 v3 M42 27 h-3 M27 42 v-3 M12 27 h3" stroke={IL.dark} strokeWidth="2.4" strokeLinecap="round" />
   </svg>,
 ];
 
@@ -309,7 +322,7 @@ export function TrustRow() {
         <div className="mt-14 grid gap-x-16 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-20">
           {trust.map((t, i) => (
             <Reveal as="article" key={t.title} delay={(i % 4) * 70}>
-              <span className="flex h-14 w-14 items-center justify-center rounded-lg bg-brand-tint text-brand-strong [&>svg]:h-7 [&>svg]:w-7">
+              <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
                 {trustIcons[i]}
               </span>
               <h3 className="mt-6 text-lg font-semibold tracking-tight text-ink">
