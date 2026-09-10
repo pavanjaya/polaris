@@ -33,6 +33,7 @@ const columns = [
       { label: "Polaris Global", href: "/global" },
       { label: "Sustainability", href: "/sustainability" },
       { label: "Insights", href: "/insights" },
+      { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],
   },

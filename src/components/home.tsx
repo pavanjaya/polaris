@@ -314,7 +314,7 @@ export function CareersStrip() {
               outcomes, not tickets.
             </p>
           </div>
-          <ArrowLink href="/contact">Talk to our team</ArrowLink>
+          <ArrowLink href="/careers">See how we hire</ArrowLink>
         </Reveal>
       </div>
     </section>

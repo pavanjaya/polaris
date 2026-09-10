@@ -362,6 +362,33 @@ export const trust = [
   },
 ];
 
+// Careers page
+export const careers = {
+  intro:
+    "Polaris is a small, engineering-led team delivering solar across India and Morocco. We hire people who want to own an outcome end to end — the financial model, the design, the build and the 25 years after it.",
+  roles:
+    "Electrical and structural engineers, project managers, site engineers and energy analysts.",
+  culture: [
+    {
+      title: "Engineering owns the call",
+      body: "Systems are sized on fit and physics, not on a sales target. If you can defend the number, you make the decision.",
+    },
+    {
+      title: "One team, whole lifecycle",
+      body: "You follow a project from feasibility through commissioning into O&M — no hand-offs to a team that never saw the site.",
+    },
+    {
+      title: "Cross-border by default",
+      body: "Indian projects and Morocco operations run to the same standards. Good work travels; so can you.",
+    },
+    {
+      title: "Financially literate",
+      body: "Everyone here can read an IRR model. Understanding why a project makes sense is part of the job, not a finance silo.",
+    },
+  ],
+  email: "info@polarisenergy.in",
+};
+
 // Homepage "Who we serve" — industry segments, drawn from Polaris's
 // live C&I project base.
 export const segments = [
