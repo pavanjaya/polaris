@@ -48,27 +48,27 @@ export function TestimonialCarousel() {
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >
-      <div className="container-px mx-auto max-w-3xl py-24 text-center lg:py-32">
+      <div className="container-px mx-auto max-w-3xl py-14 text-center lg:py-16">
         <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-ink-faint">
           In their words
         </h2>
 
         <span
           aria-hidden="true"
-          className="mt-8 block select-none font-serif text-[5rem] leading-[0.6] text-brand/25"
+          className="mt-5 block select-none font-serif text-[4rem] leading-[0.6] text-brand/25"
         >
           &ldquo;
         </span>
 
         <div
           key={index}
-          className="squeezy-detail flex min-h-[24rem] flex-col justify-start sm:min-h-[21rem]"
+          className="squeezy-detail flex min-h-[21rem] flex-col justify-start sm:min-h-[18rem]"
         >
-          <blockquote className="mx-auto mt-8 max-w-3xl text-2xl font-medium leading-relaxed text-ink-soft sm:text-[1.9rem] sm:leading-[1.4]">
+          <blockquote className="mx-auto mt-5 max-w-3xl text-2xl font-medium leading-relaxed text-ink-soft sm:text-[1.9rem] sm:leading-[1.4]">
             {t.quote}
           </blockquote>
 
-          <figcaption className="mt-10 flex items-center justify-center gap-3">
+          <figcaption className="mt-8 flex items-center justify-center gap-3">
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-tint text-sm font-bold text-brand-dark">
               {initials(t.name)}
             </span>
@@ -79,7 +79,7 @@ export function TestimonialCarousel() {
           </figcaption>
         </div>
 
-        <div className="mt-10 flex items-center justify-center gap-2.5">
+        <div className="mt-8 flex items-center justify-center gap-2.5">
           {testimonials.map((item, i) => (
             <button
               key={item.name}
