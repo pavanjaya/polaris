@@ -11,8 +11,10 @@ const useIsoLayoutEffect =
  *
  * It renders fully visible by default. Only once the client script has run
  * does it "arm" the clip animation (before paint, so there's no flash) and
- * then reveal on scroll via IntersectionObserver — with timed failsafes so
- * the text can never end up stuck hidden. Pure CSS transitions; no GSAP.
+ * then reveal on scroll via IntersectionObserver. A rescue poll only ever
+ * fires when the heading is genuinely on screen — a heading below the fold
+ * always waits for the scroll, no matter how long the page has been open.
+ * Pure CSS transitions; no GSAP.
  */
 export function RevealText({
   text,
@@ -54,21 +56,34 @@ export function RevealText({
           io.disconnect();
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+      { threshold: 0.15, rootMargin: "0px 0px -12% 0px" },
     );
     io.observe(el);
 
-    // Failsafes — reveal even if the observer never fires.
-    const softFailsafe = window.setTimeout(() => {
+    // Rescue: only if the heading is actually on screen but the observer
+    // somehow didn't fire. Never triggers for content below the fold, so a
+    // long dwell on the hero can't "use up" the reveal.
+    const rescue = window.setInterval(() => {
+      if (played) {
+        window.clearInterval(rescue);
+        return;
+      }
       const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) play();
-    }, 1600);
-    const hardFailsafe = window.setTimeout(play, 4000);
+      if (r.top < window.innerHeight * 0.88 && r.bottom > 0) {
+        play();
+        io.disconnect();
+        window.clearInterval(rescue);
+      }
+    }, 400);
+    const stopRescue = window.setTimeout(
+      () => window.clearInterval(rescue),
+      20000,
+    );
 
     return () => {
       io.disconnect();
-      window.clearTimeout(softFailsafe);
-      window.clearTimeout(hardFailsafe);
+      window.clearInterval(rescue);
+      window.clearTimeout(stopRescue);
     };
   }, [text]);
 

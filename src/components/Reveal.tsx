@@ -66,18 +66,30 @@ export function Reveal({
       });
     }, el);
 
-    // Failsafe: if the trigger never fires, don't leave content hidden.
+    // Rescue only content that is genuinely on screen but stuck hidden —
+    // never anything still below the fold, so it can't pre-fire while the
+    // visitor lingers higher up the page.
     const settled = { toVars: { ...toVars, y: 0, yPercent: 0, scale: 1 } };
-    const failsafe = window.setTimeout(() => {
+    const rescue = window.setInterval(() => {
       const r = el.getBoundingClientRect();
       const revealed = parseFloat(getComputedStyle(el).opacity || "1") > 0.9;
-      if (!revealed && r.top < window.innerHeight * 1.5 && r.bottom > -200) {
-        gsap.set(targets, settled.toVars);
+      if (revealed) {
+        window.clearInterval(rescue);
+        return;
       }
-    }, 3200);
+      if (r.top < window.innerHeight * 0.92 && r.bottom > 0) {
+        gsap.set(targets, settled.toVars);
+        window.clearInterval(rescue);
+      }
+    }, 500);
+    const stopRescue = window.setTimeout(
+      () => window.clearInterval(rescue),
+      20000,
+    );
 
     return () => {
-      window.clearTimeout(failsafe);
+      window.clearInterval(rescue);
+      window.clearTimeout(stopRescue);
       ctx.revert();
     };
   }, [delay, variant, stagger]);

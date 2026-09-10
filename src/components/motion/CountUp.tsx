@@ -54,13 +54,6 @@ export function CountUp({
         onComplete: () => setDisplay(target),
       });
     };
-    // Guarantee the final value even if the counter never gets to run.
-    const settle = () => {
-      if (!done) {
-        done = true;
-        setDisplay(target);
-      }
-    };
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -73,18 +66,29 @@ export function CountUp({
     );
     io.observe(el);
 
-    const soft = window.setTimeout(() => {
+    // Rescue only when the number is actually on screen but the observer
+    // didn't fire — never while it's still below the fold.
+    const rescue = window.setInterval(() => {
+      if (done) {
+        window.clearInterval(rescue);
+        return;
+      }
       const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) run();
-    }, 1600);
-    // Last resort only — IntersectionObserver is the real trigger, so give
-    // it plenty of time before snapping to the final value with no count.
-    const hard = window.setTimeout(settle, 15000);
+      if (r.top < window.innerHeight * 0.9 && r.bottom > 0) {
+        run();
+        io.disconnect();
+        window.clearInterval(rescue);
+      }
+    }, 500);
+    const stopRescue = window.setTimeout(
+      () => window.clearInterval(rescue),
+      20000,
+    );
 
     return () => {
       io.disconnect();
-      window.clearTimeout(soft);
-      window.clearTimeout(hard);
+      window.clearInterval(rescue);
+      window.clearTimeout(stopRescue);
     };
   }, [target, duration]);
 
