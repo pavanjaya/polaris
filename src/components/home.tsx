@@ -606,21 +606,11 @@ export function BrandPromise() {
           >
             <div className="relative aspect-square">
               <Orb
-                hue={230}
+                hue={0}
                 hoverIntensity={0.4}
                 rotateOnHover
-                backgroundColor="#FAFBF6"
                 className="absolute inset-0"
               />
-            </div>
-            {/* floating caption card */}
-            <div className="absolute bottom-2 -left-4 hidden max-w-[16rem] rounded-lg border border-line/70 bg-paper p-5 shadow-[0_24px_60px_-28px_rgba(11,21,37,0.4)] sm:block">
-              <p className="text-sm font-semibold tracking-tight text-ink">
-                Every kW is underwritten
-              </p>
-              <p className="mt-1.5 text-xs leading-snug text-ink-faint">
-                sized on generation and cash flow — not catalogue margin.
-              </p>
             </div>
           </Reveal>
         </div>
