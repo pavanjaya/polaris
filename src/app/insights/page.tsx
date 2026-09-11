@@ -45,31 +45,33 @@ export default function InsightsPage() {
       </section>
 
       <Section>
-        <div className="grid gap-x-8 gap-y-14 md:grid-cols-2">
+        <div className="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {insights.map((post, i) => (
-            <Reveal as="article" key={post.slug} delay={(i % 2) * 70}>
+            <Reveal as="article" key={post.slug} delay={(i % 3) * 70}>
               <Link href={`/insights/${post.slug}`} className="group block">
-                <div className="relative aspect-[16/11] w-full overflow-hidden rounded-lg bg-mist">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-mist">
                   <Image
                     src={post.image}
                     alt=""
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-                <div className="mt-5 flex items-center gap-3 text-xs text-ink-faint">
-                  <span className="rounded-full bg-brand-tint px-2.5 py-1 text-xs font-semibold text-brand-strong">
+                <div className="mt-5">
+                  <span className="inline-flex rounded-md bg-brand-tint px-3 py-1 text-sm font-medium text-brand-strong">
                     {post.category}
                   </span>
-                  <time dateTime={post.date}>{formatDate(post.date)}</time>
                 </div>
-                <h2 className="mt-4 text-xl font-semibold leading-tight tracking-tight text-ink transition-colors group-hover:text-brand-strong sm:text-2xl">
+                <h2 className="mt-3 line-clamp-2 text-xl font-semibold leading-tight tracking-tight text-ink transition-colors group-hover:text-brand-strong">
                   {post.title}
                 </h2>
-                <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
-                  {post.excerpt}
-                </p>
+                <time
+                  dateTime={post.date}
+                  className="mt-3 block text-sm text-ink-faint"
+                >
+                  {formatDate(post.date)}
+                </time>
               </Link>
             </Reveal>
           ))}
