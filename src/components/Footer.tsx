@@ -110,6 +110,14 @@ export function Footer() {
             <Link href="/cookie-policy" className="transition-colors hover:text-ink">
               Cookie Policy
             </Link>
+            <a
+              href="https://www.hueness.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="transition-colors hover:text-ink"
+            >
+              Made by Hueness
+            </a>
           </div>
         </div>
       </div>

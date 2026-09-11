@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CTA } from "@/components/CTA";
 import { ArrowLeft } from "@/components/ui";
+import { ProjectImageCarousel } from "@/components/ProjectImageCarousel";
 import { projects } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -84,21 +84,11 @@ export default async function ProjectDetail({
       </section>
 
       <div className="container-px relative mx-auto max-w-[1760px] -mt-4 lg:-mt-6">
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-mist lg:aspect-[21/9]">
-          <Image
-            src={project.image}
-            alt={project.name}
-            fill
-            sizes="(max-width: 1760px) 100vw, 1760px"
-            priority
-            className="object-cover"
-          />
-          {project.imageCaption && (
-            <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-5 pb-3 pt-10 text-xs italic text-white/90 sm:px-7">
-              {project.imageCaption}
-            </p>
-          )}
-        </div>
+        <ProjectImageCarousel
+          images={project.images}
+          alt={project.name}
+          caption={project.imageCaption}
+        />
       </div>
 
       <div className="container-px mx-auto max-w-[1760px] py-14 lg:py-20">

@@ -90,7 +90,10 @@ export const global = {
 };
 
 export const socials = [
-  { label: "Facebook", href: "https://www.facebook.com/Polarisenergysolutions/" },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/Polarisenergysolutions/",
+  },
   {
     label: "X",
     href: "https://x.com/polaris_nashik",
@@ -101,7 +104,10 @@ export const socials = [
   },
   // TODO: replace with the real Polaris YouTube channel URL before launch.
   { label: "YouTube", href: "https://www.youtube.com/" },
-  { label: "Instagram", href: "https://www.instagram.com/polaris_solar_solutions/" },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/polaris_solar_solutions/",
+  },
 ];
 
 export const nav = [
@@ -196,27 +202,69 @@ export const testimonials = [
   },
 ];
 
-// Homepage "Our Solutions" — the four offering categories.
+// Homepage "Our Solutions" — the four offering categories. Each has its
+// own page at /solutions/<slug>; `relatedSolutions` cross-links to the
+// matching commercial-model cards on /solutions (by slug, as #anchors).
 export const offerings = [
   {
+    slug: "commercial-industrial",
     title: "Commercial & Industrial",
     summary:
       "Rooftop and ground-mount solar for factories, warehouses and campuses — engineered for 25 years of dependable generation and structured to the balance sheet.",
+    intro:
+      "The core of the Polaris portfolio — rooftop and ground-mounted solar for the factories, warehouses and campuses behind 650+ commissioned projects across Maharashtra, Gujarat and beyond. Every system is engineered around the site's real constraints — live production lines, non-uniform rooftops, structural limits — not a standard layout, and matched to whichever commercial model fits the balance sheet.",
+    points: [
+      "Zero-penetration and custom mounting engineered for live, operating facilities — installed without disrupting production.",
+      "Centralised or distributed inverter architecture designed around the rooftop's real constraints, not a standard layout.",
+      "CAPEX, OPEX/RESCO or lease-based ownership — matched to cash flow, not a single default structure.",
+      "BESS-ready infrastructure built in from day one, so storage can be added later without re-engineering the plant.",
+    ],
+    relatedSolutions: ["capex", "opex", "lease", "epc"],
   },
   {
+    slug: "utility-scale",
     title: "Utility Scale",
     summary:
       "Large ground-mount and hybrid parks with HT evacuation, land and interconnection managed end to end for IPPs and open-access buyers.",
+    intro:
+      "Ground-mounted and hybrid parks at a scale rooftop can't reach — land acquisition, HT evacuation and grid interconnection managed end to end, for IPPs and open-access buyers procuring power off-site. The same engineering discipline applies at scale: one plant head described a site with rock, a monsoon window and a 0.5 km HT run engineered around, and still commissioned in under 90 days.",
+    points: [
+      "Land acquisition, HT evacuation and grid interconnection managed end to end, not handed off mid-project.",
+      "Open-access and group-captive structures for buyers who want scale without owning generation directly.",
+      "Performance-linked (GLG) structures available where generation is tied to defined benchmarks.",
+      "The same investment-grade financial model — IRR, payback, depreciation — applied at utility scale.",
+    ],
+    relatedSolutions: ["open-access", "glg", "epc"],
   },
   {
+    slug: "finance-solutions",
     title: "Finance Solutions",
     summary:
       "CAPEX, OPEX / RESCO, lease and group-captive structures — matched to your cash flow, with an investment-grade model behind every proposal.",
+    intro:
+      "Every Polaris engagement starts with a financial model, not a structure — IRR, payback, depreciation and year-by-year cash flow, modelled before design begins. From there, the commercial model follows the numbers: full ownership, zero-capex RESCO, lease or group-captive, whichever fits your balance sheet.",
+    points: [
+      "An investment-grade financial model — IRR, payback, depreciation and cash flow — reviewed and signed off before design begins.",
+      "Full ownership (CAPEX), zero-capex RESCO (OPEX), lease or group-captive — matched to your books, not a default.",
+      "Simple payback of 3.5–7 years and 18–28% IRR are the normal range for well-structured industrial solar.",
+      "Accelerated depreciation of up to 40% in Year 1 is available under Indian IT provisions, where applicable.",
+    ],
+    relatedSolutions: ["capex", "opex", "lease", "open-access", "advisory"],
   },
   {
+    slug: "energy-optimisation-consultant",
     title: "Energy Optimisation Consultant",
     summary:
       "Load analysis, BESS sizing, time-of-day strategy and SCADA-driven O&M — advisory that keeps the asset performing to year 25.",
+    intro:
+      "Generation is only half the equation — the other half is what happens to that power once it's made. This practice covers load analysis and generation simulation against actual consumption, BESS sizing and time-of-day strategy, and the SCADA-based monitoring that keeps a plant performing to its full 25-year design life, not just at commissioning.",
+    points: [
+      "Load analysis and generation simulation run against actual consumption data before a system is designed.",
+      "BESS sizing and time-of-day strategy for peak shaving and tariff arbitrage.",
+      "SCADA-based monitoring and analytics for the full 25-year operating life, not just commissioning.",
+      "The same investment-grade financial modelling — IRR, payback, depreciation — behind every recommendation.",
+    ],
+    relatedSolutions: ["bess", "advisory", "epc"],
   },
 ];
 
@@ -428,6 +476,7 @@ export const projects = [
     name: "Kilitch Healthcare India Ltd.",
     slug: "kilitch-healthcare",
     image: "/img/projects/kilitch.jpg",
+    images: ["/img/projects/kilitch.jpg"],
     location: "India",
     tech: "Industrial Rooftop Solar",
     model: "CAPEX",
@@ -450,6 +499,7 @@ export const projects = [
     name: "General Mills India Pvt. Ltd.",
     slug: "general-mills",
     image: "/img/projects/general-mills.jpg",
+    images: ["/img/projects/general-mills.jpg"],
     location: "India",
     tech: "Industrial Rooftop Solar",
     model: "CAPEX",
@@ -473,6 +523,7 @@ export const projects = [
     name: "Shriram Stone Crusher",
     slug: "shriram-stone-crusher",
     image: "/img/projects/shriram.jpg",
+    images: ["/img/projects/shriram.jpg"],
     location: "India",
     tech: "Ground-Mounted Solar",
     model: "CAPEX",
@@ -496,6 +547,7 @@ export const projects = [
     name: "Forcon Infra Pvt. Ltd.",
     slug: "forcon-infra",
     image: "/img/projects/forcon.jpg",
+    images: ["/img/projects/forcon.jpg"],
     location: "India",
     tech: "Ground-Mounted Solar",
     model: "CAPEX",
@@ -519,6 +571,7 @@ export const projects = [
     name: "Indore Composite Pvt. Ltd.",
     slug: "indore-composite",
     image: "/img/projects/indore-composite.jpg",
+    images: ["/img/projects/indore-composite.jpg"],
     location: "India",
     tech: "Industrial Rooftop Solar",
     model: "CAPEX",
@@ -541,6 +594,7 @@ export const projects = [
     name: "Advanced Enzyme Technologies Ltd.",
     slug: "advanced-enzyme-technologies",
     image: "/img/projects/advanced-enzyme.jpg",
+    images: ["/img/projects/advanced-enzyme.jpg"],
     location: "India",
     tech: "Industrial Rooftop Solar",
     model: "CAPEX",
@@ -565,6 +619,7 @@ export const projects = [
     name: "Indore International",
     slug: "indore-international",
     image: "/img/projects/morocco.jpg",
+    images: ["/img/projects/morocco.jpg"],
     location: "Tangier, Morocco",
     tech: "Industrial Rooftop Solar",
     model: "CAPEX",
@@ -756,11 +811,31 @@ export const opportunity = {
     },
   ],
   financials: [
-    { metric: "Simple payback", value: "3.5–7 years", note: "for well-structured industrial solar" },
-    { metric: "IRR", value: "18–28%", note: "annualised, by system size and tariff band" },
-    { metric: "NPV", value: "Positive from Year 1", note: "in most C&I deployments" },
-    { metric: "Accelerated depreciation", value: "Up to 40% in Year 1", note: "under Indian IT provisions" },
-    { metric: "Electricity cost savings", value: "≈ 80% below grid", note: "predictable over a 25-year asset life" },
+    {
+      metric: "Simple payback",
+      value: "3.5–7 years",
+      note: "for well-structured industrial solar",
+    },
+    {
+      metric: "IRR",
+      value: "18–28%",
+      note: "annualised, by system size and tariff band",
+    },
+    {
+      metric: "NPV",
+      value: "Positive from Year 1",
+      note: "in most C&I deployments",
+    },
+    {
+      metric: "Accelerated depreciation",
+      value: "Up to 40% in Year 1",
+      note: "under Indian IT provisions",
+    },
+    {
+      metric: "Electricity cost savings",
+      value: "≈ 80% below grid",
+      note: "predictable over a 25-year asset life",
+    },
   ],
   context:
     "India's installed solar capacity crossed 80 GW in 2024, with a national target of 500 GW of renewable capacity by 2030. The C&I segment is the fastest-growing sub-sector — driven by financial logic as much as sustainability mandates.",
@@ -909,7 +984,7 @@ export const insights = [
       {
         heading: "What group captive means",
         paragraphs: [
-          "Under India's captive generation rules, a plant qualifies as \"captive\" when the consuming entity (or entities) holds not less than 26% equity in the generating company and collectively consumes not less than 51% of the electricity generated, on an annual basis. Structured correctly, that qualification exempts the arrangement from a large share of the cross-subsidy and transmission charges an ordinary third-party power purchase would attract — which is where most of the landed-cost advantage comes from.",
+          'Under India\'s captive generation rules, a plant qualifies as "captive" when the consuming entity (or entities) holds not less than 26% equity in the generating company and collectively consumes not less than 51% of the electricity generated, on an annual basis. Structured correctly, that qualification exempts the arrangement from a large share of the cross-subsidy and transmission charges an ordinary third-party power purchase would attract — which is where most of the landed-cost advantage comes from.',
         ],
       },
       {

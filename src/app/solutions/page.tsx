@@ -27,7 +27,11 @@ const solutionIcons: React.ReactNode[] = [
   <svg viewBox="0 0 48 48" fill="none" key="capex" aria-hidden="true">
     <rect x="2" y="7" width="29" height="29" rx="6" fill={IL.pale} />
     <path d="M7 35 L13 14 H35 L41 35 Z" fill={IL.green} />
-    <path d="M7 35H41M16 24.5H33M22 14l-4 21M29 14l1 21" stroke="#fff" strokeWidth="1.5" />
+    <path
+      d="M7 35H41M16 24.5H33M22 14l-4 21M29 14l1 21"
+      stroke="#fff"
+      strokeWidth="1.5"
+    />
     <circle cx="38" cy="12" r="7" fill={IL.ink} />
   </svg>,
   // OPEX / RESCO — coins
@@ -36,13 +40,23 @@ const solutionIcons: React.ReactNode[] = [
     <rect x="7" y="20" width="34" height="16" rx="8" fill={IL.green} />
     <ellipse cx="24" cy="20" rx="17" ry="6" fill={IL.dark} />
     <ellipse cx="24" cy="14" rx="12" ry="4.5" fill={IL.pale} />
-    <path d="M24 9v10M20 12h8" stroke={IL.ink} strokeWidth="2.2" strokeLinecap="round" />
+    <path
+      d="M24 9v10M20 12h8"
+      stroke={IL.ink}
+      strokeWidth="2.2"
+      strokeLinecap="round"
+    />
   </svg>,
   // Open Access & Group Captive — network
   <svg viewBox="0 0 48 48" fill="none" key="oa" aria-hidden="true">
     <rect x="3" y="3" width="22" height="22" rx="5" fill={IL.pale} />
     <rect x="17" y="18" width="27" height="27" rx="6" fill={IL.green} />
-    <path d="M13 13 31 31" stroke={IL.dark} strokeWidth="3" strokeLinecap="round" />
+    <path
+      d="M13 13 31 31"
+      stroke={IL.dark}
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
     <circle cx="13" cy="13" r="4.5" fill={IL.ink} />
     <circle cx="31" cy="31" r="5" fill="#fff" />
   </svg>,
@@ -50,14 +64,34 @@ const solutionIcons: React.ReactNode[] = [
   <svg viewBox="0 0 48 48" fill="none" key="lease" aria-hidden="true">
     <rect x="9" y="3" width="28" height="39" rx="5" fill={IL.pale} />
     <path d="M9 29h28v8a5 5 0 0 1-5 5H14a5 5 0 0 1-5-5z" fill={IL.green} />
-    <path d="M15 12h16M15 19h16M15 26h10" stroke={IL.dark} strokeWidth="2.4" strokeLinecap="round" />
-    <path d="M14 37c3-4 6-4 9 0s6 4 9 0" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
+    <path
+      d="M15 12h16M15 19h16M15 26h10"
+      stroke={IL.dark}
+      strokeWidth="2.4"
+      strokeLinecap="round"
+    />
+    <path
+      d="M14 37c3-4 6-4 9 0s6 4 9 0"
+      stroke="#fff"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
   </svg>,
   // GLG — gauge
   <svg viewBox="0 0 48 48" fill="none" key="glg" aria-hidden="true">
     <circle cx="24" cy="27" r="20" fill={IL.pale} />
-    <path d="M8 32A18 18 0 0 1 40 32" stroke={IL.green} strokeWidth="6" strokeLinecap="round" />
-    <path d="M24 27 35 15" stroke={IL.ink} strokeWidth="3.5" strokeLinecap="round" />
+    <path
+      d="M8 32A18 18 0 0 1 40 32"
+      stroke={IL.green}
+      strokeWidth="6"
+      strokeLinecap="round"
+    />
+    <path
+      d="M24 27 35 15"
+      stroke={IL.ink}
+      strokeWidth="3.5"
+      strokeLinecap="round"
+    />
     <circle cx="24" cy="27" r="4" fill={IL.dark} />
   </svg>,
   // BESS — battery + bolt
@@ -117,10 +151,10 @@ export default function SolutionsPage() {
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              From straightforward CAPEX deployments to OPEX, group-captive
-              and open-access structures — Polaris matches the commercial
-              model to your balance sheet, then engineers and operates the
-              asset for its full 25-year life.
+              From straightforward CAPEX deployments to OPEX, group-captive and
+              open-access structures — Polaris matches the commercial model to
+              your balance sheet, then engineers and operates the asset for its
+              full 25-year life.
             </p>
           </Reveal>
         </div>
@@ -130,27 +164,29 @@ export default function SolutionsPage() {
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
           {solutions.map((s, i) => (
-            <Reveal key={s.slug} delay={(i % 2) * 70}>
-              <Card className="p-8">
-                <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
-                  {solutionIcons[i]}
-                </span>
-                <h2 className="mt-5 text-2xl font-semibold tracking-tight text-ink">
-                  {s.title}
-                </h2>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
-                  {s.summary}
-                </p>
-                <ul className="mt-6 space-y-3 border-t border-line pt-6">
-                  {s.points.map((p) => (
-                    <li key={p} className="flex gap-3 text-sm text-ink-soft">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </Reveal>
+            <div key={s.slug} id={s.slug} className="scroll-mt-28">
+              <Reveal delay={(i % 2) * 70}>
+                <Card className="p-8">
+                  <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
+                    {solutionIcons[i]}
+                  </span>
+                  <h2 className="mt-5 text-2xl font-semibold tracking-tight text-ink">
+                    {s.title}
+                  </h2>
+                  <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
+                    {s.summary}
+                  </p>
+                  <ul className="mt-6 space-y-3 border-t border-line pt-6">
+                    {s.points.map((p) => (
+                      <li key={p} className="flex gap-3 text-sm text-ink-soft">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              </Reveal>
+            </div>
           ))}
         </div>
       </Section>

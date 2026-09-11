@@ -44,10 +44,26 @@ export function SmoothScroll() {
     };
   }, []);
 
-  // On route change: jump to top instantly and recalc every trigger.
+  // On route change: jump to top instantly and recalc every trigger —
+  // unless the new URL carries a #hash, in which case scroll to that
+  // element instead (Lenis owns scrolling, so a plain browser anchor
+  // jump never fires on its own).
   useEffect(() => {
-    window.scrollTo(0, 0);
-    ScrollTrigger.refresh();
+    const hash = window.location.hash;
+    const target = hash && document.getElementById(hash.slice(1));
+
+    if (target) {
+      // Let the route's content/animations settle for a frame first.
+      requestAnimationFrame(() => {
+        const lenis = (window as unknown as { lenis?: Lenis }).lenis;
+        if (lenis) lenis.scrollTo(target, { offset: -96 });
+        else target.scrollIntoView();
+        ScrollTrigger.refresh();
+      });
+    } else {
+      window.scrollTo(0, 0);
+      ScrollTrigger.refresh();
+    }
   }, [pathname]);
 
   return null;

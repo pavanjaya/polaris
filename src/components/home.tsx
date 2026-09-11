@@ -362,7 +362,7 @@ export function Expertise() {
                 {s.summary}
               </p>
               <Link
-                href="/solutions"
+                href={`/solutions/${s.slug}`}
                 className="mt-6 inline-block border-b border-ink/25 pb-1 text-[15px] font-medium text-ink transition-colors hover:border-ink"
               >
                 Learn more
