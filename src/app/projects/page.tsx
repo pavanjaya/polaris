@@ -78,15 +78,17 @@ export default function ProjectsPage() {
               Trusted by
             </h2>
           </Reveal>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {clients.map((c) => (
-              <span
-                key={c}
-                className="rounded-full border border-line bg-paper px-4 py-2 text-sm text-ink-soft"
-              >
-                {c}
-              </span>
-            ))}
+          <div className="marquee mt-8">
+            <div className="marquee-track" aria-hidden="true">
+              {[...clients, ...clients].map((c, i) => (
+                <span key={`${c}-${i}`} className="marquee-name">
+                  {c}
+                </span>
+              ))}
+            </div>
+            <span className="sr-only">
+              Polaris clients include {clients.join(", ")}.
+            </span>
           </div>
         </Section>
       </div>

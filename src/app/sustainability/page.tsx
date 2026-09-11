@@ -82,17 +82,22 @@ export default function SustainabilityPage() {
           </Reveal>
 
           <Reveal variant="up" delay={130}>
-            <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-ink/10 pt-8 sm:grid-cols-5">
+            <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-ink/10 pt-8 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-0">
               {opportunity.financials.map((f) => (
-                <div key={f.metric}>
-                  <dt>
+                <div
+                  key={f.metric}
+                  className="lg:border-l lg:border-ink/10 lg:px-8 lg:first:border-l-0 lg:first:pl-0"
+                >
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-ink-faint">
+                    {f.metric}
+                  </dt>
+                  <dd>
                     <CountUp
                       value={f.value}
-                      className="text-2xl font-semibold tracking-tight text-ink sm:text-[1.75rem]"
+                      className="mt-2 block text-xl font-semibold leading-snug tracking-tight text-ink sm:text-2xl"
                     />
-                  </dt>
-                  <dd className="mt-1 text-sm font-medium text-ink">{f.metric}</dd>
-                  <dd className="mt-0.5 text-xs leading-snug text-ink-faint">
+                  </dd>
+                  <dd className="mt-1.5 text-xs leading-snug text-ink-faint">
                     {f.note}
                   </dd>
                 </div>
