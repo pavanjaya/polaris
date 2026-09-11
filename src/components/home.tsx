@@ -18,7 +18,6 @@ import {
   process as deliverySteps,
   impact,
   trust,
-  segments,
   global as globalReach,
 } from "@/lib/content";
 
@@ -232,42 +231,6 @@ export function GlobalScene() {
             className="h-[380px] w-full object-cover sm:h-[480px] lg:h-[600px]"
           />
         </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Who we serve ---------- */
-
-export function Segments() {
-  return (
-    <section className="bg-paper">
-      <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
-        <Reveal variant="fade">
-          <span className="pill">Who we serve</span>
-        </Reveal>
-        <RevealText
-          text="Built for energy-intensive industry."
-          className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
-        />
-
-        <div className="mt-12 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
-          {segments.map((s, i) => (
-            <Reveal
-              as="article"
-              key={s.name}
-              delay={(i % 3) * 70}
-              className="border-t border-ink/10 pt-5"
-            >
-              <h3 className="text-lg font-semibold tracking-tight text-ink">
-                {s.name}
-              </h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
-                {s.note}
-              </p>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
   );

@@ -5,7 +5,6 @@ import {
   ClientStrip,
   Footprint,
   GlobalScene,
-  Segments,
   Expertise,
   Process,
   BrandPromise,
@@ -23,9 +22,6 @@ export default function HomePage() {
       <Hero />
       <IntroStatement />
       <ClientStrip />
-      <Footprint />
-      <GlobalScene />
-      <Segments />
       <Expertise />
       <Process />
       <BrandPromise />
@@ -33,6 +29,8 @@ export default function HomePage() {
       <ImpactBand />
       <TrustRow />
       <Testimonials />
+      <Footprint />
+      <GlobalScene />
       <LatestNews />
       <CareersStrip />
       <CTA />
