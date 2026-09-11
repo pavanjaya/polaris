@@ -539,24 +539,19 @@ export const clients = [
   "Shriram Stone Crusher",
 ];
 
-// ⚠️ PLACEHOLDER LOGOS — these are generic brand SVGs used only to build the
-// logo-strip visual. Replace every entry with a real Polaris client/partner
-// logo before this site is published. Files live in /public/img/clients/.
+// Real Polaris client/partner logos. Files live in /public/img/clients/.
 export const clientLogos = [
-  { name: "Adobe", src: "/img/clients/adobe.svg" },
-  { name: "Asana", src: "/img/clients/asana.svg" },
-  { name: "Atlassian", src: "/img/clients/atlassian.svg" },
-  { name: "Coinbase", src: "/img/clients/coinbase.svg" },
-  { name: "Dropbox", src: "/img/clients/dropbox.svg" },
-  { name: "Google", src: "/img/clients/google.svg" },
-  { name: "Gumroad", src: "/img/clients/gumroad.svg" },
-  { name: "Linear", src: "/img/clients/linear.svg" },
-  { name: "Mailchimp", src: "/img/clients/mailchimp.svg" },
-  { name: "Microsoft", src: "/img/clients/microsoft.svg" },
-  { name: "Notion", src: "/img/clients/notion.svg" },
-  { name: "Slack", src: "/img/clients/slack.svg" },
-  { name: "Spotify", src: "/img/clients/spotify.svg" },
-  { name: "Stripe", src: "/img/clients/stripe.svg" },
+  { name: "Bisleri", src: "/img/clients/bisleri.svg" },
+  { name: "Reliance Industries", src: "/img/clients/reliance.svg" },
+  { name: "Samsonite", src: "/img/clients/samsonite.svg" },
+  { name: "Indian Oil", src: "/img/clients/indian-oil.svg" },
+  { name: "Parle Products", src: "/img/clients/parle.svg" },
+  { name: "Hindustan Petroleum", src: "/img/clients/hindustan-petroleum.svg" },
+  { name: "Siemens", src: "/img/clients/siemens.svg" },
+  { name: "Radisson Hotels", src: "/img/clients/radisson.svg" },
+  { name: "Gabriel", src: "/img/clients/gabriel.svg" },
+  { name: "Haldex", src: "/img/clients/haldex.svg" },
+  { name: "Mahle", src: "/img/clients/mahle.svg" },
 ];
 
 export const values = [
