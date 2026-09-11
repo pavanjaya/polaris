@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 
 type Founder = {
@@ -90,65 +91,67 @@ export function FounderCard({ founder }: { founder: Founder }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-ink underline-offset-4 transition-colors hover:text-brand-strong hover:underline"
+        className="mt-3 inline-flex cursor-pointer items-center gap-1.5 text-sm font-semibold text-ink underline-offset-4 transition-colors hover:text-brand-strong hover:underline"
       >
         Read {firstName}&apos;s bio
       </button>
 
-      {open && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={titleId}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
-        >
+      {open &&
+        createPortal(
           <div
-            aria-hidden="true"
-            onClick={() => setOpen(false)}
-            className="absolute inset-0 bg-ink/50 backdrop-blur-sm"
-          />
-          <div className="relative max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg bg-paper p-8 shadow-[0_30px_80px_-20px_rgba(11,21,37,0.45)] sm:p-9">
-            <button
-              type="button"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={titleId}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+          >
+            <div
+              aria-hidden="true"
               onClick={() => setOpen(false)}
-              aria-label="Close"
-              className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full text-ink-faint transition-colors hover:bg-ink/5 hover:text-ink"
-            >
-              <CloseIcon />
-            </button>
+              className="absolute inset-0 bg-ink/50 backdrop-blur-sm"
+            />
+            <div className="relative max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg bg-paper p-8 shadow-[0_30px_80px_-20px_rgba(11,21,37,0.45)] sm:p-9">
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Close"
+                className="absolute right-5 top-5 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-ink-faint transition-colors hover:bg-ink/5 hover:text-ink"
+              >
+                <CloseIcon />
+              </button>
 
-            <div className="relative h-14 w-14 overflow-hidden rounded-full bg-brand-tint">
-              {founder.photo ? (
-                <Image
-                  src={founder.photo}
-                  alt=""
-                  fill
-                  sizes="56px"
-                  className="object-cover"
-                />
-              ) : (
-                <span className="flex h-full w-full items-center justify-center text-base font-semibold text-brand-dark">
-                  {initials(founder.name)}
-                </span>
-              )}
+              <div className="relative h-14 w-14 overflow-hidden rounded-full bg-brand-tint">
+                {founder.photo ? (
+                  <Image
+                    src={founder.photo}
+                    alt=""
+                    fill
+                    sizes="56px"
+                    className="object-cover"
+                  />
+                ) : (
+                  <span className="flex h-full w-full items-center justify-center text-base font-semibold text-brand-dark">
+                    {initials(founder.name)}
+                  </span>
+                )}
+              </div>
+              <h3
+                id={titleId}
+                className="mt-4 text-xl font-semibold tracking-tight text-ink"
+              >
+                {fullName}
+              </h3>
+              <p className="mt-1 text-sm font-medium text-brand-strong">
+                {founder.role}
+              </p>
+              <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-ink-soft">
+                {founder.bio.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
             </div>
-            <h3
-              id={titleId}
-              className="mt-4 text-xl font-semibold tracking-tight text-ink"
-            >
-              {fullName}
-            </h3>
-            <p className="mt-1 text-sm font-medium text-brand-strong">
-              {founder.role}
-            </p>
-            <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-ink-soft">
-              {founder.bio.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
     </article>
   );
 }
