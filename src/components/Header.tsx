@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, company, regions, offerings } from "@/lib/content";
 import { Logo } from "./Logo";
+import { ArrowRight } from "./ui";
 
 /* ---------- Solutions mega-menu icons (same family/palette as home.tsx's
    `illos`, same 4 icons used on the homepage's "Our solutions" cards) ---------- */
@@ -175,13 +176,13 @@ export function Header() {
                 {/* Compact, anchored dropdown — a full-bleed mega-menu felt
                     like too big/sudden a jump on hover. */}
                 <div className="invisible absolute left-1/2 top-full -translate-x-1/2 translate-y-1 pt-4 opacity-0 transition-all duration-200 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                  <div className="w-[520px] rounded-lg border border-line bg-paper p-6 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.18)]">
-                    <div className="grid grid-cols-2 gap-6">
+                  <div className="w-[540px] rounded-lg border border-line bg-paper p-5 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.18)]">
+                    <div className="grid grid-cols-2 gap-2">
                       {offerings.map((o, i) => (
                         <Link
                           key={o.slug}
                           href={`/solutions/${o.slug}`}
-                          className="group/item"
+                          className="group/item rounded-lg p-4 transition-colors hover:bg-brand-tint/60"
                         >
                           <span className="block h-9 w-9 [&>svg]:h-full [&>svg]:w-full">
                             {offeringIcons[i]}
@@ -189,22 +190,23 @@ export function Header() {
                           <h3 className="mt-3 text-[14px] font-semibold tracking-tight text-ink transition-colors group-hover/item:text-brand-strong">
                             {o.title}
                           </h3>
-                          <p className="mt-1 text-[12.5px] leading-relaxed text-ink-faint">
+                          <p className="mt-1.5 line-clamp-2 text-[12.5px] leading-relaxed text-ink-faint">
                             {o.summary}
                           </p>
                         </Link>
                       ))}
                     </div>
 
-                    <div className="mt-6 flex items-center justify-between border-t border-line pt-4">
+                    <div className="mt-4 flex items-center justify-between border-t border-line px-1 pt-4">
                       <span className="text-[13px] text-ink-faint">
                         Not sure which fits?
                       </span>
                       <Link
                         href="/contact"
-                        className="text-[13px] font-semibold text-ink transition-colors hover:text-brand-strong"
+                        className="group/talk inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink transition-colors hover:text-brand-strong"
                       >
-                        Talk to us →
+                        Talk to us
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/talk:translate-x-1" />
                       </Link>
                     </div>
                   </div>
