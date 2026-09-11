@@ -170,7 +170,7 @@ export function ClientStrip() {
 export function Footprint() {
   return (
     <section className="relative overflow-hidden bg-paper">
-      <div className="container-px relative mx-auto max-w-[1760px] pb-8 pt-20 lg:pb-10 lg:pt-28">
+      <div className="container-px relative mx-auto max-w-[1760px] pb-8 pt-10 lg:pb-10 lg:pt-14">
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
           <div>
             <Reveal variant="fade">
@@ -220,7 +220,7 @@ export function Footprint() {
 export function GlobalScene() {
   return (
     <section className="bg-paper">
-      <div className="container-px mx-auto max-w-[1760px] pb-12 lg:pb-16">
+      <div className="container-px mx-auto max-w-[1760px]">
         <Reveal variant="scale" className="overflow-hidden rounded-lg">
           <Image
             src="/img/global-reach.jpg"
