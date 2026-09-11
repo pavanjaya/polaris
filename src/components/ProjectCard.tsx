@@ -4,6 +4,7 @@ import { useEffect, useId, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { ArrowRight } from "./ui";
+import { useScrollLock } from "@/lib/useScrollLock";
 import { projects } from "@/lib/content";
 
 type Project = (typeof projects)[number];
@@ -66,18 +67,15 @@ export function ProjectCard({ project }: { project: Project }) {
   const [open, setOpen] = useState(false);
   const titleId = useId();
 
+  useScrollLock(open);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
     document.addEventListener("keydown", onKey);
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prevOverflow;
-    };
+    return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
   return (
