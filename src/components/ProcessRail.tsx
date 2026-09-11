@@ -59,7 +59,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
               onFocus={() => setActive(i)}
               aria-label={s.title}
               aria-pressed={isActive}
-              className={`group relative min-h-[64px] min-w-0 cursor-pointer overflow-hidden rounded-lg bg-mist text-left transition-[flex-grow,transform,box-shadow] duration-[750ms,400ms,400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`group relative min-h-[64px] min-w-0 cursor-pointer overflow-hidden rounded-lg bg-mist text-left transition-[flex-grow,transform,box-shadow] duration-[750ms,700ms,700ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 isActive
                   ? ""
                   : "hover:z-10 hover:scale-[1.03] hover:shadow-[0_22px_48px_-20px_rgba(15,67,56,0.45)]"
@@ -71,32 +71,41 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
                 alt=""
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 55vw"
-                className={`object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                className={`object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   isActive ? "scale-100" : "scale-105 group-hover:scale-[1.06]"
                 }`}
               />
 
-              {/* soft scrim behind the caption — bottom only, not a full wash;
-                  on hover the collapsed panels get a taller, greenish tint so
-                  the label stays legible against the brighter, bigger card */}
+              {/* soft scrim behind the caption — bottom only, not a full wash */}
               <div
-                className={`pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t to-transparent transition-all duration-400 ${
+                className={`pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t to-transparent transition-all duration-500 ${
                   isActive
                     ? "h-3/5 from-black/75 via-black/20"
-                    : "h-2/5 from-black/45 via-transparent group-hover:h-4/5 group-hover:from-brand-dark/85 group-hover:via-brand-dark/35"
+                    : "h-2/5 from-black/45 via-transparent"
                 }`}
               />
 
+              {/* greenish hover wash for collapsed panels — a separate layer
+                  that only ever fades via opacity, since browsers can't
+                  smoothly animate between two different gradients (swapping
+                  gradient colour stops directly used to pop instead of ease) */}
+              {!isActive && (
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-dark/85 via-brand-dark/30 to-transparent opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100"
+                />
+              )}
+
               {/* collapsed label — horizontal on the mobile stack, vertical on the desktop row */}
               <span
-                className={`pointer-events-none absolute bottom-4 left-4 text-sm font-semibold text-white transition-opacity duration-300 sm:hidden ${
+                className={`pointer-events-none absolute bottom-4 left-4 text-base font-semibold text-white transition-opacity duration-300 sm:hidden ${
                   isActive ? "opacity-0" : "opacity-95"
                 }`}
               >
                 {s.title}
               </span>
               <span
-                className={`pointer-events-none absolute bottom-5 left-1/2 hidden -translate-x-1/2 whitespace-nowrap text-sm font-semibold text-white transition-opacity duration-300 [writing-mode:vertical-rl] sm:block ${
+                className={`pointer-events-none absolute bottom-5 left-1/2 hidden -translate-x-1/2 whitespace-nowrap text-base font-semibold text-white transition-opacity duration-300 [writing-mode:vertical-rl] sm:block ${
                   isActive ? "opacity-0" : "opacity-95"
                 }`}
                 style={{ rotate: "180deg" }}
