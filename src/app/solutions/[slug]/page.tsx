@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section, ArrowLink } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
@@ -95,10 +94,9 @@ export default async function OfferingDetail({
               </h2>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {related.map((s) => (
-                  <Link
+                  <div
                     key={s.slug}
-                    href={`/solutions#${s.slug}`}
-                    className="u-card group rounded-lg border border-line/70 bg-paper p-5"
+                    className="rounded-lg border border-line/70 bg-paper p-5"
                   >
                     <h3 className="text-[15px] font-semibold tracking-tight text-ink">
                       {s.title}
@@ -106,10 +104,18 @@ export default async function OfferingDetail({
                     <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
                       {s.summary}
                     </p>
-                    <span className="mt-3 inline-block text-sm font-medium text-brand-strong group-hover:underline">
-                      See details →
-                    </span>
-                  </Link>
+                    <ul className="mt-3 space-y-1.5 border-t border-line/70 pt-3">
+                      {s.points.map((p) => (
+                        <li
+                          key={p}
+                          className="flex gap-2 text-[13px] leading-relaxed text-ink-faint"
+                        >
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand" />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
               </div>
             </div>

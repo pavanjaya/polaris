@@ -32,10 +32,28 @@ function RegionToggle({ overlay }: { overlay: boolean }) {
   );
 }
 
+// Shared look for a top-level nav item (plain link or dropdown trigger),
+// keyed off whether it's active and whether the transparent hero overlay
+// is showing.
+function navItemClass(active: boolean, overlay: boolean) {
+  return `relative inline-flex items-center gap-1 text-[15px] transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:rounded-full after:transition-all after:duration-300 after:content-[''] ${
+    active ? "after:w-full" : "after:w-0 hover:after:w-full"
+  } ${
+    overlay
+      ? active
+        ? "font-semibold text-white after:bg-white"
+        : "font-medium text-white/70 hover:text-white after:bg-white"
+      : active
+        ? "font-semibold text-brand-strong after:bg-brand-strong"
+        : "font-medium text-ink hover:text-brand-strong after:bg-brand-strong"
+  }`;
+}
+
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [solid, setSolid] = useState(false);
+  const [mobileSubOpen, setMobileSubOpen] = useState<string | null>(null);
 
   const isHome = pathname === "/";
   // Transparent overlay only on the homepage hero, before scrolling.
@@ -43,6 +61,7 @@ export function Header() {
 
   useEffect(() => {
     setOpen(false);
+    setMobileSubOpen(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -66,25 +85,60 @@ export function Header() {
         <nav className="hidden items-center gap-7 xl:flex">
           {nav.map((item) => {
             const active = pathname.startsWith(item.href);
+
+            if (!item.children) {
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={navItemClass(active, overlay)}
+                >
+                  {item.label}
+                </Link>
+              );
+            }
+
             return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={`relative text-[15px] transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:rounded-full after:transition-all after:duration-300 after:content-[''] ${
-                  active ? "after:w-full" : "after:w-0 hover:after:w-full"
-                } ${
-                  overlay
-                    ? active
-                      ? "font-semibold text-white after:bg-white"
-                      : "font-medium text-white/70 hover:text-white after:bg-white"
-                    : active
-                      ? "font-semibold text-brand-strong after:bg-brand-strong"
-                      : "font-medium text-ink hover:text-brand-strong after:bg-brand-strong"
-                }`}
-              >
-                {item.label}
-              </Link>
+              <div key={item.href} className="group relative">
+                <button
+                  type="button"
+                  aria-haspopup="true"
+                  className={`cursor-pointer ${navItemClass(active, overlay)}`}
+                >
+                  {item.label}
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                    className="mt-px transition-transform duration-200 group-hover:rotate-180"
+                  >
+                    <path
+                      d="M5 8l5 5 5-5"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+
+                <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <div className="w-72 rounded-lg border border-line bg-paper p-2 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.18)]">
+                    {item.children.map((c) => (
+                      <Link
+                        key={c.href}
+                        href={c.href}
+                        className="block rounded-md px-3.5 py-3 text-[14px] font-medium text-ink transition-colors hover:bg-brand-tint hover:text-brand-strong"
+                      >
+                        {c.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
             );
           })}
         </nav>
@@ -153,15 +207,61 @@ export function Header() {
                 );
               })}
             </div>
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="border-b border-line py-3.5 text-sm font-medium text-ink last:border-0"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) =>
+              item.children ? (
+                <div key={item.href} className="border-b border-line last:border-0">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setMobileSubOpen((v) => (v === item.href ? null : item.href))
+                    }
+                    aria-expanded={mobileSubOpen === item.href}
+                    className="flex w-full cursor-pointer items-center justify-between py-3.5 text-sm font-medium text-ink"
+                  >
+                    {item.label}
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      aria-hidden="true"
+                      className={`transition-transform duration-200 ${
+                        mobileSubOpen === item.href ? "rotate-180" : ""
+                      }`}
+                    >
+                      <path
+                        d="M5 8l5 5 5-5"
+                        stroke="currentColor"
+                        strokeWidth="1.75"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  {mobileSubOpen === item.href && (
+                    <div className="flex flex-col pb-3 pl-3">
+                      {item.children.map((c) => (
+                        <Link
+                          key={c.href}
+                          href={c.href}
+                          className="py-2.5 text-sm text-ink-soft"
+                        >
+                          {c.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="border-b border-line py-3.5 text-sm font-medium text-ink last:border-0"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
             <Link
               href="/contact"
               className="mt-4 rounded-lg bg-ink px-4 py-3 text-center text-sm font-semibold text-white transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover hover:text-ink"

@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { company, solutions, socials, offices } from "@/lib/content";
+import { company, offerings, socials, offices } from "@/lib/content";
 import { Logo } from "./Logo";
 import { socialIcon } from "./SocialIcons";
 
 const columns = [
   {
     title: "Solutions",
-    links: solutions.slice(0, 5).map((s) => ({
-      label: s.title,
-      href: "/solutions",
+    links: offerings.map((o) => ({
+      label: o.title,
+      href: `/solutions/${o.slug}`,
     })),
   },
   {

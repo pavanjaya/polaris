@@ -339,15 +339,10 @@ export function Expertise() {
   return (
     <section className="bg-[#FAFBF6]">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <RevealText
-            text="Our solutions"
-            className="text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
-          />
-          <Reveal variant="fade">
-            <ArrowLink href="/solutions">Explore all solutions</ArrowLink>
-          </Reveal>
-        </div>
+        <RevealText
+          text="Our solutions"
+          className="text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+        />
 
         <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {offerings.map((s, i) => (

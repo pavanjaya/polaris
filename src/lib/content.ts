@@ -110,10 +110,26 @@ export const socials = [
   },
 ];
 
-export const nav = [
+export const nav: {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}[] = [
   { label: "About", href: "/about" },
   { label: "Our Approach", href: "/our-approach" },
-  { label: "Solutions", href: "/solutions" },
+  {
+    label: "Solutions",
+    href: "/solutions",
+    children: [
+      { label: "Commercial & Industrial", href: "/solutions/commercial-industrial" },
+      { label: "Utility Scale", href: "/solutions/utility-scale" },
+      { label: "Finance Solutions", href: "/solutions/finance-solutions" },
+      {
+        label: "Energy Optimisation Consultant",
+        href: "/solutions/energy-optimisation-consultant",
+      },
+    ],
+  },
   { label: "Projects", href: "/projects" },
   { label: "P-ESS", href: "/p-ess" },
   { label: "Insights", href: "/insights" },
