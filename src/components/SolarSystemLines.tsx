@@ -19,6 +19,10 @@ export function SolarSystemLines({ className = "" }: { className?: string }) {
       aria-hidden="true"
       className={`solar-scene h-auto w-full max-w-[460px] ${className}`}
     >
+      {/* ambient blobs */}
+      <rect x="34" y="26" width="332" height="300" rx="44" fill={C.pale} opacity="0.4" />
+      <circle cx="70" cy="300" r="66" fill={C.pale} opacity="0.55" />
+
       {/* sun */}
       <g>
         <g className="scene-sun" style={{ transformOrigin: "312px 74px" }}>
