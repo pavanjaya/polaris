@@ -4,6 +4,7 @@ import { CTA } from "@/components/CTA";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { CountUp } from "@/components/motion/CountUp";
+import { TimelineProgress } from "@/components/TimelineProgress";
 import {
   company,
   milestones,
@@ -240,19 +241,26 @@ export default function AboutPage() {
       <div className="bg-[#FAFBF6]">
         <Section>
           <SectionHeading eyebrow="Journey" title="Milestones" />
-          <ol className="mt-12 space-y-8 border-l border-ink/15 pl-8">
-            {milestones.map((m) => (
-              <Reveal as="li" key={m.year} variant="up" className="relative">
-                <span className="absolute -left-[41px] top-1 h-3 w-3 rounded-full border-2 border-brand bg-[#FAFBF6]" />
-                <div className="text-lg font-semibold tracking-tight text-brand-strong">
-                  {m.year}
-                </div>
-                <p className="mt-1 max-w-xl text-[15px] leading-relaxed text-ink-soft">
-                  {m.text}
-                </p>
-              </Reveal>
-            ))}
-          </ol>
+          <div className="relative mt-12 pl-8" data-timeline-track>
+            <div
+              aria-hidden="true"
+              className="absolute inset-y-0 left-0 w-px bg-ink/15"
+            />
+            <TimelineProgress />
+            <ol className="space-y-8">
+              {milestones.map((m) => (
+                <Reveal as="li" key={m.year} variant="up" className="relative">
+                  <span className="absolute -left-10 top-1 h-4 w-4 rounded-full border-2 border-brand bg-[#FAFBF6]" />
+                  <div className="text-lg font-semibold tracking-tight text-brand-strong">
+                    {m.year}
+                  </div>
+                  <p className="mt-1 max-w-xl text-[15px] leading-relaxed text-ink-soft">
+                    {m.text}
+                  </p>
+                </Reveal>
+              ))}
+            </ol>
+          </div>
         </Section>
       </div>
 
