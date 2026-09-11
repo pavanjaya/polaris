@@ -113,8 +113,11 @@ export function IntroStatement() {
             <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-ink/10 pt-8 sm:grid-cols-4">
               {introStats.map((it) => (
                 <div key={it.label}>
-                  <dt className="text-2xl font-semibold tracking-tight text-ink">
-                    {it.value}
+                  <dt>
+                    <CountUp
+                      value={it.value}
+                      className="text-2xl font-semibold tracking-tight text-ink"
+                    />
                   </dt>
                   <dd className="mt-1 text-xs leading-snug text-ink-faint">
                     {it.label}
