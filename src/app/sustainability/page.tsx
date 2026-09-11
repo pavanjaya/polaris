@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Section, SectionHeading } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
@@ -106,6 +107,21 @@ export default function SustainabilityPage() {
           </Reveal>
         </div>
       </section>
+
+      <div className="container-px relative mx-auto max-w-[1760px] -mt-4 lg:-mt-6">
+        <Reveal variant="fade">
+          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-lg bg-mist">
+            <Image
+              src="/img/sustainability-hero.avif"
+              alt="Solar panels and wind turbines at sunset"
+              fill
+              sizes="(max-width: 1760px) 100vw, 1760px"
+              priority
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
+      </div>
 
       <Section>
         <SectionHeading

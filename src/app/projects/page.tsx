@@ -4,7 +4,16 @@ import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CTA } from "@/components/CTA";
-import { projects, clients } from "@/lib/content";
+import { projects, clients, clientLogos } from "@/lib/content";
+
+// Use the real logo where we have one on file; fall back to a text
+// wordmark for the project-partner names we don't have artwork for.
+const clientEntries = clients.map((name) => ({
+  name,
+  logo: clientLogos.find((l) =>
+    l.name.toLowerCase().startsWith(name.toLowerCase()),
+  ),
+}));
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -80,11 +89,18 @@ export default function ProjectsPage() {
           </Reveal>
           <div className="marquee mt-8">
             <div className="marquee-track" aria-hidden="true">
-              {[...clients, ...clients].map((c, i) => (
-                <span key={`${c}-${i}`} className="marquee-name">
-                  {c}
-                </span>
-              ))}
+              {[...clientEntries, ...clientEntries].map((c, i) =>
+                c.logo ? (
+                  <span key={`${c.name}-${i}`} className="marquee-logo">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={c.logo.src} alt="" loading="lazy" />
+                  </span>
+                ) : (
+                  <span key={`${c.name}-${i}`} className="marquee-name">
+                    {c.name}
+                  </span>
+                ),
+              )}
             </div>
             <span className="sr-only">
               Polaris clients include {clients.join(", ")}.
