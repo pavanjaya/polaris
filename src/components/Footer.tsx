@@ -41,6 +41,7 @@ const columns = [
     title: "Company",
     links: [
       { label: "About us", href: "/about" },
+      { label: "Our Approach", href: "/our-approach" },
       { label: "Projects", href: "/projects" },
       { label: "Polaris Global", href: "/global" },
       { label: "Sustainability", href: "/sustainability" },

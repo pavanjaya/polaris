@@ -383,13 +383,20 @@ export function Process() {
       id="how-we-work"
       className="container-px mx-auto max-w-[1760px] scroll-mt-24 py-20 lg:py-28"
     >
-      <Reveal variant="fade">
-        <span className="pill">How we deliver</span>
-      </Reveal>
-      <RevealText
-        text="One accountable team, from the financial model to year 25."
-        className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
-      />
+      <div className="flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <Reveal variant="fade">
+            <span className="pill">How we deliver</span>
+          </Reveal>
+          <RevealText
+            text="One accountable team, from the financial model to year 25."
+            className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+          />
+        </div>
+        <Reveal variant="fade">
+          <ArrowLink href="/our-approach">See our approach</ArrowLink>
+        </Reveal>
+      </div>
 
       <Reveal variant="fade">
         <ProcessRail steps={deliverySteps} />

@@ -4,7 +4,7 @@ import { insights } from "@/lib/content";
 const base = "https://www.polarisenergy.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/about", "/solutions", "/projects", "/p-ess", "/global", "/insights", "/sustainability", "/careers", "/contact"].map(
+  const routes = ["", "/about", "/our-approach", "/solutions", "/projects", "/p-ess", "/global", "/insights", "/sustainability", "/careers", "/contact"].map(
     (path) => ({
       url: `${base}${path}`,
       lastModified: new Date(),
