@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CTA } from "@/components/CTA";
+import { ArrowLeft } from "@/components/ui";
 import { projects } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -54,9 +55,10 @@ export default async function ProjectDetail({
         <div className="container-px mx-auto max-w-[1760px] pb-10 pt-[calc(83px+2.5rem)] lg:pb-14 lg:pt-[calc(83px+4rem)]">
           <Link
             href="/projects"
-            className="text-sm font-semibold text-brand-strong transition-colors hover:text-ink"
+            className="group inline-flex items-center gap-1.5 text-sm font-semibold text-brand-strong transition-colors hover:text-ink"
           >
-            ← All projects
+            <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
+            All projects
           </Link>
 
           <div className="mt-8 flex flex-wrap gap-2">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CTA } from "@/components/CTA";
+import { ArrowLeft } from "@/components/ui";
 import { insights } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -43,9 +44,10 @@ export default async function InsightPost({
         <div className="container-px mx-auto max-w-3xl pb-14 pt-[calc(83px+2.5rem)] lg:pb-16 lg:pt-[calc(83px+4rem)]">
           <Link
             href="/insights"
-            className="text-sm font-semibold text-brand-strong transition-colors hover:text-ink"
+            className="group inline-flex items-center gap-1.5 text-sm font-semibold text-brand-strong transition-colors hover:text-ink"
           >
-            ← All insights
+            <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
+            All insights
           </Link>
 
           <div className="mt-8 flex items-center gap-3 text-xs text-ink-faint">

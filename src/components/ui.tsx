@@ -18,6 +18,15 @@ export function ArrowRight({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
+// Material Design "arrow_back" glyph (Material Icons/Symbols outline set).
+export function ArrowLeft({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+    </svg>
+  );
+}
+
 export function Section({
   children,
   className = "",
