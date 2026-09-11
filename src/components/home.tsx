@@ -100,7 +100,7 @@ export function IntroStatement() {
             className="mt-5 block max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
           />
           <Reveal variant="up" delay={60}>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
+            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
               From rooftop plants for SMEs to large captive and open-access
               projects for enterprises. A solar EPC founded in Nashik in{" "}
               {company.founded}, {company.shortName} is a full-lifecycle partner —
@@ -179,7 +179,7 @@ export function Footprint() {
               className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
             />
             <Reveal variant="up" delay={60}>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
+              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-soft">
                 {globalReach.intro}
               </p>
               <div className="mt-8">
