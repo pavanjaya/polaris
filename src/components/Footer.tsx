@@ -104,10 +104,10 @@ export function Footer() {
             © {new Date().getFullYear()} {company.legalName}
           </p>
           <div className="flex gap-6">
-            <Link href="/" className="transition-colors hover:text-ink">
+            <Link href="/privacy-policy" className="transition-colors hover:text-ink">
               Privacy Policy
             </Link>
-            <Link href="/" className="transition-colors hover:text-ink">
+            <Link href="/cookie-policy" className="transition-colors hover:text-ink">
               Cookie Policy
             </Link>
           </div>
