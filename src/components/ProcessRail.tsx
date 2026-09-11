@@ -56,11 +56,10 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
               key={s.step}
               type="button"
               onClick={() => setActive(i)}
-              onMouseEnter={() => setActive(i)}
               onFocus={() => setActive(i)}
               aria-label={s.title}
               aria-pressed={isActive}
-              className="group relative min-h-[64px] min-w-0 overflow-hidden rounded-lg bg-mist text-left transition-[flex-grow] duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="group relative min-h-[64px] min-w-0 cursor-pointer overflow-hidden rounded-lg bg-mist text-left transition-[flex-grow] duration-[750ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
               style={{ flexGrow: isActive ? 6 : 1, flexBasis: 0 }}
             >
               <Image
@@ -68,8 +67,8 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
                 alt=""
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 55vw"
-                className={`object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  isActive ? "scale-100" : "scale-105"
+                className={`object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isActive ? "scale-100" : "scale-105 group-hover:scale-[1.015]"
                 }`}
               />
 
@@ -78,7 +77,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
                 className={`pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t to-transparent transition-all duration-500 ${
                   isActive
                     ? "h-3/5 from-black/75 via-black/20"
-                    : "h-2/5 from-black/40 via-transparent"
+                    : "h-2/5 from-black/40 via-transparent group-hover:from-black/55"
                 }`}
               />
 
