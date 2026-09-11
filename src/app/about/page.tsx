@@ -300,48 +300,47 @@ export default function AboutPage() {
 
       {/* Leadership */}
       <Section>
-        <SectionHeading eyebrow="Leadership" title="Meet the founders" />
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <SectionHeading eyebrow="Leadership" title="Executive team" />
+        <div className="mt-14 grid gap-x-8 gap-y-14 md:grid-cols-3">
           {founders.map((p, i) => (
-            <Reveal
-              as="article"
-              key={p.name}
-              delay={(i % 3) * 70}
-              className="u-card rounded-lg border border-line/70 bg-paper p-7"
-            >
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-tint text-sm font-semibold text-brand-dark">
-                {initials(p.name)}
-              </span>
+            <Reveal as="article" key={p.name} delay={(i % 3) * 70}>
+              <div className="flex aspect-[4/3] items-center justify-center rounded-lg bg-brand-tint">
+                <span className="text-4xl font-semibold tracking-tight text-brand-dark">
+                  {initials(p.name)}
+                </span>
+              </div>
               <h3 className="mt-5 text-lg font-semibold tracking-tight text-ink">
                 {p.name}
               </h3>
               <p className="mt-1 text-sm font-medium text-brand-strong">
                 {p.role}
               </p>
-              <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
+              <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
                 {p.bio}
               </p>
             </Reveal>
           ))}
         </div>
 
-        <div className="mt-16 grid gap-x-10 gap-y-10 border-t border-ink/10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
-          {leadership.map((p, i) => (
-            <Reveal as="div" key={p.name} delay={(i % 3) * 70} className="flex gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-tint text-xs font-semibold text-brand-dark">
-                {initials(p.name)}
-              </span>
-              <div>
-                <h3 className="text-base font-semibold tracking-tight text-ink">
+        <div className="mt-20 border-t border-ink/10 pt-16">
+          <Reveal as="span" variant="mask" className="block">
+            <h3 className="text-2xl font-semibold tracking-tight text-ink sm:text-[2rem]">
+              Board of Directors
+            </h3>
+          </Reveal>
+          <div className="mt-10 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+            {leadership.map((p, i) => (
+              <Reveal key={p.name} delay={(i % 3) * 70}>
+                <h4 className="text-base font-semibold tracking-tight text-ink">
                   {p.name}
-                </h3>
+                </h4>
                 <p className="mt-0.5 text-sm text-brand-strong">{p.role}</p>
                 <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
                   {p.bio}
                 </p>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </Section>
 
