@@ -298,7 +298,7 @@ export default function AboutPage() {
 
       {/* Leadership */}
       <Section>
-        <SectionHeading eyebrow="Leadership" title="Founders and Leadership Team" />
+        <SectionHeading eyebrow="Leadership" title="Founders" />
         <div className="mt-14 grid gap-x-8 gap-y-14 md:grid-cols-3">
           {founders.map((p, i) => (
             <Reveal key={p.name} delay={(i % 3) * 70}>
@@ -310,7 +310,7 @@ export default function AboutPage() {
         <div className="mt-20 border-t border-ink/10 pt-16">
           <Reveal as="span" variant="mask" className="block">
             <h3 className="text-2xl font-semibold tracking-tight text-ink sm:text-[2rem]">
-              Board of Directors
+              Leadership Team
             </h3>
           </Reveal>
           <div className="mt-10 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
