@@ -3,8 +3,44 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { nav, company, regions } from "@/lib/content";
+import { nav, company, regions, offerings } from "@/lib/content";
 import { Logo } from "./Logo";
+
+/* ---------- Solutions mega-menu icons (same family/palette as home.tsx's
+   `illos`, same 4 icons used on the homepage's "Our solutions" cards) ---------- */
+const IL = { pale: "#cdeec2", green: "#5fcf4b", dark: "#0f4338", ink: "#0e0e0e" };
+const offeringIcons: React.ReactNode[] = [
+  // Commercial & Industrial — solar panel + sun
+  <svg viewBox="0 0 48 48" fill="none" key="ci" aria-hidden="true">
+    <rect x="2" y="7" width="29" height="29" rx="6" fill={IL.pale} />
+    <path d="M7 35 L13 14 H35 L41 35 Z" fill={IL.green} />
+    <path d="M7 35H41M16 24.5H33M22 14l-4 21M29 14l1 21" stroke="#fff" strokeWidth="1.5" />
+    <circle cx="38" cy="12" r="7" fill={IL.ink} />
+  </svg>,
+  // Utility Scale — network
+  <svg viewBox="0 0 48 48" fill="none" key="us" aria-hidden="true">
+    <rect x="3" y="3" width="22" height="22" rx="5" fill={IL.pale} />
+    <rect x="17" y="18" width="27" height="27" rx="6" fill={IL.green} />
+    <path d="M13 13 31 31" stroke={IL.dark} strokeWidth="3" strokeLinecap="round" />
+    <circle cx="13" cy="13" r="4.5" fill={IL.ink} />
+    <circle cx="31" cy="31" r="5" fill="#fff" />
+  </svg>,
+  // Finance Solutions — coins
+  <svg viewBox="0 0 48 48" fill="none" key="fs" aria-hidden="true">
+    <ellipse cx="24" cy="38" rx="17" ry="6" fill={IL.pale} />
+    <rect x="7" y="20" width="34" height="16" rx="8" fill={IL.green} />
+    <ellipse cx="24" cy="20" rx="17" ry="6" fill={IL.dark} />
+    <ellipse cx="24" cy="14" rx="12" ry="4.5" fill={IL.pale} />
+    <path d="M24 9v10M20 12h8" stroke={IL.ink} strokeWidth="2.2" strokeLinecap="round" />
+  </svg>,
+  // Energy Optimisation Consultant — gauge
+  <svg viewBox="0 0 48 48" fill="none" key="eoc" aria-hidden="true">
+    <circle cx="24" cy="27" r="20" fill={IL.pale} />
+    <path d="M8 32A18 18 0 0 1 40 32" stroke={IL.green} strokeWidth="6" strokeLinecap="round" />
+    <path d="M24 27 35 15" stroke={IL.ink} strokeWidth="3.5" strokeLinecap="round" />
+    <circle cx="24" cy="27" r="4" fill={IL.dark} />
+  </svg>,
+];
 
 function RegionToggle({ overlay }: { overlay: boolean }) {
   const pathname = usePathname();
@@ -125,17 +161,43 @@ export function Header() {
                   </svg>
                 </button>
 
-                <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  <div className="w-72 rounded-lg border border-line bg-paper p-2 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.18)]">
-                    {item.children.map((c) => (
-                      <Link
-                        key={c.href}
-                        href={c.href}
-                        className="block rounded-md px-3.5 py-3 text-[14px] font-medium text-ink transition-colors hover:bg-brand-tint hover:text-brand-strong"
-                      >
-                        {c.label}
-                      </Link>
-                    ))}
+                {/* Full-bleed mega-menu, aligned to the same container as the
+                    rest of the header rather than centred under the trigger. */}
+                <div className="invisible fixed inset-x-0 top-[83px] opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <div className="border-t border-line bg-paper shadow-[0_24px_48px_-16px_rgba(0,0,0,0.16)]">
+                    <div className="container-px mx-auto max-w-[1760px] py-10">
+                      <div className="grid grid-cols-4 gap-10">
+                        {offerings.map((o, i) => (
+                          <Link
+                            key={o.slug}
+                            href={`/solutions/${o.slug}`}
+                            className="group/item"
+                          >
+                            <span className="block h-10 w-10 [&>svg]:h-full [&>svg]:w-full">
+                              {offeringIcons[i]}
+                            </span>
+                            <h3 className="mt-4 text-[15px] font-semibold tracking-tight text-ink transition-colors group-hover/item:text-brand-strong">
+                              {o.title}
+                            </h3>
+                            <p className="mt-1.5 text-[13px] leading-relaxed text-ink-faint">
+                              {o.summary}
+                            </p>
+                          </Link>
+                        ))}
+                      </div>
+
+                      <div className="mt-9 flex items-center justify-between border-t border-line pt-6">
+                        <span className="text-sm text-ink-faint">
+                          Not sure which fits your project?
+                        </span>
+                        <Link
+                          href="/contact"
+                          className="text-sm font-semibold text-ink transition-colors hover:text-brand-strong"
+                        >
+                          Talk to us →
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
