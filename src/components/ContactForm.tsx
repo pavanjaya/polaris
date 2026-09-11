@@ -76,13 +76,35 @@ export function ContactForm() {
 
       <label className="block">
         <span className="text-sm text-ink-soft">What&apos;s this about?</span>
-        <select name="topic" className={`mt-1.5 ${fieldClass}`} defaultValue={topics[0]}>
-          {topics.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
+        <div className="relative mt-1.5">
+          <select
+            name="topic"
+            className={`${fieldClass} cursor-pointer appearance-none pr-10`}
+            defaultValue={topics[0]}
+          >
+            {topics.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+            className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-ink-faint"
+          >
+            <path
+              d="M6 9l6 6 6-6"
+              stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
       </label>
 
       <label className="block">

@@ -3,6 +3,7 @@ import { Section } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { ContactForm } from "@/components/ContactForm";
+import { socialIcon } from "@/components/SocialIcons";
 import { offices, socials } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -123,16 +124,25 @@ export default function ContactPage() {
               <h2 className="text-xs font-semibold uppercase tracking-wider text-ink-faint">
                 Follow us
               </h2>
-              <div className="mt-3 flex flex-wrap gap-4 text-sm">
+              <div className="mt-4 flex flex-wrap gap-4">
                 {socials.map((s) => (
                   <a
                     key={s.label}
                     href={s.href}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="font-medium text-ink transition-colors hover:text-brand-strong"
+                    aria-label={`Polaris on ${s.label}`}
+                    className="text-ink transition-colors hover:text-brand-strong"
                   >
-                    {s.label}
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      {socialIcon[s.label]}
+                    </svg>
                   </a>
                 ))}
               </div>
