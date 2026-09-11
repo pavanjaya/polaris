@@ -607,18 +607,33 @@ export const milestones = [
 export const founders = [
   {
     name: "Pushkar Panchakshari",
-    role: "Chief Executive Officer",
-    bio: "20+ years across IT, education and manufacturing, including senior roles in finance, procurement and import-export. Leads overall strategy, financial structuring, investor relations and international expansion, and is also a Director of Polaris Global Energie SARL, Morocco.",
+    honorific: "Mr.",
+    role: "CEO",
+    photo: "/img/team/pushkar.jpg",
+    bio: [
+      "Pushkar Panchakshari is CEO of Polaris Renewable Solutions Pvt. Ltd. and a Director of Polaris Global Energie SARL, Morocco. With 20+ years of experience spanning IT, education and manufacturing — including senior roles in finance, procurement and import-export operations — he brings a rigorous commercial foundation to the renewable energy sector.",
+      "At Polaris, he leads overall strategy, financial structuring, investor relations and international expansion. He has been instrumental in developing the company's CAPEX, OPEX, Group Captive and investor-driven solar models, positioning Polaris as a power cost optimisation partner for the C&I sector.",
+    ],
   },
   {
     name: "Swapnil Tajanpure",
-    role: "Director — Technical & Operations",
-    bio: "An electrical engineer who has led the design and commissioning of 100 MW+ of solar infrastructure since founding the company. Responsible for engineering standards, safety protocols aligned to US, European and Indian benchmarks, and 25-year technical architecture.",
+    honorific: "Mr.",
+    role: "Director – Technical & Operations",
+    photo: "/img/team/swapnil.jpg",
+    bio: [
+      "Swapnil Tajanpure is Director — Technical & Operations at Polaris Renewable Solutions, and oversees technical execution for the company's Morocco operations through Polaris Global Energie SARL.",
+      "An electrical engineer by training, he has led the design and commissioning of 100 MW+ of solar infrastructure since founding the company in 2014–15. He is responsible for engineering standards, safety protocols aligned with US, European and Indian benchmarks, and the technical architecture that ensures every Polaris system performs across its full 25-year lifecycle.",
+    ],
   },
   {
     name: "Kunwar Gujral",
-    role: "Director — Sales & Marketing",
-    bio: "Dual postgraduate from Deakin University, Australia (MBA in Marketing and a Master's in Information Systems) with hands-on experience in the Australian solar sector. Drives commercial strategy across India and Morocco, and serves as Director of Polaris Global Energie SARL.",
+    honorific: "Mr.",
+    role: "Director – Sales & Marketing",
+    photo: "/img/team/kunwar.jpg",
+    bio: [
+      "Kunwar Gujral leads Sales & Marketing at Polaris Renewable Solutions and serves as Director of its Morocco subsidiary, Polaris Global Energie SARL. He holds a dual postgraduate degree from Deakin University, Australia — an MBA in Marketing and a Master's in Information Systems — and brings over three years of hands-on experience from the Australian solar sector.",
+      "At Polaris, he drives commercial strategy across India and Morocco, specialising in energy cost optimisation solutions for the C&I segment across CAPEX, OPEX, Open Access and Group Captive frameworks.",
+    ],
   },
 ];
 

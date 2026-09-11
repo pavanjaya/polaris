@@ -5,6 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { CountUp } from "@/components/motion/CountUp";
 import { TimelineProgress } from "@/components/TimelineProgress";
+import { FounderCard } from "@/components/FounderCard";
 import {
   company,
   milestones,
@@ -154,17 +155,6 @@ const heroStats = [
   { value: "2", label: "Countries — India & Morocco" },
 ];
 
-function initials(name: string) {
-  return name
-    .replace(/[^A-Za-z ]/g, "")
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-}
-
 export default function AboutPage() {
   return (
     <>
@@ -311,21 +301,8 @@ export default function AboutPage() {
         <SectionHeading eyebrow="Leadership" title="Founders and Leadership Team" />
         <div className="mt-14 grid gap-x-8 gap-y-14 md:grid-cols-3">
           {founders.map((p, i) => (
-            <Reveal as="article" key={p.name} delay={(i % 3) * 70}>
-              <div className="flex aspect-[4/3] items-center justify-center rounded-lg bg-brand-tint">
-                <span className="text-4xl font-semibold tracking-tight text-brand-dark">
-                  {initials(p.name)}
-                </span>
-              </div>
-              <h3 className="mt-5 text-lg font-semibold tracking-tight text-ink">
-                {p.name}
-              </h3>
-              <p className="mt-1 text-sm font-medium text-brand-strong">
-                {p.role}
-              </p>
-              <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
-                {p.bio}
-              </p>
+            <Reveal key={p.name} delay={(i % 3) * 70}>
+              <FounderCard founder={p} />
             </Reveal>
           ))}
         </div>
