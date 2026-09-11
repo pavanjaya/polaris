@@ -172,42 +172,40 @@ export function Header() {
                   </svg>
                 </button>
 
-                {/* Full-bleed mega-menu, aligned to the same container as the
-                    rest of the header rather than centred under the trigger. */}
-                <div className="invisible fixed inset-x-0 top-[83px] opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  <div className="border-t border-line bg-paper shadow-[0_24px_48px_-16px_rgba(0,0,0,0.16)]">
-                    <div className="container-px mx-auto max-w-[1760px] py-10">
-                      <div className="grid grid-cols-4 gap-10">
-                        {offerings.map((o, i) => (
-                          <Link
-                            key={o.slug}
-                            href={`/solutions/${o.slug}`}
-                            className="group/item"
-                          >
-                            <span className="block h-10 w-10 [&>svg]:h-full [&>svg]:w-full">
-                              {offeringIcons[i]}
-                            </span>
-                            <h3 className="mt-4 text-[15px] font-semibold tracking-tight text-ink transition-colors group-hover/item:text-brand-strong">
-                              {o.title}
-                            </h3>
-                            <p className="mt-1.5 text-[13px] leading-relaxed text-ink-faint">
-                              {o.summary}
-                            </p>
-                          </Link>
-                        ))}
-                      </div>
-
-                      <div className="mt-9 flex items-center justify-between border-t border-line pt-6">
-                        <span className="text-sm text-ink-faint">
-                          Not sure which fits your project?
-                        </span>
+                {/* Compact, anchored dropdown — a full-bleed mega-menu felt
+                    like too big/sudden a jump on hover. */}
+                <div className="invisible absolute left-1/2 top-full -translate-x-1/2 translate-y-1 pt-4 opacity-0 transition-all duration-200 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  <div className="w-[520px] rounded-lg border border-line bg-paper p-6 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.18)]">
+                    <div className="grid grid-cols-2 gap-6">
+                      {offerings.map((o, i) => (
                         <Link
-                          href="/contact"
-                          className="text-sm font-semibold text-ink transition-colors hover:text-brand-strong"
+                          key={o.slug}
+                          href={`/solutions/${o.slug}`}
+                          className="group/item"
                         >
-                          Talk to us →
+                          <span className="block h-9 w-9 [&>svg]:h-full [&>svg]:w-full">
+                            {offeringIcons[i]}
+                          </span>
+                          <h3 className="mt-3 text-[14px] font-semibold tracking-tight text-ink transition-colors group-hover/item:text-brand-strong">
+                            {o.title}
+                          </h3>
+                          <p className="mt-1 text-[12.5px] leading-relaxed text-ink-faint">
+                            {o.summary}
+                          </p>
                         </Link>
-                      </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-6 flex items-center justify-between border-t border-line pt-4">
+                      <span className="text-[13px] text-ink-faint">
+                        Not sure which fits?
+                      </span>
+                      <Link
+                        href="/contact"
+                        className="text-[13px] font-semibold text-ink transition-colors hover:text-brand-strong"
+                      >
+                        Talk to us →
+                      </Link>
                     </div>
                   </div>
                 </div>
