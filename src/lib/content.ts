@@ -712,6 +712,38 @@ export const insights = [
     category: "Financial structuring",
     excerpt:
       "Ownership, cash flow, depreciation and control pull in different directions. A framework for matching the commercial model to the balance sheet.",
+    body: [
+      {
+        paragraphs: [
+          "Every industrial solar conversation eventually arrives at the same question: who owns the asset? The answer isn't a technical one — it's a balance-sheet decision, and it's usually made before a single panel is specified. Get it wrong and you either tie up capital a growing business needed elsewhere, or hand away savings you could have kept.",
+        ],
+      },
+      {
+        heading: "The two poles",
+        paragraphs: [
+          "Under CAPEX, you invest in and fully own the plant. It's the highest-IRR route over the asset's life, it qualifies for accelerated depreciation, and you keep complete control of the energy cost curve — but it uses your capital and your balance sheet.",
+          "Under OPEX / RESCO, Polaris invests, installs and operates the plant. You pay only for the energy consumed, at a pre-agreed tariff typically well below grid rates — commonly around 80% below grid, predictable across a 25-year asset life. There's no upfront investment and no operational responsibility, but you don't capture the full economics an owned asset would deliver.",
+        ],
+      },
+      {
+        heading: "What the numbers actually say",
+        paragraphs: [
+          "For well-structured industrial solar, simple payback typically runs 3.5–7 years, with annualised IRR in the 18–28% range depending on system size and tariff band. Under Indian income-tax provisions, accelerated depreciation of up to 40% in Year 1 is available — which is what pulls CAPEX's effective payback in sharply for enterprises with the taxable profit to absorb it. NPV is positive from Year 1 in most C&I deployments under either structure; the difference is who's holding that NPV on their books.",
+        ],
+      },
+      {
+        heading: "The routes in between",
+        paragraphs: [
+          "CAPEX and OPEX aren't the only two options. A lease-based structure gives you positive cash flow from day one on fixed payments, with ownership transferring to you at the end of the tenure — a middle path for businesses that want eventual ownership without the full upfront outlay. Group-captive and open-access structures go further still, letting you source power off-site across multiple facilities under a shared equity or wheeling arrangement, useful where roof space is the constraint rather than capital.",
+        ],
+      },
+      {
+        heading: "How we help clients decide",
+        paragraphs: [
+          "We don't lead with a structure — we lead with a financial model. Every Polaris engagement starts with load analysis and generation simulation against your actual consumption, then an investment-grade model covering IRR, payback, depreciation and year-by-year cash flow for each route that fits your books. The structure follows the numbers, not the other way round, and the same team that builds the case stays accountable for it through commissioning and 25 years of operation.",
+        ],
+      },
+    ],
   },
   {
     slug: "reading-a-solar-proposal-like-a-cfo",
@@ -721,6 +753,41 @@ export const insights = [
     category: "Advisory",
     excerpt:
       "IRR, payback, NPV and EBITDA impact — the five numbers that should decide an industrial solar investment, and the assumptions behind each.",
+    body: [
+      {
+        paragraphs: [
+          "Most solar proposals lead with the wrong number. A rupee-per-watt price or a headline capacity figure tells you almost nothing about whether the investment makes financial sense. A proposal built to survive a CFO's review leads with five numbers instead — and is explicit about the assumptions behind each one.",
+        ],
+      },
+      {
+        heading: "The five numbers",
+        paragraphs: [
+          "IRR — the annualised return the project generates, typically 18–28% for well-structured C&I solar depending on system size and tariff band.",
+          "Simple payback — how long before cumulative savings recover the investment; 3.5–7 years is the normal range for industrial systems.",
+          "NPV — the project's value in today's rupees once future cash flows are discounted; it should be positive from Year 1 in most C&I deployments.",
+          "Accelerated depreciation — under Indian income-tax provisions, up to 40% of the asset's value can be depreciated in Year 1, materially improving after-tax cash flow for enterprises with the profit to absorb it.",
+          "Electricity cost savings — the predictable line, typically around 80% below grid tariffs, sustained across the asset's full 25-year life.",
+        ],
+      },
+      {
+        heading: "The assumptions behind each",
+        paragraphs: [
+          "Every one of those five numbers is only as good as the generation estimate underneath it. Ask what degradation curve the model assumes, what tariff escalation it's pricing in, and — most importantly — how the generation figure was derived. A model built on a genuine load analysis and site-specific simulation, not a regional average, is the difference between a plant that tracks its estimate within a couple of percentage points and one that quietly underperforms for 25 years.",
+        ],
+      },
+      {
+        heading: "Red flags in a weak proposal",
+        paragraphs: [
+          "If a proposal doesn't show IRR and payback explicitly, that's a flag. If there's no depreciation schedule, that's a flag. And if there's no long-term O&M plan beyond commissioning, that's the biggest one — it's how solar assets end up orphaned, generating below their modelled output with nobody accountable for the gap.",
+        ],
+      },
+      {
+        heading: "What we build instead",
+        paragraphs: [
+          "Every Polaris proposal is an investment-grade financial model before it's anything else — IRR, payback, depreciation and cash flow, reviewed and signed off before design begins. The same model is what the operating team is held to for the full 25-year life of the asset.",
+        ],
+      },
+    ],
   },
   {
     slug: "engineering-for-25-year-uptime",
@@ -730,6 +797,37 @@ export const insights = [
     category: "Engineering",
     excerpt:
       "Zero-penetration mounting, corrosion-grade structures and HT evacuation design — the choices that separate an asset from an orphaned system.",
+    body: [
+      {
+        paragraphs: [
+          "A solar system can hit an attractive headline payback number and still be a poor asset. Payback measures the first few years; the engineering decisions made at design stage determine whether the other twenty-plus hold up. The gap between those two timeframes is where most underperforming installations are born.",
+        ],
+      },
+      {
+        heading: "The roof is not a formality",
+        paragraphs: [
+          "On a live pharmaceutical manufacturing facility, we've delivered zero-penetration mounting across multiple rooftop elevations — no roof punctures, no warranty conflict with the building owner, engineered with BESS-ready infrastructure for a future addition. On a coastal Morocco pilot, the same zero-penetration principle was re-engineered for bitumen-sheet roofing and coastal wind loads, with a Magnis-coated structure to resist the salt-air environment. Same discipline, different site physics.",
+        ],
+      },
+      {
+        heading: "Terrain and HT evacuation aren't afterthoughts",
+        paragraphs: [
+          "A ground-mounted plant for a stone-crushing operation required partial rock excavation and an 11 kV HT evacuation run over half a kilometre — engineered and commissioned in 85 days, through the monsoon. A separate ground-mount for a mining client needed a robust structure for a high-dust environment plus its own 11 kV HT evacuation system, delivered in 45 days. Neither of those numbers is a marketing claim about speed; they're a consequence of getting the terrain and evacuation engineering right the first time, so construction doesn't stall on a redesign.",
+        ],
+      },
+      {
+        heading: "Standards that don't change by postcode",
+        paragraphs: [
+          "Structural loading, HT evacuation and safety design are engineered to Indian, EU and US benchmarks on every project we deliver, in India or in Morocco. It's the same reviewing discipline applied to a rooftop in Nashik and a pilot in Tangier — because a 25-year asset has to survive whichever jurisdiction's inspector, insurer or lender looks at it next.",
+        ],
+      },
+      {
+        heading: "The engineering doesn't stop at commissioning",
+        paragraphs: [
+          "SCADA monitoring, generation analytics and a preventive maintenance schedule are what keep a well-engineered system performing to its modelled output for the full 25 years — with the same team that built the financial case staying accountable for the numbers it produces. That's the difference between an asset and an orphaned installation: someone is still responsible for it in year twenty.",
+        ],
+      },
+    ],
   },
   {
     slug: "group-captive-open-access-explained",
@@ -739,5 +837,36 @@ export const insights = [
     category: "Policy",
     excerpt:
       "How off-site structures unlock scale for multi-facility manufacturers — equity thresholds, compliance and landed-tariff maths.",
+    body: [
+      {
+        paragraphs: [
+          "Not every manufacturer can put meaningful solar capacity on their own roof — the load is too large, the roof too small, or the operations spread across sites that don't get equal sun. Off-site structures exist precisely for that mismatch, letting generation happen where the land and irradiation are best and the power be delivered to where it's actually consumed.",
+        ],
+      },
+      {
+        heading: "What group captive means",
+        paragraphs: [
+          "Under India's captive generation rules, a plant qualifies as \"captive\" when the consuming entity (or entities) holds not less than 26% equity in the generating company and collectively consumes not less than 51% of the electricity generated, on an annual basis. Structured correctly, that qualification exempts the arrangement from a large share of the cross-subsidy and transmission charges an ordinary third-party power purchase would attract — which is where most of the landed-cost advantage comes from.",
+        ],
+      },
+      {
+        heading: "What open access means",
+        paragraphs: [
+          "Open access lets a consumer buy power from a generator that isn't the local utility and have it wheeled to their connection over the shared grid, for a regulated set of charges rather than the retail tariff. It's the mechanism that makes it possible for a plant built on cheap, sunny, available land in one district to serve a factory load in another — the two don't need to be adjacent, only connected to the same grid.",
+        ],
+      },
+      {
+        heading: "The landed-tariff maths",
+        paragraphs: [
+          "The number that actually matters is landed cost: generation cost, plus wheeling and transmission charges, plus any applicable cross-subsidy surcharge, compared against the grid tariff the facility pays today. Done well, that comparison is what delivers the roughly 80% below-grid savings figure that well-structured C&I solar can sustain — predictably, across a 25-year asset life, because the underlying generation cost doesn't move the way grid tariffs do.",
+        ],
+      },
+      {
+        heading: "Where this fits our solutions",
+        paragraphs: [
+          "Our Open Access & Group Captive structures cover large-scale energy sourcing, the equity participation the regulation requires, multi-location power allocation across a client's sites, and compliance with the captive-status rules that make the whole structure work. It's the route we recommend most often to manufacturers with multiple facilities and a load too large — or too dispersed — for rooftop CAPEX alone.",
+        ],
+      },
+    ],
   },
 ];

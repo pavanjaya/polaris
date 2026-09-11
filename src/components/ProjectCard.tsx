@@ -10,8 +10,8 @@ const statusStyles: Record<string, string> = {
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="u-card group flex flex-col overflow-hidden border border-line bg-paper">
-      <div className="relative h-48 w-full overflow-hidden bg-mist">
+    <article className="u-card group flex flex-col overflow-hidden rounded-lg border border-line/70 bg-paper">
+      <div className="relative aspect-[3/2] w-full overflow-hidden bg-mist">
         <Image
           src={project.image}
           alt={project.name}
@@ -20,7 +20,7 @@ export function ProjectCard({ project }: { project: Project }) {
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <span
-          className={`absolute left-3 top-3 px-2 py-1 text-xs font-semibold ${
+          className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-xs font-semibold ${
             statusStyles[project.status] ?? "bg-white text-ink"
           }`}
         >
