@@ -587,7 +587,7 @@ export function ProjectsRail() {
         {projects.map((p) => (
           <Link
             key={p.name}
-            href="/projects"
+            href={`/projects/${p.slug}`}
             className="u-card group w-[300px] shrink-0 snap-start overflow-hidden rounded-lg border border-line/70 bg-paper sm:w-[340px]"
           >
             <div className="relative aspect-[3/2] w-full overflow-hidden bg-mist">

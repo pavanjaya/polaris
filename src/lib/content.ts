@@ -426,6 +426,7 @@ export const segments = [
 export const projects = [
   {
     name: "Kilitch Healthcare India Ltd.",
+    slug: "kilitch-healthcare",
     image: "/img/projects/kilitch.jpg",
     location: "India",
     tech: "Industrial Rooftop Solar",
@@ -447,6 +448,7 @@ export const projects = [
   },
   {
     name: "General Mills India Pvt. Ltd.",
+    slug: "general-mills",
     image: "/img/projects/general-mills.jpg",
     location: "India",
     tech: "Industrial Rooftop Solar",
@@ -469,6 +471,7 @@ export const projects = [
   },
   {
     name: "Shriram Stone Crusher",
+    slug: "shriram-stone-crusher",
     image: "/img/projects/shriram.jpg",
     location: "India",
     tech: "Ground-Mounted Solar",
@@ -491,6 +494,7 @@ export const projects = [
   },
   {
     name: "Forcon Infra Pvt. Ltd.",
+    slug: "forcon-infra",
     image: "/img/projects/forcon.jpg",
     location: "India",
     tech: "Ground-Mounted Solar",
@@ -513,6 +517,7 @@ export const projects = [
   },
   {
     name: "Indore Composite Pvt. Ltd.",
+    slug: "indore-composite",
     image: "/img/projects/indore-composite.jpg",
     location: "India",
     tech: "Industrial Rooftop Solar",
@@ -534,6 +539,7 @@ export const projects = [
   },
   {
     name: "Advanced Enzyme Technologies Ltd.",
+    slug: "advanced-enzyme-technologies",
     image: "/img/projects/advanced-enzyme.jpg",
     location: "India",
     tech: "Industrial Rooftop Solar",
@@ -557,6 +563,7 @@ export const projects = [
   },
   {
     name: "Indore International",
+    slug: "indore-international",
     image: "/img/projects/morocco.jpg",
     location: "Tangier, Morocco",
     tech: "Industrial Rooftop Solar",

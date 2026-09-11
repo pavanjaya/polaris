@@ -1,258 +1,53 @@
-"use client";
-
-import { useEffect, useId, useState } from "react";
-import { createPortal } from "react-dom";
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "./ui";
-import { useScrollLock } from "@/lib/useScrollLock";
 import { projects } from "@/lib/content";
 
 type Project = (typeof projects)[number];
 
-const statusStyles: Record<string, string> = {
-  Commissioned: "bg-ink text-white",
-  Ongoing: "bg-amber/90 text-white",
-};
-
-function CloseIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M5 5l14 14M19 5L5 19"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-// Card trigger: tech + capacity only — status is already the section
-// heading ("Commissioned" / "Ongoing") this card sits under.
-function CardTags({ project }: { project: Project }) {
-  return (
-    <div className="flex flex-wrap gap-2">
-      <span className="inline-flex rounded-full bg-brand-tint px-2.5 py-1 text-xs font-semibold text-brand-strong">
-        {project.tech}
-      </span>
-      <span className="inline-flex rounded-full bg-ink/[0.06] px-2.5 py-1 text-xs font-semibold text-ink">
-        {project.capacity}
-      </span>
-    </div>
-  );
-}
-
-// Modal: status + tech + capacity, since the popup stands alone.
-function ModalTags({ project }: { project: Project }) {
-  return (
-    <div className="flex flex-wrap gap-2">
-      <span
-        className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${
-          statusStyles[project.status] ?? "bg-ink text-white"
-        }`}
-      >
-        {project.status}
-      </span>
-      <span className="inline-flex rounded-full bg-brand-tint px-2.5 py-1 text-xs font-semibold text-brand-strong">
-        {project.tech}
-      </span>
-      <span className="inline-flex rounded-full bg-ink/[0.06] px-2.5 py-1 text-xs font-semibold text-ink">
-        {project.capacity}
-      </span>
-    </div>
-  );
-}
-
+/**
+ * Listing-page project card — deliberately identical to the homepage's
+ * ProjectsRail card (tech + capacity pills, text-base title, location
+ * line, "See project" arrow-link). Links straight to the project's own
+ * detail page instead of opening a popup — the full page gives the
+ * stats/highlights the room a modal couldn't.
+ */
 export function ProjectCard({ project }: { project: Project }) {
-  const [open, setOpen] = useState(false);
-  const titleId = useId();
-
-  useScrollLock(open);
-
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [open]);
-
   return (
-    <>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        aria-haspopup="dialog"
-        className="u-card group flex w-full cursor-pointer flex-col overflow-hidden rounded-lg border border-line/70 bg-paper text-left"
-      >
-        <div className="relative aspect-[3/2] w-full overflow-hidden bg-mist">
-          <Image
-            src={project.image}
-            alt={project.name}
-            fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
+    <Link
+      href={`/projects/${project.slug}`}
+      className="u-card group flex flex-col overflow-hidden rounded-lg border border-line/70 bg-paper"
+    >
+      <div className="relative aspect-[3/2] w-full overflow-hidden bg-mist">
+        <Image
+          src={project.image}
+          alt={project.name}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
 
-        <div className="flex flex-1 flex-col p-7 pb-8">
-          <CardTags project={project} />
-
-          <h3 className="mt-4 text-base font-semibold tracking-tight text-ink">
-            {project.name}
-          </h3>
-          <p className="mt-1.5 text-sm text-ink-faint">{project.location}</p>
-
-          <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-ink group-hover:underline">
-            See project
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+      <div className="flex flex-1 flex-col p-7 pb-8">
+        <div className="flex flex-wrap gap-2">
+          <span className="inline-flex rounded-full bg-brand-tint px-2.5 py-1 text-xs font-semibold text-brand-strong">
+            {project.tech}
+          </span>
+          <span className="inline-flex rounded-full bg-ink/[0.06] px-2.5 py-1 text-xs font-semibold text-ink">
+            {project.capacity}
           </span>
         </div>
-      </button>
 
-      {open &&
-        createPortal(
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={titleId}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
-          >
-            <div
-              aria-hidden="true"
-              onClick={() => setOpen(false)}
-              className="absolute inset-0 bg-ink/50 backdrop-blur-sm"
-            />
-            <div className="relative max-h-[85vh] w-full max-w-4xl overflow-y-auto rounded-lg bg-paper shadow-[0_30px_80px_-20px_rgba(11,21,37,0.45)]">
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                aria-label="Close"
-                className="absolute right-4 top-4 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-paper/90 text-ink-faint shadow-sm backdrop-blur transition-colors hover:bg-ink/5 hover:text-ink"
-              >
-                <CloseIcon />
-              </button>
+        <h3 className="mt-4 text-base font-semibold tracking-tight text-ink">
+          {project.name}
+        </h3>
+        <p className="mt-1.5 text-sm text-ink-faint">{project.location}</p>
 
-              <div className="grid lg:grid-cols-2">
-                {/* Content — left on desktop, below the image on mobile */}
-                <div className="order-2 p-7 sm:p-9 lg:order-1">
-                  <ModalTags project={project} />
-
-                  <h2
-                    id={titleId}
-                    className="mt-4 text-2xl font-semibold tracking-tight text-ink"
-                  >
-                    {project.name}
-                  </h2>
-
-                  <dl className="mt-6 grid grid-cols-3 gap-x-6 gap-y-5 border-t border-ink/10 pt-6">
-                    <div>
-                      <dt className="text-xs uppercase tracking-wide text-ink-faint">
-                        Location
-                      </dt>
-                      <dd className="mt-1 text-[15px] font-semibold text-ink">
-                        {project.location}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="text-xs uppercase tracking-wide text-ink-faint">
-                        Year
-                      </dt>
-                      <dd className="mt-1 text-[15px] font-semibold text-ink">
-                        {project.year}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="text-xs uppercase tracking-wide text-ink-faint">
-                        Commercial Model
-                      </dt>
-                      <dd className="mt-1 text-[15px] font-semibold text-ink">
-                        {project.model}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="text-xs uppercase tracking-wide text-ink-faint">
-                        Type
-                      </dt>
-                      <dd className="mt-1 text-[15px] font-semibold text-ink">
-                        {project.tech}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="text-xs uppercase tracking-wide text-ink-faint">
-                        Capacity
-                      </dt>
-                      <dd className="mt-1 text-[15px] font-semibold text-ink">
-                        {project.capacity}
-                      </dd>
-                    </div>
-                    {project.generation !== "—" && (
-                      <div>
-                        <dt className="text-xs uppercase tracking-wide text-ink-faint">
-                          Annual Generation
-                        </dt>
-                        <dd className="mt-1 text-[15px] font-semibold text-ink">
-                          {project.generation}
-                        </dd>
-                      </div>
-                    )}
-                    {project.savings !== "—" && (
-                      <div>
-                        <dt className="text-xs uppercase tracking-wide text-ink-faint">
-                          Effective Savings
-                        </dt>
-                        <dd className="mt-1 text-[15px] font-semibold text-ink">
-                          {project.savings}
-                        </dd>
-                      </div>
-                    )}
-                  </dl>
-
-                  <p className="mt-6 border-t border-ink/10 pt-6 text-[15px] leading-relaxed text-ink-soft">
-                    {project.blurb}
-                  </p>
-
-                  {project.highlights && (
-                    <>
-                      <h3 className="mt-7 border-t border-ink/10 pt-6 text-sm font-semibold uppercase tracking-[0.15em] text-brand-strong">
-                        Highlights
-                      </h3>
-                      <ul className="mt-4 space-y-3">
-                        {project.highlights.map((h) => (
-                          <li
-                            key={h}
-                            className="flex gap-3 text-[15px] leading-relaxed text-ink-soft"
-                          >
-                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                            <span>{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                </div>
-
-                {/* Image — right on desktop (full column height), top on mobile */}
-                <div className="relative order-1 aspect-[4/3] w-full overflow-hidden bg-mist lg:order-2 lg:aspect-auto lg:h-full lg:min-h-[420px]">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                  {project.imageCaption && (
-                    <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-4 pb-3 pt-8 text-xs italic text-white/90">
-                      {project.imageCaption}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>,
-          document.body,
-        )}
-    </>
+        <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-ink group-hover:underline">
+          See project
+          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+        </span>
+      </div>
+    </Link>
   );
 }

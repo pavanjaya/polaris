@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { insights } from "@/lib/content";
+import { insights, projects } from "@/lib/content";
 
 const base = "https://www.polarisenergy.in";
 
@@ -16,5 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(p.date),
   }));
 
-  return [...routes, ...posts];
+  const projectPages = projects.map((p) => ({
+    url: `${base}/projects/${p.slug}`,
+    lastModified: new Date(),
+  }));
+
+  return [...routes, ...posts, ...projectPages];
 }
