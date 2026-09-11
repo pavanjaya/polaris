@@ -59,7 +59,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
               onFocus={() => setActive(i)}
               aria-label={s.title}
               aria-pressed={isActive}
-              className={`group relative min-h-[64px] min-w-0 cursor-pointer overflow-hidden rounded-lg bg-mist text-left transition-[flex-grow,transform,box-shadow] duration-[750ms,700ms,700ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`group relative min-h-[64px] min-w-0 cursor-pointer overflow-hidden rounded-lg bg-mist text-left transition-[flex-grow,transform,box-shadow] duration-[750ms,1100ms,1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 isActive
                   ? ""
                   : "hover:z-10 hover:scale-[1.03] hover:shadow-[0_22px_48px_-20px_rgba(15,67,56,0.45)]"
@@ -71,7 +71,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
                 alt=""
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 55vw"
-                className={`object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                className={`object-cover transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                   isActive ? "scale-100" : "scale-105 group-hover:scale-[1.06]"
                 }`}
               />
@@ -92,7 +92,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
               {!isActive && (
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-dark/85 via-brand-dark/30 to-transparent opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-dark/85 via-brand-dark/30 to-transparent opacity-0 transition-opacity duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
                 />
               )}
 
