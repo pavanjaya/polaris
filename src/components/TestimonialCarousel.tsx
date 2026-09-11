@@ -1,9 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { testimonials } from "@/lib/content";
 import { prefersReducedMotion } from "@/lib/motion";
+
+// How long the outgoing quote takes to fade out before the incoming one
+// swaps in and fades back — keep in sync with the duration-[Nms] classes below.
+const FADE_MS = 400;
 
 const Threads = dynamic(() => import("./Threads"), { ssr: false });
 
@@ -25,26 +29,42 @@ function initials(name: string) {
  */
 export function TestimonialCarousel() {
   const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
   const [paused, setPaused] = useState(false);
   const [motionOk, setMotionOk] = useState(false);
   const count = testimonials.length;
+  const transitioning = useRef(false);
 
   useEffect(() => {
     setMotionOk(!prefersReducedMotion());
   }, []);
+
+  // Smooth crossfade: fade the current quote out, swap the content once
+  // it's invisible, then fade the new one in — instead of a hard cut.
   const go = useCallback(
-    (i: number) => setIndex(((i % count) + count) % count),
+    (i: number) => {
+      if (transitioning.current || prefersReducedMotion()) {
+        setIndex(((i % count) + count) % count);
+        return;
+      }
+      transitioning.current = true;
+      setVisible(false);
+      window.setTimeout(() => {
+        setIndex(((i % count) + count) % count);
+        setVisible(true);
+        window.setTimeout(() => {
+          transitioning.current = false;
+        }, FADE_MS);
+      }, FADE_MS);
+    },
     [count],
   );
 
   useEffect(() => {
     if (count < 2 || paused || prefersReducedMotion()) return;
-    const id = window.setInterval(
-      () => setIndex((v) => (v + 1) % count),
-      7000,
-    );
+    const id = window.setInterval(() => go(index + 1), 7000);
     return () => window.clearInterval(id);
-  }, [count, paused]);
+  }, [count, paused, index, go]);
 
   const t = testimonials[index];
 
@@ -84,8 +104,9 @@ export function TestimonialCarousel() {
         </span>
 
         <div
-          key={index}
-          className="squeezy-detail flex min-h-[21rem] flex-col justify-start sm:min-h-[18rem]"
+          className={`flex min-h-[21rem] flex-col justify-start transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-h-[18rem] ${
+            visible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+          }`}
         >
           <blockquote className="mx-auto mt-5 max-w-3xl text-2xl font-medium leading-relaxed text-ink-soft sm:text-[1.9rem] sm:leading-[1.4]">
             {t.quote}
@@ -102,7 +123,7 @@ export function TestimonialCarousel() {
           </figcaption>
         </div>
 
-        <div className="mt-8 flex items-center justify-center gap-2.5">
+        <div className="mt-8 flex items-center justify-center gap-3.5">
           {testimonials.map((item, i) => (
             <button
               key={item.name}
@@ -110,8 +131,10 @@ export function TestimonialCarousel() {
               aria-label={`Show testimonial ${i + 1}`}
               aria-current={i === index}
               onClick={() => go(i)}
-              className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                i === index ? "scale-110 bg-brand" : "bg-ink/15 hover:bg-ink/30"
+              className={`h-3 w-3 rounded-full transition-all duration-300 ${
+                i === index
+                  ? "dot-active scale-110 bg-brand"
+                  : "bg-ink/15 hover:bg-ink/30"
               }`}
             />
           ))}
