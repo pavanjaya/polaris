@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Section } from "@/components/ui";
 import { CTA } from "@/components/CTA";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { CountUp } from "@/components/motion/CountUp";
-import { ProcessRail } from "@/components/ProcessRail";
 import { process as deliverySteps, glance } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -13,21 +13,47 @@ export const metadata: Metadata = {
     "How Polaris delivers industrial solar: an investment-grade financial model, in-house engineering, single-point EPC execution and 25-year accountable O&M.",
 };
 
-// The homepage carousel uses `process[].body` verbatim (one terse line per
-// step, sized for a compressed teaser). This page is the step's own home,
-// so it gets the fuller two-sentence version instead of restating the same
-// four steps a second time underneath the carousel.
-const stepDetails = [
-  "We run a full load analysis and generation simulation against your actual consumption — then build an investment-grade model: IRR, payback, depreciation and cash flow, structured to whichever route fits your balance sheet.",
-  "In-house electrical and structural engineers size every system on fit and yield, not margin. Structural loading, HT evacuation and safety are engineered to Indian, EU and US benchmarks on every project.",
-  "Procurement, construction and commissioning run under one accountable team — no hand-offs between contractors. Most C&I plants are energised in 45–90 days, commissioned against the original financial model.",
-  "SCADA monitoring, generation analytics and preventive maintenance keep every system performing to its modelled output for its full 25-year life — the same team that built the case stays accountable.",
+// A fuller telling of each step than the homepage carousel's one-liner —
+// this page's whole job is to explain the approach, so it gets room:
+// an intro line plus the specifics that actually back the claim.
+const stepDetails: { intro: string; points: string[] }[] = [
+  {
+    intro:
+      "Before any equipment is specified, we run a full load analysis and generation simulation against your actual consumption profile — not a generic template. The output is an investment-grade financial model, built for whichever structure fits your balance sheet.",
+    points: [
+      "IRR, simple payback, depreciation schedule and year-by-year cash flow — modelled before design begins",
+      "Structured for CAPEX, OPEX/RESCO, lease or group-captive, whichever route suits your books",
+      "Every number reviewed and signed off before a rupee is committed",
+    ],
+  },
+  {
+    intro:
+      "In-house electrical and structural engineers — not a sales team with a datasheet — size every system on physical fit and yield, not on margin. The same discipline applies whether the site is in Maharashtra or Casablanca.",
+    points: [
+      "Structural loading, HT evacuation and safety engineered to Indian, EU and US benchmarks",
+      "Design reviewed against site-specific constraints — roof condition, shading, terrain, monsoon exposure",
+      "Tier-1 equipment specified for fit, never for a brand incentive",
+    ],
+  },
+  {
+    intro:
+      "Procurement, construction and commissioning run under one accountable team — no hand-offs between a design contractor, a separate EPC vendor and a third-party O&M provider. It's the same people from mobilisation to switch-on.",
+    points: [
+      "Most commercial & industrial plants energised in 45–90 days",
+      "Single point of contact through procurement, construction and commissioning",
+      "Every handover checked against the original financial model, not just the drawing",
+    ],
+  },
+  {
+    intro:
+      "The relationship doesn't end at commissioning. SCADA monitoring, generation analytics and a preventive maintenance schedule keep every system performing to its modelled output for its full asset life.",
+    points: [
+      "Real-time SCADA monitoring and generation analytics for every plant",
+      "Preventive maintenance scheduled across the full 25-year asset life",
+      "The team that built the financial case stays accountable for it — no orphaned systems",
+    ],
+  },
 ];
-
-const detailedSteps = deliverySteps.map((s, i) => ({
-  ...s,
-  body: stepDetails[i],
-}));
 
 export default function OurApproachPage() {
   return (
@@ -49,20 +75,74 @@ export default function OurApproachPage() {
               discipline — modelled before it&apos;s engineered, engineered
               before it&apos;s built, and operated by the same team that
               signed off the numbers. No hand-offs, no orphaned systems.
-              Click through each stage below.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Squeeze carousel, with the fuller per-step copy — this is the
-          page's one telling of the four steps, not a teaser for another. */}
-      <section className="container-px mx-auto max-w-[1760px] pt-16 lg:pt-20">
-        <ProcessRail steps={detailedSteps} />
-      </section>
+      {/* The four stages — alternating image + text, each with room to
+          actually explain itself instead of a compressed caption. */}
+      <Section className="space-y-24 lg:space-y-32">
+        {deliverySteps.map((s, i) => {
+          const detail = stepDetails[i];
+          const imageFirst = i % 2 === 0;
+          return (
+            <div
+              key={s.step}
+              className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20"
+            >
+              <Reveal
+                variant="scale"
+                className={imageFirst ? "lg:order-1" : "lg:order-2"}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-mist">
+                  <Image
+                    src={s.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              </Reveal>
+
+              <div className={imageFirst ? "lg:order-2" : "lg:order-1"}>
+                <Reveal variant="fade">
+                  <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-strong">
+                    {s.step}
+                  </span>
+                </Reveal>
+                <Reveal as="span" variant="mask" className="mt-3 block">
+                  <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+                    {s.title}
+                  </h2>
+                </Reveal>
+                <Reveal variant="up" delay={60}>
+                  <p className="mt-4 text-lg leading-relaxed text-ink-soft">
+                    {detail.intro}
+                  </p>
+                </Reveal>
+                <Reveal variant="up" delay={110}>
+                  <ul className="mt-6 space-y-3">
+                    {detail.points.map((p) => (
+                      <li
+                        key={p}
+                        className="flex gap-3 text-[15px] leading-relaxed text-ink-soft"
+                      >
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              </div>
+            </div>
+          );
+        })}
+      </Section>
 
       {/* By the numbers */}
-      <div className="mt-20 bg-[#FAFBF6] lg:mt-28">
+      <div className="bg-[#FAFBF6]">
         <Section>
           <Reveal variant="fade">
             <span className="pill">The results</span>
