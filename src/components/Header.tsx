@@ -91,14 +91,12 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [solid, setSolid] = useState(false);
   const [mobileSubOpen, setMobileSubOpen] = useState<string | null>(null);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const isHome = pathname === "/";
-  // Transparent overlay only on the homepage hero, before scrolling — and
-  // never while a dropdown panel (solid white) is open, since a see-through
-  // header sitting directly above an opaque panel reads as broken,
-  // especially over the hero video.
-  const overlay = isHome && !solid && !open && !dropdownOpen;
+  // Transparent overlay only on the homepage hero, before scrolling. Stays
+  // transparent even while a dropdown is open — switching it solid on open
+  // read as more of a jarring flash than the transparency itself did.
+  const overlay = isHome && !solid && !open;
 
   useEffect(() => {
     setOpen(false);
@@ -141,14 +139,7 @@ export function Header() {
             }
 
             return (
-              <div
-                key={item.href}
-                className="group relative"
-                onMouseEnter={() => setDropdownOpen(true)}
-                onMouseLeave={() => setDropdownOpen(false)}
-                onFocus={() => setDropdownOpen(true)}
-                onBlur={() => setDropdownOpen(false)}
-              >
+              <div key={item.href} className="group relative">
                 <button
                   type="button"
                   aria-haspopup="true"
@@ -174,8 +165,11 @@ export function Header() {
                 </button>
 
                 {/* Compact, anchored dropdown — a full-bleed mega-menu felt
-                    like too big/sudden a jump on hover. */}
-                <div className="invisible absolute left-1/2 top-full -translate-x-1/2 translate-y-1 pt-4 opacity-0 transition-all duration-200 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                    like too big/sudden a jump on hover. Starts tucked up
+                    under the trigger and eases downward into place, rather
+                    than a plain opacity snap, so it reads as one smooth
+                    motion instead of a jerk. */}
+                <div className="invisible absolute left-1/2 top-full -translate-x-1/2 -translate-y-3 pt-4 opacity-0 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                   <div className="w-[540px] rounded-lg border border-line bg-paper p-5 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.18)]">
                     <div className="grid grid-cols-2 gap-2">
                       {offerings.map((o, i) => (
