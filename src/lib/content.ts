@@ -437,6 +437,13 @@ export const projects = [
     year: 2026,
     blurb:
       "Zero-penetration mounting across multiple rooftop elevations, delivered inside a live pharma manufacturing facility with BESS-ready infrastructure.",
+    highlights: [
+      "Engineered across multiple rooftop structures with varying elevations and orientations, optimising generation through advanced system design.",
+      "Implemented a zero-penetration mounting system, preserving roof integrity without any drilling or structural modifications.",
+      "Optimised DC and AC system architecture to minimise electrical losses while maximising long-term energy yield.",
+      "Delivered the project within a live manufacturing facility, maintaining uninterrupted plant operations while adhering to stringent industrial safety protocols.",
+      "Future-ready infrastructure engineered to support the integration of Battery Energy Storage Systems (BESS) as part of the client's long-term energy transition strategy.",
+    ],
   },
   {
     name: "General Mills India Pvt. Ltd.",
@@ -451,6 +458,14 @@ export const projects = [
     year: 2025,
     blurb:
       "Executed for a US MNC under American safety standards — centralised inverter architecture across multiple non-uniform rooftops.",
+    highlights: [
+      "Executed for a US-based MNC under strict American safety standards, ensuring global compliance in design and installation.",
+      "Engineered across multiple rooftops with varying orientations, optimising generation despite the non-uniform layout.",
+      "Designed a centralised inverter architecture, overcoming complex cable routing constraints while maintaining system efficiency.",
+      "Developed a precision cable routing and protection strategy aligned with high safety and plant safety protocols.",
+      "Ensured zero compromise on safety, performance and structural integrity in a live industrial environment.",
+      "Delivered a system engineered for long-term reliability — 25+ years lifecycle — with optimised performance.",
+    ],
   },
   {
     name: "Shriram Stone Crusher",
@@ -465,6 +480,14 @@ export const projects = [
     year: 2025,
     blurb:
       "Terrain engineering with partial rock excavation and 11 kV HT evacuation over 0.5 km — delivered in 85 days through the monsoon.",
+    highlights: [
+      "Carried out controlled terrain engineering, including partial rock excavation and land levelling, to make the site suitable for solar installation.",
+      "Engineered a site-specific layout and foundation strategy to ensure structural stability despite uneven and rugged land conditions.",
+      "Designed and executed 11 kV HT power evacuation over 0.5 km, enabling reliable grid injection from a remote plant location.",
+      "Installed dedicated HT transmission infrastructure with green poles, ensuring safe and compliant long-distance power transfer.",
+      "Delivered the project in a record timeline of 85 days, despite heavy rainfall, a remote/outskirt site and continuous operation within a dust-intensive stone-crusher environment.",
+      "Engineered the system for harsh industrial conditions, ensuring durability, reliability and long-term performance.",
+    ],
   },
   {
     name: "Forcon Infra Pvt. Ltd.",
@@ -479,6 +502,14 @@ export const projects = [
     year: 2025,
     blurb:
       "Engineered for a high-dust mining environment with a robust 11 kV HT evacuation system — full execution in a record 45 days.",
+    highlights: [
+      "Engineered specifically for a mining environment with high dust concentration, ensuring long-term performance and minimal degradation.",
+      "Designed and executed a robust 11 kV HT evacuation system, enabling efficient power transmission over distance with minimal losses.",
+      "Implemented optimised cable sizing, routing and protection systems to ensure reliability across the extended transmission length.",
+      "Delivered complete project execution — design, installation and commissioning — in a record time of 45 days.",
+      "Engineered module layout and tilt optimisation to achieve a high generation yield despite challenging site conditions.",
+      "Integrated strong earthing and lightning protection systems for the open-land, mining-zone exposure.",
+    ],
   },
   {
     name: "Indore Composite Pvt. Ltd.",
@@ -493,6 +524,13 @@ export const projects = [
     year: 2025,
     blurb:
       "Advanced east-west racking on a large-height shed, maximising module density and evening out the daily generation profile.",
+    highlights: [
+      "Engineered a high-efficiency solar solution aligned with the facility's east-west orientation, optimising generation across the day.",
+      "Leveraged the large shed height to implement an advanced east-west racking design, enabling higher module density and improved energy yield.",
+      "Developed custom structural and layout engineering to maximise rooftop utilisation without compromising safety.",
+      "Achieved an optimised generation profile with better distribution of output, enhancing real-time energy utilisation.",
+      "Designed the system with a focus on performance stability, wind considerations and long-term structural reliability.",
+    ],
   },
   {
     name: "Advanced Enzyme Technologies Ltd.",
@@ -521,6 +559,15 @@ export const projects = [
     year: 2026,
     blurb:
       "Polaris's first international pilot — a Magnis-coated, zero-penetration structure engineered for bitumen-sheet roofing and coastal wind loads.",
+    imageCaption: "Indicative 3D render for visual representation only.",
+    highlights: [
+      "Marking our first international pilot project in Morocco, establishing a strong foundation for global expansion.",
+      "Engineered a customised mounting structure specifically for bitumen-sheet roofing, addressing unique site constraints.",
+      "Implementing a high-grade Magnis-coated structure, ensuring superior corrosion resistance in coastal conditions.",
+      "Designed with a zero-penetration mounting system, eliminating roof-leakage risk and preserving roof integrity.",
+      "Optimised structural design to withstand wind loads and environmental conditions specific to the Tangier region.",
+      "Focused on long-term durability and performance, aligning with international engineering and safety standards.",
+    ],
   },
 ];
 
