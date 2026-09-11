@@ -90,10 +90,14 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [solid, setSolid] = useState(false);
   const [mobileSubOpen, setMobileSubOpen] = useState<string | null>(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const isHome = pathname === "/";
-  // Transparent overlay only on the homepage hero, before scrolling.
-  const overlay = isHome && !solid && !open;
+  // Transparent overlay only on the homepage hero, before scrolling — and
+  // never while a dropdown panel (solid white) is open, since a see-through
+  // header sitting directly above an opaque panel reads as broken,
+  // especially over the hero video.
+  const overlay = isHome && !solid && !open && !dropdownOpen;
 
   useEffect(() => {
     setOpen(false);
@@ -136,7 +140,14 @@ export function Header() {
             }
 
             return (
-              <div key={item.href} className="group relative">
+              <div
+                key={item.href}
+                className="group relative"
+                onMouseEnter={() => setDropdownOpen(true)}
+                onMouseLeave={() => setDropdownOpen(false)}
+                onFocus={() => setDropdownOpen(true)}
+                onBlur={() => setDropdownOpen(false)}
+              >
                 <button
                   type="button"
                   aria-haspopup="true"
