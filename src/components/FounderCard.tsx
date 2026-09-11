@@ -157,10 +157,10 @@ export function FounderCard({ founder }: { founder: Founder }) {
                   href={founder.linkedin}
                   target="_blank"
                   rel="noreferrer noopener"
-                  aria-label={`${fullName} on LinkedIn`}
-                  className="mt-2 inline-flex text-[#0A66C2] transition-opacity hover:opacity-70"
+                  className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-[#0A66C2] transition-opacity hover:opacity-70"
                 >
                   <LinkedInIcon />
+                  View on LinkedIn
                 </a>
               )}
               <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-ink-soft">
