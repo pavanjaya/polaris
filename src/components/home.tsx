@@ -88,7 +88,7 @@ const introStats = [
 
 export function IntroStatement() {
   return (
-    <section className="bg-[#FAFBF6]">
+    <section className="bg-paper">
       <div className="container-px mx-auto grid max-w-[1760px] items-center gap-12 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.82fr)] lg:py-32">
         <div>
           <Reveal variant="fade">
@@ -141,7 +141,7 @@ export function ClientStrip() {
   // duplicated so the CSS loop is seamless
   const loop = [...clientLogos, ...clientLogos];
   return (
-    <section className="bg-[#FAFBF6] py-12 lg:py-16">
+    <section className="bg-paper py-12 lg:py-16">
       <Reveal variant="fade" className="container-px mx-auto max-w-[1760px]">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-ink-faint">
           Trusted on 650+ industrial projects
