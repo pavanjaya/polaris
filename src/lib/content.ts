@@ -545,6 +545,15 @@ export const projects = [
     year: 2025,
     blurb:
       "Optimised module layout and tilt with strong earthing and lightning protection for an exposed industrial site.",
+    highlights: [
+      "Engineered specifically for a mining environment with high dust concentration, ensuring long-term performance and minimal degradation.",
+      "Designed and executed a robust 11 kV HT evacuation system, enabling efficient power transmission over distance with minimal losses.",
+      "Implemented optimised cable sizing, routing and protection systems to ensure reliability across the extended transmission length.",
+      "Delivered complete project execution — design, installation and commissioning — in a record time of 45 days.",
+      "Engineered module layout and tilt optimisation to achieve a high generation yield despite challenging site conditions.",
+      "Integrated strong earthing and lightning protection systems for the open-land, mining-zone exposure.",
+      "Achieved exceptional generation performance, validating design decisions under real-world harsh conditions.",
+    ],
   },
   {
     name: "Indore International",

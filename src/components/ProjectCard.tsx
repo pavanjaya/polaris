@@ -124,7 +124,7 @@ export function ProjectCard({ project }: { project: Project }) {
               onClick={() => setOpen(false)}
               className="absolute inset-0 bg-ink/50 backdrop-blur-sm"
             />
-            <div className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-lg bg-paper shadow-[0_30px_80px_-20px_rgba(11,21,37,0.45)]">
+            <div className="relative max-h-[85vh] w-full max-w-4xl overflow-y-auto rounded-lg bg-paper shadow-[0_30px_80px_-20px_rgba(11,21,37,0.45)]">
               <button
                 type="button"
                 onClick={() => setOpen(false)}
@@ -134,91 +134,120 @@ export function ProjectCard({ project }: { project: Project }) {
                 <CloseIcon />
               </button>
 
-              <div className="relative aspect-[16/9] w-full overflow-hidden bg-mist">
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 672px"
-                  className="object-cover"
-                />
-              </div>
+              <div className="grid lg:grid-cols-2">
+                {/* Content — left on desktop, below the image on mobile */}
+                <div className="order-2 p-7 sm:p-9 lg:order-1">
+                  <ModalTags project={project} />
 
-              <div className="p-7 sm:p-9">
-                {project.imageCaption && (
-                  <p className="-mt-2 mb-5 text-xs italic text-ink-faint">
-                    {project.imageCaption}
+                  <h2
+                    id={titleId}
+                    className="mt-4 text-2xl font-semibold tracking-tight text-ink"
+                  >
+                    {project.name}
+                  </h2>
+
+                  <dl className="mt-6 grid grid-cols-3 gap-x-6 gap-y-5 border-t border-ink/10 pt-6">
+                    <div>
+                      <dt className="text-xs uppercase tracking-wide text-ink-faint">
+                        Location
+                      </dt>
+                      <dd className="mt-1 text-[15px] font-semibold text-ink">
+                        {project.location}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-xs uppercase tracking-wide text-ink-faint">
+                        Year
+                      </dt>
+                      <dd className="mt-1 text-[15px] font-semibold text-ink">
+                        {project.year}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-xs uppercase tracking-wide text-ink-faint">
+                        Commercial Model
+                      </dt>
+                      <dd className="mt-1 text-[15px] font-semibold text-ink">
+                        {project.model}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-xs uppercase tracking-wide text-ink-faint">
+                        Type
+                      </dt>
+                      <dd className="mt-1 text-[15px] font-semibold text-ink">
+                        {project.tech}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-xs uppercase tracking-wide text-ink-faint">
+                        Capacity
+                      </dt>
+                      <dd className="mt-1 text-[15px] font-semibold text-ink">
+                        {project.capacity}
+                      </dd>
+                    </div>
+                    {project.generation !== "—" && (
+                      <div>
+                        <dt className="text-xs uppercase tracking-wide text-ink-faint">
+                          Annual Generation
+                        </dt>
+                        <dd className="mt-1 text-[15px] font-semibold text-ink">
+                          {project.generation}
+                        </dd>
+                      </div>
+                    )}
+                    {project.savings !== "—" && (
+                      <div>
+                        <dt className="text-xs uppercase tracking-wide text-ink-faint">
+                          Effective Savings
+                        </dt>
+                        <dd className="mt-1 text-[15px] font-semibold text-ink">
+                          {project.savings}
+                        </dd>
+                      </div>
+                    )}
+                  </dl>
+
+                  <p className="mt-6 border-t border-ink/10 pt-6 text-[15px] leading-relaxed text-ink-soft">
+                    {project.blurb}
                   </p>
-                )}
-                <ModalTags project={project} />
 
-                <h2
-                  id={titleId}
-                  className="mt-4 text-2xl font-semibold tracking-tight text-ink"
-                >
-                  {project.name}
-                </h2>
-                <p className="mt-1 text-sm text-ink-faint">
-                  {project.location} · {project.year}
-                </p>
+                  {project.highlights && (
+                    <>
+                      <h3 className="mt-7 border-t border-ink/10 pt-6 text-sm font-semibold uppercase tracking-[0.15em] text-brand-strong">
+                        Highlights
+                      </h3>
+                      <ul className="mt-4 space-y-3">
+                        {project.highlights.map((h) => (
+                          <li
+                            key={h}
+                            className="flex gap-3 text-[15px] leading-relaxed text-ink-soft"
+                          >
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </div>
 
-                <p className="mt-5 text-[15px] leading-relaxed text-ink-soft">
-                  {project.blurb}
-                </p>
-
-                <dl className="mt-7 grid grid-cols-2 gap-6 border-y border-line/70 py-6 sm:grid-cols-4">
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-ink-faint">
-                      Type
-                    </dt>
-                    <dd className="mt-1 text-sm font-medium text-ink">
-                      {project.tech}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-ink-faint">
-                      Capacity
-                    </dt>
-                    <dd className="mt-1 text-sm font-medium text-ink">
-                      {project.capacity}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-ink-faint">
-                      Annual generation
-                    </dt>
-                    <dd className="mt-1 text-sm font-medium text-ink">
-                      {project.generation}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-ink-faint">
-                      Effective savings
-                    </dt>
-                    <dd className="mt-1 text-sm font-medium text-ink">
-                      {project.savings}
-                    </dd>
-                  </div>
-                </dl>
-
-                {project.highlights && (
-                  <>
-                    <h3 className="mt-7 text-sm font-semibold uppercase tracking-[0.15em] text-brand-strong">
-                      Highlights
-                    </h3>
-                    <ul className="mt-4 space-y-3">
-                      {project.highlights.map((h) => (
-                        <li
-                          key={h}
-                          className="flex gap-3 text-[15px] leading-relaxed text-ink-soft"
-                        >
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                )}
+                {/* Image — right on desktop (full column height), top on mobile */}
+                <div className="relative order-1 aspect-[4/3] w-full overflow-hidden bg-mist lg:order-2 lg:aspect-auto lg:h-full lg:min-h-[420px]">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                  {project.imageCaption && (
+                    <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-4 pb-3 pt-8 text-xs italic text-white/90">
+                      {project.imageCaption}
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>,
