@@ -26,11 +26,11 @@ export default function HomePage() {
       <Process />
       <BrandPromise />
       <ProjectsRail />
-      <ImpactBand />
       <TrustRow />
+      <ImpactBand />
       <Testimonials />
-      <Footprint />
       <GlobalScene />
+      <Footprint />
       <LatestNews />
       <CareersStrip />
       <CTA />
