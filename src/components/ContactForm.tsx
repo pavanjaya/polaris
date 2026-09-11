@@ -27,7 +27,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setSent(false)}
-          className="mt-5 text-sm font-medium text-brand"
+          className="mt-5 cursor-pointer text-sm font-medium text-brand-strong transition-colors hover:text-ink"
         >
           Send another
         </button>
@@ -50,7 +50,7 @@ export function ContactForm() {
             required
             name="name"
             className={`mt-1.5 ${fieldClass}`}
-            placeholder="Jordan Rivera"
+            placeholder="Rohan Mehta"
           />
         </label>
         <label className="block">
@@ -60,7 +60,7 @@ export function ContactForm() {
             type="email"
             name="email"
             className={`mt-1.5 ${fieldClass}`}
-            placeholder="jordan@company.com"
+            placeholder="rohan@company.com"
           />
         </label>
       </div>
@@ -98,7 +98,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="rounded-lg bg-ink px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-ink/85"
+        className="cursor-pointer rounded-lg bg-ink px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover hover:text-ink"
       >
         Send message
       </button>
