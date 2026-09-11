@@ -3,6 +3,7 @@
 import { useEffect, useId, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import { ArrowRight } from "./ui";
 import { projects } from "@/lib/content";
 
 type Project = (typeof projects)[number];
@@ -25,7 +26,23 @@ function CloseIcon() {
   );
 }
 
-function Tags({ project }: { project: Project }) {
+// Card trigger: tech + capacity only — status is already the section
+// heading ("Commissioned" / "Ongoing") this card sits under.
+function CardTags({ project }: { project: Project }) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <span className="inline-flex rounded-full bg-brand-tint px-2.5 py-1 text-xs font-semibold text-brand-strong">
+        {project.tech}
+      </span>
+      <span className="inline-flex rounded-full bg-ink/[0.06] px-2.5 py-1 text-xs font-semibold text-ink">
+        {project.capacity}
+      </span>
+    </div>
+  );
+}
+
+// Modal: status + tech + capacity, since the popup stands alone.
+function ModalTags({ project }: { project: Project }) {
   return (
     <div className="flex flex-wrap gap-2">
       <span
@@ -82,21 +99,16 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="flex flex-1 flex-col p-7 pb-8">
-          <Tags project={project} />
+          <CardTags project={project} />
 
-          <h3 className="mt-4 text-lg font-semibold tracking-tight text-ink">
+          <h3 className="mt-4 text-base font-semibold tracking-tight text-ink">
             {project.name}
           </h3>
-          <p className="mt-1 text-sm text-ink-faint">
-            {project.location} · {project.year}
-          </p>
+          <p className="mt-1.5 text-sm text-ink-faint">{project.location}</p>
 
-          <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">
-            {project.blurb}
-          </p>
-
-          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors group-hover:text-brand-strong">
-            See project details
+          <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-ink group-hover:underline">
+            See project
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
           </span>
         </div>
       </button>
@@ -140,7 +152,7 @@ export function ProjectCard({ project }: { project: Project }) {
                     {project.imageCaption}
                   </p>
                 )}
-                <Tags project={project} />
+                <ModalTags project={project} />
 
                 <h2
                   id={titleId}
