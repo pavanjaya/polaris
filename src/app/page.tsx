@@ -13,13 +13,14 @@ import {
   Testimonials,
   LatestNews,
   CareersStrip,
-  StatsFooterBand,
+  StatsBand,
 } from "@/components/home";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <StatsBand />
       <IntroStatement />
       <ClientStrip />
       <Expertise />
@@ -33,7 +34,6 @@ export default function HomePage() {
       <LatestNews />
       <CareersStrip />
       <CTA />
-      <StatsFooterBand />
     </>
   );
 }

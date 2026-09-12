@@ -473,19 +473,6 @@ export function Process() {
 export function ImpactBand() {
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#08251c] via-brand-dark to-brand py-[76px] text-white lg:py-[105px]">
-      {/* oversized brand mark, bled off the edge as a quiet watermark —
-          vertically centred and tall enough to sit behind the full stats
-          row, not just the top corner. Unrotated, upright. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/img/impact-mark.svg"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[-3rem] top-1/2 h-[34rem] w-auto -translate-y-1/2 opacity-[0.12] invert sm:h-[42rem] lg:right-[-1rem] lg:h-[54rem]"
-      />
-      {/* soft ambient glow, static — no motion */}
-      <div className="pointer-events-none absolute -bottom-40 left-1/4 h-[28rem] w-[36rem] rounded-full bg-active-green/20 blur-[140px]" />
-
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-16">
           <div>
@@ -684,9 +671,9 @@ export function LatestNews() {
   );
 }
 
-/* ---------- Homepage-only stat strip, directly under the CTA ---------- */
+/* ---------- Homepage-only stat strip, directly under the hero ---------- */
 
-export function StatsFooterBand() {
+export function StatsBand() {
   return (
     <section className="bg-brand-dark py-12 lg:py-16">
       <div className="container-px mx-auto max-w-[1760px]">

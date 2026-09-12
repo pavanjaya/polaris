@@ -8,42 +8,6 @@ export function CTA() {
       {/* fresh green glow */}
       <div className="pointer-events-none absolute -left-40 -top-40 h-[38rem] w-[38rem] rounded-full bg-active-green/25 blur-[120px]" />
       <div className="pointer-events-none absolute -bottom-48 left-1/3 h-[34rem] w-[44rem] rounded-full bg-active-green/15 blur-[130px]" />
-      {/* brand mark watermark, same treatment as the Impact section */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/img/impact-mark.svg"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[-2rem] top-1/2 h-[24rem] w-auto -translate-y-1/2 opacity-[0.12] invert sm:h-[30rem] lg:h-[36rem]"
-      />
-      {/* geometric motif */}
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 600 400"
-        preserveAspectRatio="xMaxYMid slice"
-        className="pointer-events-none absolute inset-y-0 right-0 h-full w-[70%] text-brand-deep"
-      >
-        <g
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="46"
-          strokeLinecap="round"
-        >
-          <path d="M120 40 L400 300" />
-          <path d="M400 40 L120 300" />
-          <path d="M300 200 H560" />
-          <path d="M470 -20 V180" />
-        </g>
-        <rect
-          x="470"
-          y="30"
-          width="90"
-          height="44"
-          rx="22"
-          transform="rotate(-38 515 52)"
-          fill="var(--color-brand)"
-        />
-      </svg>
 
       <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
