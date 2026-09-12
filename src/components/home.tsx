@@ -2,9 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { ProcessRail } from "./ProcessRail";
-import Orb from "./Orb";
 import { CountUp } from "./motion/CountUp";
-import { Button, ArrowLink, ArrowRight } from "./ui";
+import { ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
 import { SolarSystemLines } from "./SolarSystemLines";
 import { TestimonialCarousel } from "./TestimonialCarousel";
@@ -337,7 +336,7 @@ const offeringIcons = [illos[0], illos[2], illos[1], illos[4]];
 
 export function Expertise() {
   return (
-    <section className="bg-[#FAFBF6]">
+    <section className="bg-brand-tint">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <RevealText
           text="Our solutions"
@@ -513,49 +512,6 @@ export function ImpactBand() {
 
         <Reveal variant="fade" delay={120}>
           <p className="mt-10 text-xs text-white/40">{impact.note}</p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Brand promise ---------- */
-
-export function BrandPromise() {
-  return (
-    <section className="relative isolate overflow-hidden bg-[#FAFBF6]">
-      {/* full-bleed Orb backdrop */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10">
-        <Orb
-          hue={109}
-          hoverIntensity={1.85}
-          rotateOnHover={false}
-          forceHoverState={false}
-          backgroundColor="#ffffff"
-          className="absolute inset-0"
-        />
-      </div>
-
-      <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-28 text-center lg:py-40">
-        <Reveal variant="fade">
-          <span className="pill">Our philosophy</span>
-        </Reveal>
-        <RevealText
-          text="Energy as an asset."
-          className="mt-6 block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
-        />
-        <Reveal variant="up" delay={60}>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">
-            A roof is underutilised real estate. By combining Tier-1
-            engineering with investment-grade financial modelling — IRR,
-            payback, depreciation and tax optimisation — we change the
-            structure of a balance sheet, not just a utility bill.
-          </p>
-        </Reveal>
-        <Reveal variant="up" delay={100}>
-          <div className="pointer-events-auto mt-10">
-            <Button href="/about">About Polaris</Button>
-          </div>
         </Reveal>
       </div>
     </section>
