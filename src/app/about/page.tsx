@@ -324,16 +324,16 @@ export default function AboutPage() {
               Leadership Team
             </h3>
           </Reveal>
-          <div className="mt-10 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {leadership.map((p, i) => (
               <Reveal key={p.name} delay={(i % 3) * 70}>
                 <div className="flex items-center gap-3">
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-brand-tint">
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-brand-tint">
                     <Image
                       src={p.photo}
                       alt={p.name}
                       fill
-                      sizes="48px"
+                      sizes="64px"
                       className="object-cover"
                     />
                   </div>

@@ -509,7 +509,7 @@ export function ImpactBand() {
 
 export function BrandPromise() {
   return (
-    <section className="relative isolate overflow-hidden bg-brand">
+    <section className="relative isolate overflow-hidden bg-paper">
       {/* full-bleed Orb backdrop */}
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <Orb
@@ -517,7 +517,7 @@ export function BrandPromise() {
           hoverIntensity={1.85}
           rotateOnHover={false}
           forceHoverState={false}
-          backgroundColor="#5fcf4b"
+          backgroundColor="#ffffff"
           className="absolute inset-0"
         />
       </div>
