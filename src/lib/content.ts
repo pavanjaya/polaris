@@ -788,26 +788,31 @@ export const leadership = [
   {
     name: "CA Archana Choudhary",
     role: "Principal Advisor, Finance",
+    photo: "/img/team/archana.jpg",
     bio: "Chartered Accountant with deep expertise in project finance, tax structuring and capital planning; drives the financial rigour behind every investment proposal.",
   },
   {
     name: "Adv. Prathamesh Kashikar",
     role: "Chief Legal Counsel",
+    photo: "/img/team/prathamesh.jpg",
     bio: "Legal strategist across commercial contracts, regulatory compliance and energy-sector law; ensures every engagement is structurally sound and fully compliant.",
   },
   {
     name: "Nilesh Zambre",
     role: "Principal Partner, Strategy",
+    photo: "/img/team/nilesh.jpg",
     bio: "Shapes Polaris's market positioning, business development and long-term growth roadmap with a sharp commercial lens on every client engagement.",
   },
   {
     name: "Sushil Kakad",
     role: "Associate Partner, HT Power Infrastructure",
+    photo: "/img/team/sushil.jpg",
     bio: "High-tension power specialist in grid connectivity, substation design and industrial electrical systems; leads the technical backbone of large-scale projects.",
   },
   {
     name: "Sameer Sonawane",
     role: "Associate, Brand & Growth Strategy",
+    photo: "/img/team/sameer.jpg",
     bio: "Communications leader building the Polaris brand across markets, translating engineering value into narratives that resonate with industrial decision-makers.",
   },
 ];

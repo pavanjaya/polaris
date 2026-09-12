@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Section, SectionHeading } from "@/components/ui";
 import { CTA } from "@/components/CTA";
 import { Reveal } from "@/components/Reveal";
@@ -326,11 +327,24 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
             {leadership.map((p, i) => (
               <Reveal key={p.name} delay={(i % 3) * 70}>
-                <h4 className="text-base font-semibold tracking-tight text-ink">
-                  {p.name}
-                </h4>
-                <p className="mt-0.5 text-sm text-brand-strong">{p.role}</p>
-                <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
+                <div className="flex items-center gap-3">
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-brand-tint">
+                    <Image
+                      src={p.photo}
+                      alt={p.name}
+                      fill
+                      sizes="48px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-semibold tracking-tight text-ink">
+                      {p.name}
+                    </h4>
+                    <p className="text-sm text-brand-strong">{p.role}</p>
+                  </div>
+                </div>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
                   {p.bio}
                 </p>
               </Reveal>
