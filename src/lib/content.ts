@@ -9,7 +9,7 @@ export const company = {
   description:
     "Polaris is a solar EPC and energy-engineering partner for industrial enterprises across India and Morocco, turning power from a fluctuating cost into a controlled, engineered advantage.",
   email: "info@polarisenergy.in",
-  phone: "+91 91723 15353",
+  phone: "+91 90848 11911",
   whatsapp: "+91 90848 11911",
   website: "www.polarisenergy.in",
   address: "Gangapur Road, Nashik 422 013, Maharashtra, India",
@@ -22,15 +22,15 @@ export const offices = [
     entity: "Polaris Renewable Solutions Pvt. Ltd.",
     address:
       "6, Sankalp Bunglow, Shankar Nagar, Savarkar Nagar, Gangapur Road, Nashik 422 013, Maharashtra, India",
-    phone: "+91 91723 15353",
-    phones: ["+91 91723 15353", "+91 93729 38936", "+91 77678 31717"],
+    phone: "+91 90848 11911",
+    phones: ["+91 90848 11911", "+91 93729 38936", "+91 77678 31717"],
     email: "info@polarisenergy.in",
   },
   {
     name: "Morocco Office",
     entity: "Polaris Global Energie SARL",
     address:
-      "410, Boulevard Zerktouni Residence, Hamad App No. 1, Casablanca 20250, Kingdom of Morocco",
+      "50-52 BIS Boulevard Abdellatif Ben Kaddour, Etage 3, Appt DTE, Casablanca, Kingdom of Morocco",
     phone: "+212 66 06 07626",
     phones: ["+212 66 06 07626", "+212 66 15 77755"],
     email: "maroc@polarisenergy.in",

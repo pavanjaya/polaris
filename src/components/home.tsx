@@ -462,7 +462,7 @@ export function ImpactBand() {
         src="/img/impact-mark.svg"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-3rem] top-1/2 h-[34rem] w-auto -translate-y-1/2 opacity-[0.2] brightness-0 invert sm:h-[42rem] lg:right-[-1rem] lg:h-[54rem]"
+        className="pointer-events-none absolute right-[-3rem] top-1/2 h-[34rem] w-auto -translate-y-1/2 opacity-[0.09] brightness-0 invert sm:h-[42rem] lg:right-[-1rem] lg:h-[54rem]"
       />
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-16">
@@ -487,7 +487,7 @@ export function ImpactBand() {
               <Reveal key={it.label} variant="up" delay={i * 80}>
                 <CountUp
                   value={it.value}
-                  className="block bg-gradient-to-r from-[#9be87c] via-brand to-brand-strong bg-clip-text text-[2rem] font-semibold tracking-tight text-transparent sm:text-4xl"
+                  className="block text-[2rem] font-semibold tracking-tight text-brand sm:text-4xl"
                 />
                 <span className="mt-2 block text-sm text-white/60">
                   {it.label}
@@ -509,7 +509,7 @@ export function ImpactBand() {
 
 export function BrandPromise() {
   return (
-    <section className="relative isolate overflow-hidden bg-polaris-green">
+    <section className="relative isolate overflow-hidden bg-brand">
       {/* full-bleed Orb backdrop */}
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <Orb
@@ -517,7 +517,7 @@ export function BrandPromise() {
           hoverIntensity={1.85}
           rotateOnHover={false}
           forceHoverState={false}
-          backgroundColor="#314f31"
+          backgroundColor="#5fcf4b"
           className="absolute inset-0"
         />
       </div>
@@ -525,10 +525,10 @@ export function BrandPromise() {
       <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-36 text-center lg:py-52">
         <RevealText
           text="Energy as an asset."
-          className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[3rem]"
+          className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
         />
         <Reveal variant="up" delay={60}>
-          <p className="mx-auto mt-6 max-w-3xl text-2xl leading-relaxed text-white/75">
+          <p className="mx-auto mt-6 max-w-3xl text-2xl leading-relaxed text-ink/80">
             A roof is underutilised real estate. By combining Tier-1 engineering
             with investment-grade financial modelling, IRR, payback,
             depreciation and tax optimisation, we change the structure of a
@@ -666,7 +666,7 @@ export function LatestNews() {
 
 export function StatsBand() {
   return (
-    <section className="bg-brand-strong py-12 lg:py-16">
+    <section className="bg-brand-strong py-8 lg:py-10">
       <div className="container-px mx-auto max-w-[1760px]">
         <dl className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
           {introStats.map((it) => (
@@ -677,7 +677,7 @@ export function StatsBand() {
                   className="text-3xl font-semibold tracking-tight text-white sm:text-5xl"
                 />
               </dt>
-              <dd className="mt-1 text-xs leading-snug text-white/50">
+              <dd className="mt-1 text-base leading-snug text-white/50">
                 {it.label}
               </dd>
             </div>

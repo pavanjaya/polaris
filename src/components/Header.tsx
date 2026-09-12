@@ -210,7 +210,7 @@ export function Header() {
                         <Link
                           key={o.slug}
                           href={`/solutions/${o.slug}`}
-                          className="group/item rounded-lg p-4 transition-colors hover:bg-brand-tint/60"
+                          className="group/item rounded-lg bg-white p-4 transition-shadow duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-[0_12px_32px_-12px_rgba(0,0,0,0.2)]"
                         >
                           <span className="block h-9 w-9 [&>svg]:h-full [&>svg]:w-full">
                             {offeringIcons[i]}
