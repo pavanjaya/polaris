@@ -7,6 +7,7 @@ import {
   GlobalScene,
   Expertise,
   Process,
+  BrandPromise,
   ProjectsRail,
   ImpactBand,
   TrustRow,
@@ -23,6 +24,7 @@ export default function HomePage() {
       <ClientStrip />
       <Expertise />
       <Process />
+      <BrandPromise />
       <ProjectsRail />
       <TrustRow />
       <ImpactBand />

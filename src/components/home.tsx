@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { ProcessRail } from "./ProcessRail";
+import Orb from "./Orb";
 import { CountUp } from "./motion/CountUp";
 import { ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
@@ -512,6 +513,41 @@ export function ImpactBand() {
 
         <Reveal variant="fade" delay={120}>
           <p className="mt-10 text-xs text-white/40">{impact.note}</p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Brand promise ---------- */
+
+export function BrandPromise() {
+  return (
+    <section className="relative isolate overflow-hidden bg-[#FAFBF6]">
+      {/* full-bleed Orb backdrop */}
+      <div aria-hidden="true" className="absolute inset-0 -z-10">
+        <Orb
+          hue={109}
+          hoverIntensity={1.85}
+          rotateOnHover={false}
+          forceHoverState={false}
+          backgroundColor="#ffffff"
+          className="absolute inset-0"
+        />
+      </div>
+
+      <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-28 text-center lg:py-40">
+        <RevealText
+          text="Energy as an asset."
+          className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
+        />
+        <Reveal variant="up" delay={60}>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">
+            A roof is underutilised real estate. By combining Tier-1
+            engineering with investment-grade financial modelling — IRR,
+            payback, depreciation and tax optimisation — we change the
+            structure of a balance sheet, not just a utility bill.
+          </p>
         </Reveal>
       </div>
     </section>
