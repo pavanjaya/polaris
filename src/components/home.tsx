@@ -130,10 +130,10 @@ export function IntroStatement() {
           </Reveal>
           <RevealText
             text="We engineer, finance and operate commercial & industrial solar."
-            className="mt-5 block max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+            className="mt-5 block max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
           />
           <Reveal variant="up" delay={60}>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft">
               From rooftop plants for SMEs to large captive and open-access
               projects for enterprises. A solar EPC founded in Nashik in{" "}
               {company.founded}, {company.shortName} is a full-lifecycle partner
@@ -212,10 +212,10 @@ export function Footprint() {
             </Reveal>
             <RevealText
               text="Indian engineering discipline, delivered across borders."
-              className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+              className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
             />
             <Reveal variant="up" delay={60}>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-soft">
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
                 {globalReach.intro}
               </p>
               <div className="mt-8">
@@ -242,7 +242,7 @@ export function Footprint() {
                       {m.status}
                     </p>
                   </div>
-                  <p className="text-[15px] leading-relaxed text-ink-soft">
+                  <p className="text-base leading-relaxed text-ink-soft">
                     {m.detail}
                   </p>
                 </div>
@@ -355,7 +355,7 @@ export function TrustRow() {
         </Reveal>
         <RevealText
           text="Discipline you can underwrite."
-          className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+          className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
         />
 
         <div className="mt-14 grid gap-x-16 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-20">
@@ -364,10 +364,10 @@ export function TrustRow() {
               <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
                 {trustIcons[i]}
               </span>
-              <h3 className="mt-6 text-lg font-semibold tracking-tight text-ink">
+              <h3 className="mt-6 text-2xl font-semibold tracking-tight text-ink">
                 {t.title}
               </h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
+              <p className="mt-2 text-base leading-relaxed text-ink-soft">
                 {t.body}
               </p>
             </Reveal>
@@ -389,10 +389,10 @@ export function CareersStrip() {
           className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between"
         >
           <div>
-            <p className="text-lg font-semibold tracking-tight text-ink">
+            <p className="text-2xl font-semibold tracking-tight text-ink">
               Polaris is growing — across India and Morocco.
             </p>
-            <p className="mt-1 text-[15px] text-ink-soft">
+            <p className="mt-1 text-base text-ink-soft">
               Engineers, project managers and energy analysts who want to own
               outcomes, not tickets.
             </p>
@@ -414,7 +414,7 @@ export function Expertise() {
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <RevealText
           text="Our solutions"
-          className="text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+          className="text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
         />
 
         <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
@@ -426,12 +426,12 @@ export function Expertise() {
               <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink">
                 {s.title}
               </h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
+              <p className="mt-3 text-base leading-relaxed text-ink-soft">
                 {s.summary}
               </p>
               <Link
                 href={`/solutions/${s.slug}`}
-                className="mt-6 inline-block border-b border-ink/25 pb-1 text-[15px] font-medium text-ink transition-colors hover:border-ink"
+                className="mt-6 inline-block border-b border-ink/25 pb-1 text-base font-medium text-ink transition-colors hover:border-ink"
               >
                 Learn more
               </Link>
@@ -458,7 +458,7 @@ export function Process() {
           </Reveal>
           <RevealText
             text="One accountable team, from the financial model to year 25."
-            className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+            className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
           />
         </div>
         <Reveal variant="fade">
@@ -497,10 +497,10 @@ export function ImpactBand() {
             </Reveal>
             <RevealText
               text="Clean energy that compounds."
-              className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight sm:text-[2.5rem]"
+              className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight sm:text-[58px]"
             />
             <Reveal variant="up" delay={80}>
-              <p className="mt-4 max-w-md text-lg leading-relaxed text-white/70">
+              <p className="mt-4 max-w-md text-2xl leading-relaxed text-white/70">
                 Every Polaris system keeps generating — and displacing grid
                 carbon — for its full 25-year life.
               </p>
@@ -553,7 +553,7 @@ export function BrandPromise() {
           className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
         />
         <Reveal variant="up" delay={60}>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">
+          <p className="mx-auto mt-6 max-w-3xl text-2xl leading-relaxed text-ink-soft">
             A roof is underutilised real estate. By combining Tier-1 engineering
             with investment-grade financial modelling — IRR, payback,
             depreciation and tax optimisation — we change the structure of a
@@ -574,7 +574,7 @@ export function ProjectsRail() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
             text="Our projects"
-            className="text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+            className="text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
           />
           <Reveal variant="fade">
             <ArrowLink href="/projects">Discover our projects</ArrowLink>
@@ -646,7 +646,7 @@ export function LatestNews() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
             text="Latest insights"
-            className="text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+            className="text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
           />
           <Reveal variant="fade">
             <ArrowLink href="/insights">See all insights</ArrowLink>

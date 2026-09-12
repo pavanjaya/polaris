@@ -34,7 +34,9 @@ export function Hero() {
   }, []);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (reduce) return;
     let raf = 0;
     const update = () => {
@@ -111,22 +113,22 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="mt-8 max-w-xl text-base text-white/80 sm:text-lg">
-          Solar EPC and energy-engineering for industrial enterprises —
-          across India and Morocco.
+        <p className="mt-8 max-w-xl text-base text-white/80 sm:text-2xl">
+          Solar EPC and energy-engineering for industrial enterprises — across
+          India and Morocco.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover"
+            className="inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-base font-semibold text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover"
           >
             Get a proposal
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 rounded-lg bg-white/15 px-7 py-3.5 text-[15px] font-semibold text-white backdrop-blur transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/25"
+            className="inline-flex items-center gap-2 rounded-lg bg-white/15 px-7 py-3.5 text-base font-semibold text-white backdrop-blur transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/25"
           >
             See our projects
           </Link>
@@ -138,7 +140,13 @@ export function Hero() {
         style={{ opacity: 1 - prog * 2 }}
       >
         <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white/80">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            aria-hidden="true"
+          >
             <path
               d="M6 1v10M2 7l4 4 4-4"
               stroke="currentColor"
