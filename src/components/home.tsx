@@ -675,15 +675,15 @@ export function LatestNews() {
 
 export function StatsBand() {
   return (
-    <section className="bg-brand-dark py-12 lg:py-16">
+    <section className="bg-brand-strong py-12 lg:py-16">
       <div className="container-px mx-auto max-w-[1760px]">
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/10 pt-8 sm:grid-cols-4">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
           {introStats.map((it) => (
             <div key={it.label}>
               <dt>
                 <CountUp
                   value={it.value}
-                  className="text-2xl font-semibold tracking-tight text-white sm:text-3xl"
+                  className="text-3xl font-semibold tracking-tight text-white sm:text-5xl"
                 />
               </dt>
               <dd className="mt-1 text-xs leading-snug text-white/50">
