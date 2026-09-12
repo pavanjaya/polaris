@@ -536,7 +536,7 @@ export function BrandPromise() {
         />
       </div>
 
-      <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-28 text-center lg:py-40">
+      <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-36 text-center lg:py-52">
         <RevealText
           text="Energy as an asset."
           className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
