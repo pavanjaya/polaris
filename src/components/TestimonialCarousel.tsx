@@ -118,7 +118,9 @@ export function TestimonialCarousel() {
             </span>
             <span className="text-left text-sm">
               <span className="block font-semibold text-ink">{t.name}</span>
-              <span className="block text-ink-faint">{t.org}</span>
+              <span className="block text-ink-faint">
+                {t.role}, {t.org}
+              </span>
             </span>
           </figcaption>
         </div>
