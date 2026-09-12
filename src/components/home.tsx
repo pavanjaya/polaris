@@ -35,7 +35,11 @@ const illos: React.ReactNode[] = [
   <svg viewBox="0 0 48 48" fill="none" key="capex" aria-hidden="true">
     <rect x="2" y="7" width="29" height="29" rx="6" fill={IL.pale} />
     <path d="M7 35 L13 14 H35 L41 35 Z" fill={IL.green} />
-    <path d="M7 35H41M16 24.5H33M22 14l-4 21M29 14l1 21" stroke="#fff" strokeWidth="1.5" />
+    <path
+      d="M7 35H41M16 24.5H33M22 14l-4 21M29 14l1 21"
+      stroke="#fff"
+      strokeWidth="1.5"
+    />
     <circle cx="38" cy="12" r="7" fill={IL.ink} />
   </svg>,
   // OPEX / RESCO — coins
@@ -44,13 +48,23 @@ const illos: React.ReactNode[] = [
     <rect x="7" y="20" width="34" height="16" rx="8" fill={IL.green} />
     <ellipse cx="24" cy="20" rx="17" ry="6" fill={IL.dark} />
     <ellipse cx="24" cy="14" rx="12" ry="4.5" fill={IL.pale} />
-    <path d="M24 9v10M20 12h8" stroke={IL.ink} strokeWidth="2.2" strokeLinecap="round" />
+    <path
+      d="M24 9v10M20 12h8"
+      stroke={IL.ink}
+      strokeWidth="2.2"
+      strokeLinecap="round"
+    />
   </svg>,
   // Open Access & Group Captive — network
   <svg viewBox="0 0 48 48" fill="none" key="oa" aria-hidden="true">
     <rect x="3" y="3" width="22" height="22" rx="5" fill={IL.pale} />
     <rect x="17" y="18" width="27" height="27" rx="6" fill={IL.green} />
-    <path d="M13 13 31 31" stroke={IL.dark} strokeWidth="3" strokeLinecap="round" />
+    <path
+      d="M13 13 31 31"
+      stroke={IL.dark}
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
     <circle cx="13" cy="13" r="4.5" fill={IL.ink} />
     <circle cx="31" cy="31" r="5" fill="#fff" />
   </svg>,
@@ -58,14 +72,34 @@ const illos: React.ReactNode[] = [
   <svg viewBox="0 0 48 48" fill="none" key="lease" aria-hidden="true">
     <rect x="9" y="3" width="28" height="39" rx="5" fill={IL.pale} />
     <path d="M9 29h28v8a5 5 0 0 1-5 5H14a5 5 0 0 1-5-5z" fill={IL.green} />
-    <path d="M15 12h16M15 19h16M15 26h10" stroke={IL.dark} strokeWidth="2.4" strokeLinecap="round" />
-    <path d="M14 37c3-4 6-4 9 0s6 4 9 0" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
+    <path
+      d="M15 12h16M15 19h16M15 26h10"
+      stroke={IL.dark}
+      strokeWidth="2.4"
+      strokeLinecap="round"
+    />
+    <path
+      d="M14 37c3-4 6-4 9 0s6 4 9 0"
+      stroke="#fff"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
   </svg>,
   // GLG — gauge
   <svg viewBox="0 0 48 48" fill="none" key="glg" aria-hidden="true">
     <circle cx="24" cy="27" r="20" fill={IL.pale} />
-    <path d="M8 32A18 18 0 0 1 40 32" stroke={IL.green} strokeWidth="6" strokeLinecap="round" />
-    <path d="M24 27 35 15" stroke={IL.ink} strokeWidth="3.5" strokeLinecap="round" />
+    <path
+      d="M8 32A18 18 0 0 1 40 32"
+      stroke={IL.green}
+      strokeWidth="6"
+      strokeLinecap="round"
+    />
+    <path
+      d="M24 27 35 15"
+      stroke={IL.ink}
+      strokeWidth="3.5"
+      strokeLinecap="round"
+    />
     <circle cx="24" cy="27" r="4" fill={IL.dark} />
   </svg>,
   // BESS — battery + bolt
@@ -102,8 +136,8 @@ export function IntroStatement() {
             <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
               From rooftop plants for SMEs to large captive and open-access
               projects for enterprises. A solar EPC founded in Nashik in{" "}
-              {company.founded}, {company.shortName} is a full-lifecycle partner —
-              one point of accountability from feasibility to year 25 of
+              {company.founded}, {company.shortName} is a full-lifecycle partner
+              — one point of accountability from feasibility to year 25 of
               operation, across India and Morocco.
             </p>
           </Reveal>
@@ -170,7 +204,7 @@ export function ClientStrip() {
 export function Footprint() {
   return (
     <section className="relative overflow-hidden bg-paper">
-      <div className="container-px relative mx-auto max-w-[1760px] pb-8 pt-10 lg:pb-10 lg:pt-14">
+      <div className="container-px relative mx-auto max-w-[1760px] rounded-lg bg-[#FAFBF6] pb-8 pt-10 lg:pb-10 lg:pt-14">
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
           <div>
             <Reveal variant="fade">
@@ -195,19 +229,24 @@ export function Footprint() {
             delay={100}
             className="divide-y divide-ink/10 border-y border-ink/10"
           >
-            {globalReach.presence.map((m) => (
-              <div key={m.market} className="grid gap-2 py-5 sm:grid-cols-[9rem_1fr] sm:gap-5">
-                <div>
-                  <p className="font-semibold text-ink">{m.market}</p>
-                  <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-brand-strong">
-                    {m.status}
+            {globalReach.presence
+              .filter((m) => m.market !== "India")
+              .map((m) => (
+                <div
+                  key={m.market}
+                  className="grid gap-2 py-5 sm:grid-cols-[9rem_1fr] sm:gap-5"
+                >
+                  <div>
+                    <p className="font-semibold text-ink">{m.market}</p>
+                    <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-brand-strong">
+                      {m.status}
+                    </p>
+                  </div>
+                  <p className="text-[15px] leading-relaxed text-ink-soft">
+                    {m.detail}
                   </p>
                 </div>
-                <p className="text-[15px] leading-relaxed text-ink-soft">
-                  {m.detail}
-                </p>
-              </div>
-            ))}
+              ))}
           </Reveal>
         </div>
       </div>
@@ -228,7 +267,7 @@ export function GlobalScene() {
             width={1800}
             height={1009}
             sizes="(max-width: 1760px) 100vw, 1760px"
-            className="h-[380px] w-full object-cover sm:h-[480px] lg:h-[600px]"
+            className="h-[228px] w-full object-cover sm:h-[288px] lg:h-[360px]"
           />
         </Reveal>
       </div>
@@ -243,16 +282,33 @@ const trustIcons: React.ReactNode[] = [
   <svg viewBox="0 0 48 48" fill="none" key="t-eng" aria-hidden="true">
     <rect x="3" y="4" width="26" height="26" rx="6" fill={IL.pale} />
     <path d="M24 10 L36 40 H29.5 L24 25 L18.5 40 H12 Z" fill={IL.green} />
-    <path d="M16 33 H32" stroke={IL.dark} strokeWidth="3" strokeLinecap="round" />
+    <path
+      d="M16 33 H32"
+      stroke={IL.dark}
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
     <circle cx="24" cy="10" r="5.5" fill={IL.ink} />
     <circle cx="24" cy="10" r="1.8" fill="#fff" />
   </svg>,
   // standards — shield with check
   <svg viewBox="0 0 48 48" fill="none" key="t-std" aria-hidden="true">
     <rect x="3" y="3" width="21" height="21" rx="6" fill={IL.pale} />
-    <path d="M26 5 L41 11 V25 C41 34 34 41 26 44 C18 41 11 34 11 25 V11 Z" fill={IL.green} />
-    <path d="M26 11 L35 14.6 V25 C35 31 31 36 26 38 C21 36 17 31 17 25 V14.6 Z" fill={IL.dark} />
-    <path d="M21.5 25 L25 28.5 L31 20.5" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M26 5 L41 11 V25 C41 34 34 41 26 44 C18 41 11 34 11 25 V11 Z"
+      fill={IL.green}
+    />
+    <path
+      d="M26 11 L35 14.6 V25 C35 31 31 36 26 38 C21 36 17 31 17 25 V14.6 Z"
+      fill={IL.dark}
+    />
+    <path
+      d="M21.5 25 L25 28.5 L31 20.5"
+      stroke="#fff"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>,
   // investment-grade financial model — bars + trend
   <svg viewBox="0 0 48 48" fill="none" key="t-fin" aria-hidden="true">
@@ -260,16 +316,33 @@ const trustIcons: React.ReactNode[] = [
     <rect x="9" y="31" width="7" height="11" rx="2" fill={IL.dark} />
     <rect x="20.5" y="23" width="7" height="19" rx="2" fill={IL.green} />
     <rect x="32" y="15" width="7" height="27" rx="2" fill={IL.green} />
-    <path d="M10 21 L20 14 L27 18 L39 8" stroke={IL.ink} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M10 21 L20 14 L27 18 L39 8"
+      stroke={IL.ink}
+      strokeWidth="2.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
     <circle cx="39" cy="8" r="3" fill={IL.ink} />
   </svg>,
   // accountable to year 25 — clock
   <svg viewBox="0 0 48 48" fill="none" key="t-om" aria-hidden="true">
     <rect x="3" y="3" width="22" height="22" rx="7" fill={IL.pale} />
     <circle cx="27" cy="27" r="17" fill={IL.green} />
-    <path d="M27 16 V27 L35 32" stroke="#fff" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M27 16 V27 L35 32"
+      stroke="#fff"
+      strokeWidth="3.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
     <circle cx="27" cy="27" r="3" fill={IL.ink} />
-    <path d="M27 12 v3 M42 27 h-3 M27 42 v-3 M12 27 h3" stroke={IL.dark} strokeWidth="2.4" strokeLinecap="round" />
+    <path
+      d="M27 12 v3 M42 27 h-3 M27 42 v-3 M12 27 h3"
+      stroke={IL.dark}
+      strokeWidth="2.4"
+      strokeLinecap="round"
+    />
   </svg>,
 ];
 
@@ -435,7 +508,10 @@ function ImpactSun() {
           stroke="#8fe06e"
           strokeWidth="2"
           vectorEffect="non-scaling-stroke"
-          style={{ animationDelay: `${i * 1}s`, transformOrigin: `${CX}px ${CY}px` }}
+          style={{
+            animationDelay: `${i * 1}s`,
+            transformOrigin: `${CX}px ${CY}px`,
+          }}
         />
       ))}
 
@@ -506,7 +582,9 @@ export function ImpactBand() {
                 value={it.value}
                 className="block bg-gradient-to-r from-[#9be87c] via-brand to-brand-strong bg-clip-text text-[2.5rem] font-semibold tracking-tight text-transparent sm:text-5xl"
               />
-              <span className="mt-2 block text-sm text-white/60">{it.label}</span>
+              <span className="mt-2 block text-sm text-white/60">
+                {it.label}
+              </span>
             </Reveal>
           ))}
         </div>
@@ -543,10 +621,10 @@ export function BrandPromise() {
         />
         <Reveal variant="up" delay={60}>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">
-            A roof is underutilised real estate. By combining Tier-1
-            engineering with investment-grade financial modelling — IRR,
-            payback, depreciation and tax optimisation — we change the
-            structure of a balance sheet, not just a utility bill.
+            A roof is underutilised real estate. By combining Tier-1 engineering
+            with investment-grade financial modelling — IRR, payback,
+            depreciation and tax optimisation — we change the structure of a
+            balance sheet, not just a utility bill.
           </p>
         </Reveal>
       </div>
@@ -560,53 +638,53 @@ export function ProjectsRail() {
   return (
     <section className="bg-paper">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
-      <div className="flex flex-wrap items-end justify-between gap-6">
-        <RevealText
-          text="Our projects"
-          className="text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
-        />
-        <Reveal variant="fade">
-          <ArrowLink href="/projects">Discover our projects</ArrowLink>
-        </Reveal>
-      </div>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <RevealText
+            text="Our projects"
+            className="text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+          />
+          <Reveal variant="fade">
+            <ArrowLink href="/projects">Discover our projects</ArrowLink>
+          </Reveal>
+        </div>
 
-      <div className="no-scrollbar mt-12 flex snap-x gap-5 overflow-x-auto pb-1">
-        {projects.map((p) => (
-          <Link
-            key={p.name}
-            href={`/projects/${p.slug}`}
-            className="u-card group w-[300px] shrink-0 snap-start overflow-hidden rounded-lg border border-line/70 bg-paper sm:w-[340px]"
-          >
-            <div className="relative aspect-[3/2] w-full overflow-hidden bg-mist">
-              <Image
-                src={p.image}
-                alt={p.name}
-                fill
-                sizes="340px"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <div className="p-7 pb-8">
-              <div className="flex flex-wrap gap-2">
-                <span className="inline-flex rounded-full bg-brand-tint px-2.5 py-1 text-xs font-semibold text-brand-strong">
-                  {p.tech}
-                </span>
-                <span className="inline-flex rounded-full bg-ink/[0.06] px-2.5 py-1 text-xs font-semibold text-ink">
-                  {p.capacity}
+        <div className="no-scrollbar mt-12 flex snap-x gap-5 overflow-x-auto pb-1">
+          {projects.map((p) => (
+            <Link
+              key={p.name}
+              href={`/projects/${p.slug}`}
+              className="u-card group w-[300px] shrink-0 snap-start overflow-hidden rounded-lg border border-line/70 bg-paper sm:w-[340px]"
+            >
+              <div className="relative aspect-[3/2] w-full overflow-hidden bg-mist">
+                <Image
+                  src={p.image}
+                  alt={p.name}
+                  fill
+                  sizes="340px"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-7 pb-8">
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-flex rounded-full bg-brand-tint px-2.5 py-1 text-xs font-semibold text-brand-strong">
+                    {p.tech}
+                  </span>
+                  <span className="inline-flex rounded-full bg-ink/[0.06] px-2.5 py-1 text-xs font-semibold text-ink">
+                    {p.capacity}
+                  </span>
+                </div>
+                <h3 className="mt-6 text-base font-semibold tracking-tight text-ink">
+                  {p.name}
+                </h3>
+                <p className="mt-1.5 text-sm text-ink-faint">{p.location}</p>
+                <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-ink group-hover:underline">
+                  See project
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
-              <h3 className="mt-6 text-base font-semibold tracking-tight text-ink">
-                {p.name}
-              </h3>
-              <p className="mt-1.5 text-sm text-ink-faint">{p.location}</p>
-              <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-ink group-hover:underline">
-                See project
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
