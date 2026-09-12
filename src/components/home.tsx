@@ -409,7 +409,12 @@ export function Expertise() {
 
         <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {offerings.map((s, i) => (
-            <Reveal as="article" key={s.title} delay={(i % 4) * 70}>
+            <Reveal
+              as="article"
+              key={s.title}
+              delay={(i % 4) * 70}
+              className="flex h-full flex-col"
+            >
               <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
                 {offeringIcons[i]}
               </span>
@@ -421,7 +426,7 @@ export function Expertise() {
               </p>
               <Link
                 href={`/solutions/${s.slug}`}
-                className="mt-6 inline-block border-b border-ink/25 pb-1 text-base font-medium text-ink transition-colors hover:border-ink"
+                className="mt-auto inline-block w-fit border-b border-ink/25 pb-1 pt-6 text-base font-medium text-ink transition-colors hover:border-ink"
               >
                 Learn more
               </Link>
@@ -470,13 +475,13 @@ export function ImpactBand() {
     <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#08251c] via-brand-dark to-brand py-[76px] text-white lg:py-[105px]">
       {/* oversized brand mark, bled off the edge as a quiet watermark —
           vertically centred and tall enough to sit behind the full stats
-          row, not just the top corner. */}
+          row, not just the top corner. Unrotated, upright. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/img/impact-mark.svg"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-3rem] top-1/2 h-[34rem] w-auto -translate-y-1/2 rotate-6 opacity-[0.14] invert sm:h-[42rem] lg:right-[-1rem] lg:h-[54rem]"
+        className="pointer-events-none absolute right-[-3rem] top-1/2 h-[34rem] w-auto -translate-y-1/2 opacity-[0.12] invert sm:h-[42rem] lg:right-[-1rem] lg:h-[54rem]"
       />
       {/* soft ambient glow, static — no motion */}
       <div className="pointer-events-none absolute -bottom-40 left-1/4 h-[28rem] w-[36rem] rounded-full bg-active-green/20 blur-[140px]" />
@@ -499,12 +504,12 @@ export function ImpactBand() {
             </Reveal>
           </div>
 
-          <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {impact.items.map((it, i) => (
               <Reveal key={it.label} variant="up" delay={i * 80}>
                 <CountUp
                   value={it.value}
-                  className="block bg-gradient-to-r from-[#9be87c] via-brand to-brand-strong bg-clip-text text-[2.5rem] font-semibold tracking-tight text-transparent sm:text-5xl"
+                  className="block bg-gradient-to-r from-[#9be87c] via-brand to-brand-strong bg-clip-text text-[2rem] font-semibold tracking-tight text-transparent sm:text-4xl"
                 />
                 <span className="mt-2 block text-sm text-white/60">
                   {it.label}
@@ -598,7 +603,7 @@ export function ProjectsRail() {
                     {p.capacity}
                   </span>
                 </div>
-                <h3 className="mt-6 text-base font-semibold tracking-tight text-ink">
+                <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink">
                   {p.name}
                 </h3>
                 <p className="mt-1.5 text-sm text-ink-faint">{p.location}</p>

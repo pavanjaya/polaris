@@ -8,6 +8,14 @@ export function CTA() {
       {/* fresh green glow */}
       <div className="pointer-events-none absolute -left-40 -top-40 h-[38rem] w-[38rem] rounded-full bg-active-green/25 blur-[120px]" />
       <div className="pointer-events-none absolute -bottom-48 left-1/3 h-[34rem] w-[44rem] rounded-full bg-active-green/15 blur-[130px]" />
+      {/* brand mark watermark, same treatment as the Impact section */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/img/impact-mark.svg"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[-2rem] top-1/2 h-[24rem] w-auto -translate-y-1/2 opacity-[0.12] invert sm:h-[30rem] lg:h-[36rem]"
+      />
       {/* geometric motif */}
       <svg
         aria-hidden="true"

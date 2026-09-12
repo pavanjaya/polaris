@@ -54,7 +54,7 @@ export function TestimonialCarousel() {
 
   useEffect(() => {
     if (count < 2 || paused || prefersReducedMotion()) return;
-    const id = window.setInterval(() => go(index + 1), 7000);
+    const id = window.setInterval(() => go(index + 1), 4200);
     return () => window.clearInterval(id);
   }, [count, paused, index, go]);
 

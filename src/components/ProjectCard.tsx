@@ -38,7 +38,7 @@ export function ProjectCard({ project }: { project: Project }) {
           </span>
         </div>
 
-        <h3 className="mt-4 text-base font-semibold tracking-tight text-ink">
+        <h3 className="mt-4 text-xl font-semibold tracking-tight text-ink">
           {project.name}
         </h3>
         <p className="mt-1.5 text-sm text-ink-faint">{project.location}</p>
