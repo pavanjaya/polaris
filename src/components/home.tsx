@@ -475,118 +475,51 @@ export function Process() {
 
 /* ---------- Environmental impact ---------- */
 
-function ImpactSun() {
-  const CX = 600;
-  const CY = 210;
-  const RAYS = 30;
-  return (
-    <svg
-      viewBox="0 0 1200 420"
-      fill="none"
-      aria-hidden="true"
-      preserveAspectRatio="xMidYMid meet"
-      className="impact-sun h-full w-full"
-      style={{ transformOrigin: `${CX}px ${CY}px` }}
-    >
-      <defs>
-        <radialGradient id="sunCoreGrad" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stopColor="#ffffff" />
-          <stop offset="0.3" stopColor="#d9fbc2" />
-          <stop offset="0.65" stopColor="#7dcc5e" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#7dcc5e" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-
-      {/* expanding energy rings */}
-      {[0, 1, 2, 3, 4].map((i) => (
-        <circle
-          key={i}
-          className="ring"
-          cx={CX}
-          cy={CY}
-          r="60"
-          stroke="#8fe06e"
-          strokeWidth="2"
-          vectorEffect="non-scaling-stroke"
-          style={{
-            animationDelay: `${i * 1}s`,
-            transformOrigin: `${CX}px ${CY}px`,
-          }}
-        />
-      ))}
-
-      {/* rotating rays */}
-      <g className="rays" style={{ transformOrigin: `${CX}px ${CY}px` }}>
-        {Array.from({ length: RAYS }).map((_, i) => {
-          const a = (i / RAYS) * Math.PI * 2;
-          const r1 = 52;
-          const r2 = i % 2 === 0 ? 220 : 140;
-          return (
-            <line
-              key={i}
-              x1={CX + Math.cos(a) * r1}
-              y1={CY + Math.sin(a) * r1}
-              x2={CX + Math.cos(a) * r2}
-              y2={CY + Math.sin(a) * r2}
-              stroke="#a9ef8a"
-              strokeWidth="3"
-              strokeLinecap="round"
-              opacity={i % 2 === 0 ? 0.85 : 0.45}
-            />
-          );
-        })}
-      </g>
-
-      {/* core */}
-      <circle
-        className="core"
-        cx={CX}
-        cy={CY}
-        r="110"
-        fill="url(#sunCoreGrad)"
-        style={{ transformOrigin: `${CX}px ${CY}px` }}
-      />
-      <circle cx={CX} cy={CY} r="24" fill="#eafce0" />
-    </svg>
-  );
-}
-
 export function ImpactBand() {
   return (
-    <section className="relative overflow-hidden bg-brand-dark py-20 text-white lg:py-28">
-      {/* radiant sun */}
-      <div className="pointer-events-none absolute inset-x-0 top-[6rem] h-[22rem] lg:top-[8rem] lg:h-[30rem]">
-        <div className="absolute left-1/2 top-1/2 h-72 w-[44rem] max-w-[92%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-active-green/25 blur-[130px]" />
-        <ImpactSun />
-      </div>
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#08251c] via-brand-dark to-brand py-[61px] text-white lg:py-[85px]">
+      {/* oversized brand mark, bled off the edge as a quiet watermark */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/img/impact-mark.svg"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-16 -top-10 h-[26rem] w-auto rotate-12 opacity-[0.07] invert sm:h-[34rem] lg:-right-10 lg:-top-16 lg:h-[42rem]"
+      />
+      {/* soft ambient glow, static — no motion */}
+      <div className="pointer-events-none absolute -bottom-40 left-1/4 h-[28rem] w-[36rem] rounded-full bg-active-green/20 blur-[140px]" />
 
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
-        <Reveal variant="fade">
-          <span className="pill">Impact</span>
-        </Reveal>
-        <RevealText
-          text="Clean energy that compounds."
-          className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight sm:text-[2.5rem]"
-        />
-        <Reveal variant="up" delay={80}>
-          <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/70">
-            Every Polaris system keeps generating — and displacing grid carbon —
-            for its full 25-year life.
-          </p>
-        </Reveal>
-
-        <div className="mt-[19rem] grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:mt-[24rem] lg:grid-cols-4">
-          {impact.items.map((it, i) => (
-            <Reveal key={it.label} variant="up" delay={i * 80}>
-              <CountUp
-                value={it.value}
-                className="block bg-gradient-to-r from-[#9be87c] via-brand to-brand-strong bg-clip-text text-[2.5rem] font-semibold tracking-tight text-transparent sm:text-5xl"
-              />
-              <span className="mt-2 block text-sm text-white/60">
-                {it.label}
-              </span>
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-16">
+          <div>
+            <Reveal variant="fade">
+              <span className="pill">Impact</span>
             </Reveal>
-          ))}
+            <RevealText
+              text="Clean energy that compounds."
+              className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight sm:text-[2.5rem]"
+            />
+            <Reveal variant="up" delay={80}>
+              <p className="mt-4 max-w-md text-lg leading-relaxed text-white/70">
+                Every Polaris system keeps generating — and displacing grid
+                carbon — for its full 25-year life.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+            {impact.items.map((it, i) => (
+              <Reveal key={it.label} variant="up" delay={i * 80}>
+                <CountUp
+                  value={it.value}
+                  className="block bg-gradient-to-r from-[#9be87c] via-brand to-brand-strong bg-clip-text text-[2.5rem] font-semibold tracking-tight text-transparent sm:text-5xl"
+                />
+                <span className="mt-2 block text-sm text-white/60">
+                  {it.label}
+                </span>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         <Reveal variant="fade" delay={120}>
