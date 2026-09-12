@@ -27,7 +27,12 @@ const cultureIcons: React.ReactNode[] = [
   <svg viewBox="0 0 48 48" fill="none" key="eng" aria-hidden="true">
     <rect x="3" y="4" width="26" height="26" rx="6" fill={IL.pale} />
     <path d="M24 10 L36 40 H29.5 L24 25 L18.5 40 H12 Z" fill={IL.green} />
-    <path d="M16 33 H32" stroke={IL.dark} strokeWidth="3" strokeLinecap="round" />
+    <path
+      d="M16 33 H32"
+      stroke={IL.dark}
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
     <circle cx="24" cy="10" r="5.5" fill={IL.ink} />
     <circle cx="24" cy="10" r="1.8" fill="#fff" />
   </svg>,
@@ -142,7 +147,9 @@ export default function CareersPage() {
           </Reveal>
           <Reveal variant="up" delay={120}>
             <div className="mt-8">
-              <Button href={`mailto:${careers.email}`}>Send an application</Button>
+              <Button href={`mailto:${careers.email}`}>
+                Send an application
+              </Button>
             </div>
           </Reveal>
         </Section>

@@ -10,7 +10,7 @@ import { opportunity } from "@/lib/content";
 export const metadata: Metadata = {
   title: "The case for solar",
   description:
-    "For industrial enterprises, structured solar is no longer philosophical — it is mathematical. The financial and carbon case, and the metrics Polaris applies.",
+    "For industrial enterprises, structured solar is no longer philosophical, it is mathematical. The financial and carbon case, and the metrics Polaris applies.",
 };
 
 /* ---------- flat illustrations, same family as the homepage icons ---------- */
@@ -56,9 +56,20 @@ const driverIcons: React.ReactNode[] = [
   <svg viewBox="0 0 48 48" fill="none" key="window" aria-hidden="true">
     <rect x="3" y="3" width="22" height="22" rx="7" fill={IL.pale} />
     <circle cx="27" cy="27" r="17" fill={IL.green} />
-    <path d="M27 16 V27 L35 32" stroke="#fff" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M27 16 V27 L35 32"
+      stroke="#fff"
+      strokeWidth="3.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
     <circle cx="27" cy="27" r="3" fill={IL.ink} />
-    <path d="M27 12 v3 M42 27 h-3 M27 42 v-3 M12 27 h3" stroke={IL.dark} strokeWidth="2.4" strokeLinecap="round" />
+    <path
+      d="M27 12 v3 M42 27 h-3 M27 42 v-3 M12 27 h3"
+      stroke={IL.dark}
+      strokeWidth="2.4"
+      strokeLinecap="round"
+    />
   </svg>,
 ];
 
@@ -73,7 +84,7 @@ export default function SustainabilityPage() {
           </Reveal>
           <RevealText
             as="h1"
-            text="No longer philosophical — mathematical."
+            text="No longer philosophical, mathematical."
             className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>

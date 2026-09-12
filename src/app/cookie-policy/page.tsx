@@ -15,9 +15,8 @@ const sections: { heading: string; body: React.ReactNode }[] = [
     body: (
       <p>
         Cookies are small text files a website can store on your device to
-        remember information between visits — for example, keeping you
-        signed in, remembering a preference, or measuring how a site is
-        used.
+        remember information between visits, for example, keeping you signed in,
+        remembering a preference, or measuring how a site is used.
       </p>
     ),
   },
@@ -26,16 +25,16 @@ const sections: { heading: string; body: React.ReactNode }[] = [
     body: (
       <>
         <p>
-          polarisenergy.in does not set any analytics, advertising or
-          tracking cookies. We don&apos;t run Google Analytics, Meta Pixel or
-          any similar tool, and there are no third-party embeds — video,
-          maps or chat widgets — that would set cookies on their own behalf.
+          polarisenergy.in does not set any analytics, advertising or tracking
+          cookies. We don&apos;t run Google Analytics, Meta Pixel or any similar
+          tool, and there are no third-party embeds, video, maps or chat
+          widgets, that would set cookies on their own behalf.
         </p>
         <p className="mt-4">
-          The site does load two typefaces from Google Fonts. They are
-          fetched and self-hosted at build time rather than loaded from
-          Google&apos;s servers in your browser, so no font-related cookie
-          or request is set when you visit.
+          The site does load two typefaces from Google Fonts. They are fetched
+          and self-hosted at build time rather than loaded from Google&apos;s
+          servers in your browser, so no font-related cookie or request is set
+          when you visit.
         </p>
       </>
     ),
@@ -45,9 +44,9 @@ const sections: { heading: string; body: React.ReactNode }[] = [
     body: (
       <p>
         If we add analytics or another feature that requires cookies in the
-        future, we will update this page to describe what is set and why,
-        and — where the law requires it — ask for your consent before
-        anything non-essential is placed on your device.
+        future, we will update this page to describe what is set and why, and,
+        where the law requires it, ask for your consent before anything
+        non-essential is placed on your device.
       </p>
     ),
   },
@@ -94,7 +93,9 @@ export default function CookiePolicyPage() {
         <h1 className="mt-6 text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]">
           Cookie Policy
         </h1>
-        <p className="mt-4 text-sm text-ink-faint">Last updated {lastUpdated}</p>
+        <p className="mt-4 text-sm text-ink-faint">
+          Last updated {lastUpdated}
+        </p>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
           A short, honest note on cookies and similar technologies on
           polarisenergy.in.

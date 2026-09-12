@@ -6,7 +6,7 @@ import { ArrowRight } from "@/components/ui";
 export const metadata: Metadata = {
   title: "P-ESS",
   description:
-    "Polaris Energy Storage Solutions (P-ESS) — battery storage and time-of-day optimisation that firm up solar, shave demand peaks and strengthen grid independence for industrial sites. Full practice unveiling soon.",
+    "Polaris Energy Storage Solutions (P-ESS), battery storage and time-of-day optimisation that firm up solar, shave demand peaks and strengthen grid independence for industrial sites. Full practice unveiling soon.",
 };
 
 export default function PessPage() {
@@ -23,9 +23,7 @@ export default function PessPage() {
       />
 
       <div className="container-px relative mx-auto flex min-h-[82vh] max-w-[1760px] flex-col items-center justify-center py-20 text-center lg:py-28">
-        <h1 className="sr-only">
-          P-ESS — Polaris Energy Storage Solutions
-        </h1>
+        <h1 className="sr-only">P-ESS, Polaris Energy Storage Solutions</h1>
         <span className="text-xs font-semibold uppercase tracking-[0.3em] text-active-green">
           P-ESS · Polaris Energy Storage Solutions
         </span>
@@ -48,7 +46,7 @@ export default function PessPage() {
 
         <p className="mt-10 max-w-xl text-base leading-relaxed text-white/70">
           Storage is where solar stops being an intermittent input and becomes a
-          controllable asset — peak shaving, time-of-day arbitrage, solar firming
+          controllable asset, peak shaving, time-of-day arbitrage, solar firming
           and round-the-clock supply, modelled with the same financial rigour as
           every Polaris system. The full P-ESS practice is unveiling soon.
         </p>

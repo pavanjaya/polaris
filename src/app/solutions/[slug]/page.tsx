@@ -209,7 +209,7 @@ export default async function OfferingDetail({
             <div className="grid items-center gap-10 rounded-lg border border-line/70 bg-paper p-8 lg:grid-cols-[1fr_auto] lg:p-10">
               <div>
                 <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-                  P-ESS — the dedicated storage practice
+                  P-ESS, the dedicated storage practice
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-soft">
                   Battery storage and time-of-day optimisation, modelled with

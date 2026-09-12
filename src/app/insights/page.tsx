@@ -37,7 +37,7 @@ export default function InsightsPage() {
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              Markets, policy and engineering — written by the Polaris
+              Markets, policy and engineering, written by the Polaris
               development, finance and operations teams.
             </p>
           </Reveal>

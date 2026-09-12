@@ -9,20 +9,34 @@ import { ArrowRight } from "./ui";
 
 /* ---------- Solutions mega-menu icons (same family/palette as home.tsx's
    `illos`, same 4 icons used on the homepage's "Our solutions" cards) ---------- */
-const IL = { pale: "#cdeec2", green: "#5fcf4b", dark: "#0f4338", ink: "#0e0e0e" };
+const IL = {
+  pale: "#cdeec2",
+  green: "#5fcf4b",
+  dark: "#0f4338",
+  ink: "#0e0e0e",
+};
 const offeringIcons: React.ReactNode[] = [
   // Commercial & Industrial — solar panel + sun
   <svg viewBox="0 0 48 48" fill="none" key="ci" aria-hidden="true">
     <rect x="2" y="7" width="29" height="29" rx="6" fill={IL.pale} />
     <path d="M7 35 L13 14 H35 L41 35 Z" fill={IL.green} />
-    <path d="M7 35H41M16 24.5H33M22 14l-4 21M29 14l1 21" stroke="#fff" strokeWidth="1.5" />
+    <path
+      d="M7 35H41M16 24.5H33M22 14l-4 21M29 14l1 21"
+      stroke="#fff"
+      strokeWidth="1.5"
+    />
     <circle cx="38" cy="12" r="7" fill={IL.ink} />
   </svg>,
   // Utility Scale — network
   <svg viewBox="0 0 48 48" fill="none" key="us" aria-hidden="true">
     <rect x="3" y="3" width="22" height="22" rx="5" fill={IL.pale} />
     <rect x="17" y="18" width="27" height="27" rx="6" fill={IL.green} />
-    <path d="M13 13 31 31" stroke={IL.dark} strokeWidth="3" strokeLinecap="round" />
+    <path
+      d="M13 13 31 31"
+      stroke={IL.dark}
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
     <circle cx="13" cy="13" r="4.5" fill={IL.ink} />
     <circle cx="31" cy="31" r="5" fill="#fff" />
   </svg>,
@@ -32,13 +46,28 @@ const offeringIcons: React.ReactNode[] = [
     <rect x="7" y="20" width="34" height="16" rx="8" fill={IL.green} />
     <ellipse cx="24" cy="20" rx="17" ry="6" fill={IL.dark} />
     <ellipse cx="24" cy="14" rx="12" ry="4.5" fill={IL.pale} />
-    <path d="M24 9v10M20 12h8" stroke={IL.ink} strokeWidth="2.2" strokeLinecap="round" />
+    <path
+      d="M24 9v10M20 12h8"
+      stroke={IL.ink}
+      strokeWidth="2.2"
+      strokeLinecap="round"
+    />
   </svg>,
   // Energy Optimisation Consultant — gauge
   <svg viewBox="0 0 48 48" fill="none" key="eoc" aria-hidden="true">
     <circle cx="24" cy="27" r="20" fill={IL.pale} />
-    <path d="M8 32A18 18 0 0 1 40 32" stroke={IL.green} strokeWidth="6" strokeLinecap="round" />
-    <path d="M24 27 35 15" stroke={IL.ink} strokeWidth="3.5" strokeLinecap="round" />
+    <path
+      d="M8 32A18 18 0 0 1 40 32"
+      stroke={IL.green}
+      strokeWidth="6"
+      strokeLinecap="round"
+    />
+    <path
+      d="M24 27 35 15"
+      stroke={IL.ink}
+      strokeWidth="3.5"
+      strokeLinecap="round"
+    />
     <circle cx="24" cy="27" r="4" fill={IL.dark} />
   </svg>,
 ];
@@ -46,7 +75,8 @@ const offeringIcons: React.ReactNode[] = [
 function RegionToggle({ overlay }: { overlay: boolean }) {
   const pathname = usePathname();
   const isGlobal = pathname.startsWith("/global");
-  const seg = "rounded-md px-2.5 py-1 text-[13px] font-semibold transition-colors";
+  const seg =
+    "rounded-md px-2.5 py-1 text-[13px] font-semibold transition-colors";
   const active = overlay ? "bg-white text-ink" : "bg-ink text-white";
   const idle = overlay
     ? "text-white/80 hover:text-white"
@@ -60,7 +90,11 @@ function RegionToggle({ overlay }: { overlay: boolean }) {
       {regions.map((r) => {
         const on = r.label === "Global" ? isGlobal : !isGlobal;
         return (
-          <Link key={r.label} href={r.href} className={`${seg} ${on ? active : idle}`}>
+          <Link
+            key={r.label}
+            href={r.href}
+            className={`${seg} ${on ? active : idle}`}
+          >
             {r.label}
           </Link>
         );
@@ -232,7 +266,13 @@ export function Header() {
           aria-label="Toggle navigation menu"
         >
           <span className="sr-only">Menu</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            aria-hidden="true"
+          >
             {open ? (
               <path
                 d="M5 5l10 10M15 5L5 15"
@@ -276,11 +316,16 @@ export function Header() {
             </div>
             {nav.map((item) =>
               item.children ? (
-                <div key={item.href} className="border-b border-line last:border-0">
+                <div
+                  key={item.href}
+                  className="border-b border-line last:border-0"
+                >
                   <button
                     type="button"
                     onClick={() =>
-                      setMobileSubOpen((v) => (v === item.href ? null : item.href))
+                      setMobileSubOpen((v) =>
+                        v === item.href ? null : item.href,
+                      )
                     }
                     aria-expanded={mobileSubOpen === item.href}
                     className="flex w-full cursor-pointer items-center justify-between py-3.5 text-sm font-medium text-ink"

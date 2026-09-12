@@ -25,8 +25,8 @@ const publicSans = Public_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.polarisenergy.in"),
   title: {
-    default: `${company.name} — Solar EPC for industry, India & Morocco`,
-    template: `%s — ${company.shortName}`,
+    default: `${company.name} | Solar EPC for industry, India & Morocco`,
+    template: `%s | ${company.shortName}`,
   },
   description: company.description,
   openGraph: {

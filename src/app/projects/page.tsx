@@ -18,7 +18,7 @@ const clientEntries = clients.map((name) => ({
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Selected commercial & industrial solar projects delivered by Polaris across India and Morocco — rooftop and ground-mounted, CAPEX and beyond.",
+    "Selected commercial & industrial solar projects delivered by Polaris across India and Morocco, rooftop and ground-mounted, CAPEX and beyond.",
 };
 
 export default function ProjectsPage() {
@@ -40,9 +40,9 @@ export default function ProjectsPage() {
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              A representative selection of the C&I portfolio — rooftop and
-              ground-mounted plants for industry leaders across India, and
-              the first international pilot in Morocco.
+              A representative selection of the C&I portfolio, rooftop and
+              ground-mounted plants for industry leaders across India, and the
+              first international pilot in Morocco.
             </p>
           </Reveal>
         </div>

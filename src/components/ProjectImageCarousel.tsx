@@ -62,7 +62,7 @@ export function ProjectImageCarousel({
     >
       <Image
         src={images[index]}
-        alt={count > 1 ? `${alt} — photo ${index + 1} of ${count}` : alt}
+        alt={count > 1 ? `${alt}, photo ${index + 1} of ${count}` : alt}
         fill
         sizes="(max-width: 1760px) 100vw, 1760px"
         priority

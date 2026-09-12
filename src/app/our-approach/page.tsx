@@ -19,25 +19,25 @@ export const metadata: Metadata = {
 const stepDetails: { intro: string; points: string[] }[] = [
   {
     intro:
-      "Before any equipment is specified, we run a full load analysis and generation simulation against your actual consumption profile — not a generic template. The output is an investment-grade financial model, built for whichever structure fits your balance sheet.",
+      "Before any equipment is specified, we run a full load analysis and generation simulation against your actual consumption profile, not a generic template. The output is an investment-grade financial model, built for whichever structure fits your balance sheet.",
     points: [
-      "IRR, simple payback, depreciation schedule and year-by-year cash flow — modelled before design begins",
+      "IRR, simple payback, depreciation schedule and year-by-year cash flow, modelled before design begins",
       "Structured for CAPEX, OPEX/RESCO, lease or group-captive, whichever route suits your books",
       "Every number reviewed and signed off before a rupee is committed",
     ],
   },
   {
     intro:
-      "In-house electrical and structural engineers — not a sales team with a datasheet — size every system on physical fit and yield, not on margin. The same discipline applies whether the site is in Maharashtra or Casablanca.",
+      "In-house electrical and structural engineers, not a sales team with a datasheet, size every system on physical fit and yield, not on margin. The same discipline applies whether the site is in Maharashtra or Casablanca.",
     points: [
       "Structural loading, HT evacuation and safety engineered to Indian, EU and US benchmarks",
-      "Design reviewed against site-specific constraints — roof condition, shading, terrain, monsoon exposure",
+      "Design reviewed against site-specific constraints, roof condition, shading, terrain, monsoon exposure",
       "Tier-1 equipment specified for fit, never for a brand incentive",
     ],
   },
   {
     intro:
-      "Procurement, construction and commissioning run under one accountable team — no hand-offs between a design contractor, a separate EPC vendor and a third-party O&M provider. It's the same people from mobilisation to switch-on.",
+      "Procurement, construction and commissioning run under one accountable team, no hand-offs between a design contractor, a separate EPC vendor and a third-party O&M provider. It's the same people from mobilisation to switch-on.",
     points: [
       "Most commercial & industrial plants energised in 45–90 days",
       "Single point of contact through procurement, construction and commissioning",
@@ -50,7 +50,7 @@ const stepDetails: { intro: string; points: string[] }[] = [
     points: [
       "Real-time SCADA monitoring and generation analytics for every plant",
       "Preventive maintenance scheduled across the full 25-year asset life",
-      "The team that built the financial case stays accountable for it — no orphaned systems",
+      "The team that built the financial case stays accountable for it, no orphaned systems",
     ],
   },
 ];
@@ -71,10 +71,10 @@ export default function OurApproachPage() {
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              Every Polaris project runs through the same four-stage
-              discipline — modelled before it&apos;s engineered, engineered
-              before it&apos;s built, and operated by the same team that
-              signed off the numbers. No hand-offs, no orphaned systems.
+              Every Polaris project runs through the same four-stage discipline,
+              modelled before it&apos;s engineered, engineered before it&apos;s
+              built, and operated by the same team that signed off the numbers.
+              No hand-offs, no orphaned systems.
             </p>
           </Reveal>
         </div>

@@ -43,14 +43,16 @@ const sections: { heading: string; body: React.ReactNode }[] = [
                 Information you give us directly.
               </strong>{" "}
               When you submit the enquiry form on our{" "}
-              <a href="/contact" className="text-brand-strong underline underline-offset-2 hover:text-ink">
+              <a
+                href="/contact"
+                className="text-brand-strong underline underline-offset-2 hover:text-ink"
+              >
                 Contact
               </a>{" "}
-              page, we collect your name, email address, organization, the
-              topic of your enquiry and your message. If you email us —
-              including a CV or application sent to our careers address — we
-              receive whatever you choose to include in that email and its
-              attachments.
+              page, we collect your name, email address, organization, the topic
+              of your enquiry and your message. If you email us, including a CV
+              or application sent to our careers address, we receive whatever
+              you choose to include in that email and its attachments.
             </span>
           </li>
           <li className="flex gap-3">
@@ -60,10 +62,9 @@ const sections: { heading: string; body: React.ReactNode }[] = [
                 Technical information collected automatically.
               </strong>{" "}
               Like most websites, our hosting infrastructure logs standard
-              technical data for every visit — IP address, browser and
-              device type, pages viewed and referring URL — for security and
-              reliability purposes. We do not use this data to build
-              advertising profiles.
+              technical data for every visit, IP address, browser and device
+              type, pages viewed and referring URL, for security and reliability
+              purposes. We do not use this data to build advertising profiles.
             </span>
           </li>
         </ul>
@@ -78,7 +79,11 @@ const sections: { heading: string; body: React.ReactNode }[] = [
         <ul className="mt-3 space-y-2.5">
           <li className="flex gap-3">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-            <span>respond to enquiries submitted through the contact form or by email, and follow up on a project, partnership or supply discussion;</span>
+            <span>
+              respond to enquiries submitted through the contact form or by
+              email, and follow up on a project, partnership or supply
+              discussion;
+            </span>
           </li>
           <li className="flex gap-3">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
@@ -100,11 +105,11 @@ const sections: { heading: string; body: React.ReactNode }[] = [
     heading: "How we share it",
     body: (
       <p>
-        Information you submit is accessible only to Polaris personnel who
-        need it to respond to you, and to the service providers that host
-        our website and email. We do not sell or rent your information to
-        third parties, and we only disclose it beyond this if required by
-        law or to protect our legal rights.
+        Information you submit is accessible only to Polaris personnel who need
+        it to respond to you, and to the service providers that host our website
+        and email. We do not sell or rent your information to third parties, and
+        we only disclose it beyond this if required by law or to protect our
+        legal rights.
       </p>
     ),
   },
@@ -112,10 +117,10 @@ const sections: { heading: string; body: React.ReactNode }[] = [
     heading: "Retention",
     body: (
       <p>
-        We keep enquiry and application information for as long as
-        reasonably needed to respond to you and pursue any resulting
-        discussion, and delete or anonymize it once it is no longer needed
-        for that purpose or for a legitimate business or legal reason.
+        We keep enquiry and application information for as long as reasonably
+        needed to respond to you and pursue any resulting discussion, and delete
+        or anonymize it once it is no longer needed for that purpose or for a
+        legitimate business or legal reason.
       </p>
     ),
   },
@@ -123,11 +128,10 @@ const sections: { heading: string; body: React.ReactNode }[] = [
     heading: "International transfer",
     body: (
       <p>
-        Polaris operates in both India and Morocco. Depending on which
-        office or team is best placed to handle your enquiry, information
-        you submit may be accessed or processed in either country by
-        Polaris personnel, under the same protections described in this
-        policy.
+        Polaris operates in both India and Morocco. Depending on which office or
+        team is best placed to handle your enquiry, information you submit may
+        be accessed or processed in either country by Polaris personnel, under
+        the same protections described in this policy.
       </p>
     ),
   },
@@ -135,13 +139,12 @@ const sections: { heading: string; body: React.ReactNode }[] = [
     heading: "Your rights",
     body: (
       <p>
-        Depending on where you are located, you may have the right to
-        access, correct, delete or object to our processing of your
-        information — including under India&rsquo;s Digital Personal Data
-        Protection Act, 2023 and Morocco&rsquo;s Law No. 09-08 on the
-        protection of individuals with regard to the processing of personal
-        data. To exercise any of these rights, contact us using the details
-        below.
+        Depending on where you are located, you may have the right to access,
+        correct, delete or object to our processing of your information,
+        including under India&rsquo;s Digital Personal Data Protection Act, 2023
+        and Morocco&rsquo;s Law No. 09-08 on the protection of individuals with
+        regard to the processing of personal data. To exercise any of these
+        rights, contact us using the details below.
       </p>
     ),
   },
@@ -149,10 +152,9 @@ const sections: { heading: string; body: React.ReactNode }[] = [
     heading: "Security",
     body: (
       <p>
-        We take reasonable technical and organizational measures to protect
-        the information you share with us. No method of transmission or
-        storage is completely secure, so we cannot guarantee absolute
-        security.
+        We take reasonable technical and organizational measures to protect the
+        information you share with us. No method of transmission or storage is
+        completely secure, so we cannot guarantee absolute security.
       </p>
     ),
   },
@@ -160,9 +162,8 @@ const sections: { heading: string; body: React.ReactNode }[] = [
     heading: "Children's privacy",
     body: (
       <p>
-        This website is intended for business audiences and is not directed
-        at children. We do not knowingly collect information from anyone
-        under 18.
+        This website is intended for business audiences and is not directed at
+        children. We do not knowingly collect information from anyone under 18.
       </p>
     ),
   },
@@ -170,9 +171,9 @@ const sections: { heading: string; body: React.ReactNode }[] = [
     heading: "Changes to this policy",
     body: (
       <p>
-        We may update this policy from time to time to reflect changes in
-        our practices or for legal or operational reasons. The date at the
-        top of this page shows when it was last revised.
+        We may update this policy from time to time to reflect changes in our
+        practices or for legal or operational reasons. The date at the top of
+        this page shows when it was last revised.
       </p>
     ),
   },
@@ -180,15 +181,15 @@ const sections: { heading: string; body: React.ReactNode }[] = [
     heading: "Contact us",
     body: (
       <p>
-        Questions about this policy, or requests relating to your
-        information, can be sent to{" "}
+        Questions about this policy, or requests relating to your information,
+        can be sent to{" "}
         <a
           href={`mailto:${company.email}`}
           className="text-brand-strong underline underline-offset-2 hover:text-ink"
         >
           {company.email}
         </a>{" "}
-        or to {offices[0].name.replace("Headquarters — ", "")} at{" "}
+        or to {offices[0].name.replace("Headquarters, ", "")} at{" "}
         {offices[0].address}.
       </p>
     ),
@@ -203,7 +204,9 @@ export default function PrivacyPolicyPage() {
         <h1 className="mt-6 text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]">
           Privacy Policy
         </h1>
-        <p className="mt-4 text-sm text-ink-faint">Last updated {lastUpdated}</p>
+        <p className="mt-4 text-sm text-ink-faint">
+          Last updated {lastUpdated}
+        </p>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
           This policy explains what information Polaris collects through
           polarisenergy.in, why we collect it, and how it is handled.

@@ -116,7 +116,7 @@ const illos: React.ReactNode[] = [
 const introStats = [
   { value: "650+", label: "Projects delivered" },
   { value: "100 MW+", label: "Installed capacity" },
-  { value: "2", label: "Countries — India & Morocco" },
+  { value: "2", label: "Countries, India & Morocco" },
   { value: "25 yr", label: "Asset lifecycle covered" },
 ];
 
@@ -137,7 +137,7 @@ export function IntroStatement() {
               From rooftop plants for SMEs to large captive and open-access
               projects for enterprises. A solar EPC founded in Nashik in{" "}
               {company.founded}, {company.shortName} is a full-lifecycle partner
-              — one point of accountability from feasibility to year 25 of
+              , one point of accountability from feasibility to year 25 of
               operation, across India and Morocco.
             </p>
           </Reveal>
@@ -362,7 +362,7 @@ export function CareersStrip() {
         >
           <div>
             <p className="text-2xl font-semibold tracking-tight text-ink">
-              Polaris is growing — across India and Morocco.
+              Polaris is growing, across India and Morocco.
             </p>
             <p className="mt-1 text-base text-ink-soft">
               Engineers, project managers and energy analysts who want to own
@@ -530,8 +530,8 @@ export function BrandPromise() {
         <Reveal variant="up" delay={60}>
           <p className="mx-auto mt-6 max-w-3xl text-2xl leading-relaxed text-white/75">
             A roof is underutilised real estate. By combining Tier-1 engineering
-            with investment-grade financial modelling — IRR, payback,
-            depreciation and tax optimisation — we change the structure of a
+            with investment-grade financial modelling, IRR, payback,
+            depreciation and tax optimisation, we change the structure of a
             balance sheet, not just a utility bill.
           </p>
         </Reveal>

@@ -10,7 +10,7 @@ import { global, offices, projects } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Polaris Global",
   description:
-    "Polaris Global Energie SARL — the same engineering-led, financially-modelled approach to industrial solar, delivered beyond India across Morocco and the wider MENA and African markets.",
+    "Polaris Global Energie SARL, the same engineering-led, financially-modelled approach to industrial solar, delivered beyond India across Morocco and the wider MENA and African markets.",
 };
 
 const moroccoOffice = offices.find((o) => o.name === "Morocco Office");

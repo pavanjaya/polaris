@@ -43,7 +43,12 @@ const valueIcons: React.ReactNode[] = [
   <svg viewBox="0 0 48 48" fill="none" key="mission" aria-hidden="true">
     <rect x="4" y="8" width="26" height="26" rx="6" fill={IL.pale} />
     <path d="M8 40 L40 8 L30 40 L24 28 L8 40Z" fill={IL.green} />
-    <path d="M24 28 L40 8" stroke={IL.dark} strokeWidth="2.5" strokeLinecap="round" />
+    <path
+      d="M24 28 L40 8"
+      stroke={IL.dark}
+      strokeWidth="2.5"
+      strokeLinecap="round"
+    />
     <circle cx="40" cy="8" r="4" fill={IL.ink} />
   </svg>,
   // Our vision — eye
@@ -77,7 +82,12 @@ const advantageIcons: React.ReactNode[] = [
   <svg viewBox="0 0 48 48" fill="none" key="eng" aria-hidden="true">
     <rect x="3" y="4" width="26" height="26" rx="6" fill={IL.pale} />
     <path d="M24 10 L36 40 H29.5 L24 25 L18.5 40 H12 Z" fill={IL.green} />
-    <path d="M16 33 H32" stroke={IL.dark} strokeWidth="3" strokeLinecap="round" />
+    <path
+      d="M16 33 H32"
+      stroke={IL.dark}
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
     <circle cx="24" cy="10" r="5.5" fill={IL.ink} />
     <circle cx="24" cy="10" r="1.8" fill="#fff" />
   </svg>,
@@ -152,7 +162,7 @@ const heroStats = [
   { value: "650+", label: "Projects delivered" },
   { value: "100 MW+", label: "Installed capacity" },
   { value: "100+", label: "Team members" },
-  { value: "2", label: "Countries — India & Morocco" },
+  { value: "2", label: "Countries, India & Morocco" },
 ];
 
 export default function AboutPage() {
@@ -172,9 +182,8 @@ export default function AboutPage() {
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
               Founded in Nashik in {company.founded}, Polaris has grown into a
-              team of engineers and analysts operating across India and
-              Morocco — one point of accountability from feasibility to year
-              25.
+              team of engineers and analysts operating across India and Morocco,
+              one point of accountability from feasibility to year 25.
             </p>
           </Reveal>
           <Reveal variant="up" delay={130}>
@@ -212,15 +221,16 @@ export default function AboutPage() {
             </p>
             <p>
               We saw this not as an inevitability but as an engineering problem
-              waiting to be solved. Polaris was founded to deliver that solution —
-              not as a commodity installer, but as an energy-engineering firm that
-              understands the physics of solar generation as fluently as the
-              financial logic of a CFO&apos;s spreadsheet.
+              waiting to be solved. Polaris was founded to deliver that
+              solution, not as a commodity installer, but as an
+              energy-engineering firm that understands the physics of solar
+              generation as fluently as the financial logic of a CFO&apos;s
+              spreadsheet.
             </p>
             <p>
               A decade later, that has grown into 650+ commissioned projects,
               100+ MW of installed capacity, and cumulative turnover exceeding
-              €17.5 million (₹187.76 crore) — with operations in India and, since
+              €17.5 million (₹187.76 crore), with operations in India and, since
               2025, Morocco as Polaris Global Energie SARL.
             </p>
           </div>
