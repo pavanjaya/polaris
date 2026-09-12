@@ -14,7 +14,7 @@ export function CTA() {
         src="/img/impact-mark.svg"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-2rem] top-1/2 h-[24rem] w-auto -translate-y-1/2 opacity-[0.2] brightness-0 invert sm:h-[30rem] lg:h-[36rem]"
+        className="pointer-events-none absolute right-[-2rem] top-1/2 h-[24rem] w-auto -translate-y-1/2 opacity-[0.06] brightness-0 invert sm:h-[30rem] lg:h-[36rem]"
       />
 
       <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
