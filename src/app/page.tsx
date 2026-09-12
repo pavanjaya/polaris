@@ -4,7 +4,6 @@ import {
   IntroStatement,
   ClientStrip,
   Footprint,
-  GlobalScene,
   Expertise,
   Process,
   BrandPromise,
@@ -29,7 +28,6 @@ export default function HomePage() {
       <TrustRow />
       <ImpactBand />
       <Testimonials />
-      <GlobalScene />
       <Footprint />
       <LatestNews />
       <CareersStrip />

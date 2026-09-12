@@ -1,6 +1,6 @@
 import { company } from "@/lib/content";
 
-const phoneDigits = company.phone.replace(/\D/g, "");
+const phoneDigits = company.whatsapp.replace(/\D/g, "");
 const message = "Hi Polaris, I'd like to talk about a solar project.";
 
 /**

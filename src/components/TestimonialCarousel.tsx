@@ -1,15 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import { testimonials } from "@/lib/content";
 import { prefersReducedMotion } from "@/lib/motion";
 
 // How long the outgoing quote takes to fade out before the incoming one
 // swaps in and fades back — keep in sync with the duration-[Nms] classes below.
 const FADE_MS = 400;
-
-const Threads = dynamic(() => import("./Threads"), { ssr: false });
 
 function initials(name: string) {
   return name
@@ -31,13 +28,8 @@ export function TestimonialCarousel() {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const [paused, setPaused] = useState(false);
-  const [motionOk, setMotionOk] = useState(false);
   const count = testimonials.length;
   const transitioning = useRef(false);
-
-  useEffect(() => {
-    setMotionOk(!prefersReducedMotion());
-  }, []);
 
   // Smooth crossfade: fade the current quote out, swap the content once
   // it's invisible, then fade the new one in — instead of a hard cut.
@@ -76,21 +68,6 @@ export function TestimonialCarousel() {
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >
-      {motionOk && (
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.22]"
-        >
-          <Threads
-            color={[0.373, 0.812, 0.294]}
-            amplitude={1.1}
-            distance={0.35}
-            enableMouseInteraction={false}
-            className="h-full w-full"
-          />
-        </div>
-      )}
-
       <div className="container-px relative z-10 mx-auto max-w-3xl py-14 text-center lg:py-16">
         <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-ink-faint">
           Testimonials

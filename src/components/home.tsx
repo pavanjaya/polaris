@@ -204,8 +204,19 @@ export function ClientStrip() {
 export function Footprint() {
   return (
     <section className="relative overflow-hidden bg-paper">
-      <div className="container-px relative mx-auto max-w-[1760px] rounded-lg bg-[#FAFBF6] pb-8 pt-10 lg:pb-10 lg:pt-14">
-        <div className="grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
+      <div className="container-px relative mx-auto max-w-[1760px] rounded-lg bg-[#FAFBF6] p-6 pb-8 lg:p-8 lg:pb-10">
+        <Reveal variant="scale" className="overflow-hidden rounded-lg">
+          <Image
+            src="/img/global-reach.jpg"
+            alt="Illustrated montage of world landmarks with wind turbines, solar panels, a container port, rail and power infrastructure."
+            width={1800}
+            height={1009}
+            sizes="(max-width: 1760px) 100vw, 1760px"
+            className="h-[228px] w-full object-cover sm:h-[288px] lg:h-[360px]"
+          />
+        </Reveal>
+
+        <div className="mt-10 grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
           <div>
             <Reveal variant="fade">
               <span className="pill">Global reach</span>
@@ -249,27 +260,6 @@ export function Footprint() {
               ))}
           </Reveal>
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Global scene divider ---------- */
-
-export function GlobalScene() {
-  return (
-    <section className="bg-paper">
-      <div className="container-px mx-auto max-w-[1760px]">
-        <Reveal variant="scale" className="overflow-hidden rounded-lg">
-          <Image
-            src="/img/global-reach.jpg"
-            alt="Illustrated montage of world landmarks with wind turbines, solar panels, a container port, rail and power infrastructure."
-            width={1800}
-            height={1009}
-            sizes="(max-width: 1760px) 100vw, 1760px"
-            className="h-[228px] w-full object-cover sm:h-[288px] lg:h-[360px]"
-          />
-        </Reveal>
       </div>
     </section>
   );
@@ -477,14 +467,16 @@ export function Process() {
 
 export function ImpactBand() {
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#08251c] via-brand-dark to-brand py-[61px] text-white lg:py-[85px]">
-      {/* oversized brand mark, bled off the edge as a quiet watermark */}
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#08251c] via-brand-dark to-brand py-[76px] text-white lg:py-[105px]">
+      {/* oversized brand mark, bled off the edge as a quiet watermark —
+          vertically centred and tall enough to sit behind the full stats
+          row, not just the top corner. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/img/impact-mark.svg"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute -right-16 -top-10 h-[26rem] w-auto rotate-12 opacity-[0.07] invert sm:h-[34rem] lg:-right-10 lg:-top-16 lg:h-[42rem]"
+        className="pointer-events-none absolute right-[-3rem] top-1/2 h-[34rem] w-auto -translate-y-1/2 rotate-6 opacity-[0.14] invert sm:h-[42rem] lg:right-[-1rem] lg:h-[54rem]"
       />
       {/* soft ambient glow, static — no motion */}
       <div className="pointer-events-none absolute -bottom-40 left-1/4 h-[28rem] w-[36rem] rounded-full bg-active-green/20 blur-[140px]" />

@@ -10,6 +10,7 @@ export const company = {
     "Polaris is a solar EPC and energy-engineering partner for industrial enterprises across India and Morocco — turning power from a fluctuating cost into a controlled, engineered advantage.",
   email: "info@polarisenergy.in",
   phone: "+91 91723 15353",
+  whatsapp: "+91 90848 11911",
   website: "www.polarisenergy.in",
   address: "Gangapur Road, Nashik 422 013, Maharashtra, India",
   founded: 2015,
@@ -133,7 +134,6 @@ export const nav: {
   { label: "Projects", href: "/projects" },
   { label: "P-ESS", href: "/p-ess" },
   { label: "Insights", href: "/insights" },
-  { label: "Sustainability", href: "/sustainability" },
 ];
 
 // Headline figures — "Polaris at a Glance"
