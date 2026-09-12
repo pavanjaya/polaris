@@ -141,24 +141,6 @@ export function IntroStatement() {
               operation, across India and Morocco.
             </p>
           </Reveal>
-
-          <Reveal variant="up" delay={100}>
-            <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-ink/10 pt-8 sm:grid-cols-4">
-              {introStats.map((it) => (
-                <div key={it.label}>
-                  <dt>
-                    <CountUp
-                      value={it.value}
-                      className="text-2xl font-semibold tracking-tight text-ink"
-                    />
-                  </dt>
-                  <dd className="mt-1 text-xs leading-snug text-ink-faint">
-                    {it.label}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
         </div>
 
         <Reveal variant="fade" delay={120} className="hidden lg:block">
@@ -473,6 +455,15 @@ export function Process() {
 export function ImpactBand() {
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#08251c] via-brand-dark to-brand py-[76px] text-white lg:py-[105px]">
+      {/* brand mark watermark — visible against the dark background, not
+          just a hint of texture */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/img/impact-mark.svg"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[-3rem] top-1/2 h-[34rem] w-auto -translate-y-1/2 opacity-[0.2] invert sm:h-[42rem] lg:right-[-1rem] lg:h-[54rem]"
+      />
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-16">
           <div>
@@ -485,8 +476,8 @@ export function ImpactBand() {
             />
             <Reveal variant="up" delay={80}>
               <p className="mt-4 max-w-md text-2xl leading-relaxed text-white/70">
-                Every Polaris system keeps generating — and displacing grid
-                carbon — for its full 25-year life.
+                Every Polaris system keeps generating, and displacing grid
+                carbon, for its full 25-year life.
               </p>
             </Reveal>
           </div>
