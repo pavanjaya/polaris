@@ -531,7 +531,7 @@ export function ImpactBand() {
 
 export function BrandPromise() {
   return (
-    <section className="relative isolate overflow-hidden bg-brand-tint">
+    <section className="relative isolate overflow-hidden bg-polaris-green">
       {/* full-bleed Orb backdrop */}
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <Orb
@@ -539,7 +539,7 @@ export function BrandPromise() {
           hoverIntensity={1.85}
           rotateOnHover={false}
           forceHoverState={false}
-          backgroundColor="#e7f7e0"
+          backgroundColor="#314f31"
           className="absolute inset-0"
         />
       </div>
@@ -547,10 +547,10 @@ export function BrandPromise() {
       <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-36 text-center lg:py-52">
         <RevealText
           text="Energy as an asset."
-          className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
+          className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[3rem]"
         />
         <Reveal variant="up" delay={60}>
-          <p className="mx-auto mt-6 max-w-3xl text-2xl leading-relaxed text-ink-soft">
+          <p className="mx-auto mt-6 max-w-3xl text-2xl leading-relaxed text-white/75">
             A roof is underutilised real estate. By combining Tier-1 engineering
             with investment-grade financial modelling — IRR, payback,
             depreciation and tax optimisation — we change the structure of a
@@ -679,6 +679,32 @@ export function LatestNews() {
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Homepage-only stat strip, directly under the CTA ---------- */
+
+export function StatsFooterBand() {
+  return (
+    <section className="bg-brand-dark py-12 lg:py-16">
+      <div className="container-px mx-auto max-w-[1760px]">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/10 pt-8 sm:grid-cols-4">
+          {introStats.map((it) => (
+            <div key={it.label}>
+              <dt>
+                <CountUp
+                  value={it.value}
+                  className="text-2xl font-semibold tracking-tight text-white sm:text-3xl"
+                />
+              </dt>
+              <dd className="mt-1 text-xs leading-snug text-white/50">
+                {it.label}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
